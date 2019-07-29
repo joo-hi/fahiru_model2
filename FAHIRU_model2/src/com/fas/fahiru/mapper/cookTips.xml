@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cookTips">
+
+<!-- 07100710 주하 -->
+
+	<select id="selectCookTipsList" parameterType="int" resultType="CookTip">
+		select ct.no no, ct.step_no stepNo, ct.user_no userNo, ct.content content, ct.regdate regdate, 
+			   u.profile_img profileImg, u.nickname
+		from cook_tips ct, steps s, users u
+		where ct.step_no = s.cook_order
+		and u.no = ct.user_no
+		and ct.cook_no = s.cook_no
+		and ct.cook_no = #{no}
+	</select>
+	
+	<insert id="insertCookTip" parameterType="CookTip">
+		INSERT INTO cook_tips(no, cook_no, step_no, user_no, content, regdate)
+		VALUES(cook_tips_seq.nextval, #{cookNo}, #{stepNo}, #{userNo}, #{content}, systimestamp)		
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete cook_tips
+		where no = #{no}
+	</delete>
+</mapper>

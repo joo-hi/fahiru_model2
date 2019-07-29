@@ -1,0 +1,199 @@
+@charset "UTF-8";
+
+.screen_out{overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px}
+
+a{
+	text-decoration: none;
+}
+#followingSection {
+    width: 1100px;
+    min-height: 800px;
+    margin: 50px auto;
+    position: relative;
+}
+
+.user_box_section {
+    margin-bottom: 70px;
+    cursor: pointer;
+    position:relative;
+
+}
+.following_profile_img{
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-size: 100% 100%;
+    left: 30px;
+
+}
+.following_profile_nickname {
+    font-size: 30px;
+    text-shadow: 1px 1px #424242;
+    position: relative;
+    top:-20px;
+    left: 35px;
+}
+
+
+
+/*카드*/
+#followingList .card_foodrendy{
+    width:250px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+#followingList .cook_card{
+    width:250px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+#followingList .img_card_foodrendy {
+    width: 250px;
+    height: 250px;
+}
+
+#followingList .card_foodrendy .back {
+    width: 250px;
+    height: 60px;
+    position: absolute;
+    left: 0;
+    transition: .10s ease;
+}
+
+#followingList .cook_card .back {
+    width: 250px;
+    height: 60px;
+    position: absolute;
+    left: 0;
+    transition: .10s ease;
+}
+
+.card_foodrendy:hover .top{
+    top:0;
+}
+
+.card_foodrendy:hover .bottom {
+    bottom: 0;
+}
+
+.card_foodrendy .top {
+    top:-60px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f26c43+1,000000+100&0.65+0,0+100 */
+    background: -moz-linear-gradient(top,  rgba(242,108,67,0.65) 0%, rgba(242,108,67,0.64) 1%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(242,108,67,0.65) 0%,rgba(242,108,67,0.64) 1%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(242,108,67,0.65) 0%,rgba(242,108,67,0.64) 1%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6f26c43', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+.card_foodrendy .bottom {
+    bottom: -60px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,f26c43+99&0+0,0.65+100 */
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(242,108,67,0.64) 99%, rgba(242,108,67,0.65) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(242,108,67,0.64) 99%,rgba(242,108,67,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(242,108,67,0.64) 99%,rgba(242,108,67,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6f26c43',GradientType=0 ); /* IE6-9 */
+
+
+}
+
+.card_foodrendy .foodrendy_name {
+    position: absolute;
+    top:10px;
+    left: 10px;
+    font-size: 30px;
+    color: #FAFAFA;
+    text-shadow: 1px 1px #424242;
+}
+
+.card_foodrendy .badge_taste{
+    position: absolute;
+    width:31px;
+    height: 57px;
+    background-image: url("../img/badge_taste.png");
+    right: 10px;
+
+}
+
+
+.buketlist_icon {
+    font-size: 30px;
+    color: #DD2C00;
+    position: absolute;
+    right: 5px;
+    bottom: 21px;
+}
+
+
+.card_foodrendy .buketlist_cnt {
+    color: #DD2C00;
+}
+
+/*//카드*/
+
+.foodrendy_btn{
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    position: absolute;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    top:100px;
+    outline: none;
+
+}
+
+.foodrendy_btn_left {
+    top:160px;
+    left:-40px;
+}
+
+.foodrendy_btn_right {
+    top:160px;
+    right:-50px;
+
+}
+
+.following_foodrendy_list {
+    width: 1100px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+
+
+}
+
+#followingSection .item_card_foodrendy_wrap{
+    left:0;
+    width:2160px;
+    transition:.2s ease;
+
+
+    position: relative;
+}
+
+#followingSection .item_card_foodrendy {
+    width: 250px;
+    height: 250px;
+    float: left;
+    margin-left: 20px;
+}
+
+.cooking_score {
+    font-size: 30px;
+    position: absolute;
+    right: 10px;
+    top:10px;
+    text-shadow: 1px 0 #FAFAFA;
+}
+
+.following_profile{
+	position:relative;
+	left : 30px;
+	text-align: left;
+}

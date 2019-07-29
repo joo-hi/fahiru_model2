@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd">
+
+	<!-- Spring 자체 설정 -->
+
+	<!-- WAS가 설정한 커넥션풀(DataSource)을 jndi lookup 해야 함 (name은 context.xml의 이름임) -->
+	<jee:jndi-lookup id="dataSource"
+		jndi-name="java:comp/env/oraclexe" />
+
+	<!-- p:configLocation경로 주의 -->
+	<bean id="sqlSessionFactory" p:dataSource-ref="dataSource"
+		p:configLocation="/WEB-INF/mybatis-config.xml"
+		class="org.mybatis.spring.SqlSessionFactoryBean" />
+
+	<bean id="sqlSession" c:sqlSessionFactory-ref="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionTemplate" />
+
+	<!-- DAO설정 -->
+	<bean id="cooksDAO" p:session-ref="sqlSession"
+		class="com.fas.fahiru.dao.CooksDAOImpl" />
+	<bean id="fahsDAO" p:session-ref="sqlSession"
+		class="com.fas.fahiru.dao.FahsDAOImpl" />
+	<bean id="followsDAO" p:session-ref="sqlSession"
+		class="com.fas.fahiru.dao.FollowsDAOImpl"></bean>
+	<bean id="ingredientsDAO" p:session-ref="sqlSession"
+		class="com.fas.fahiru.dao.IngredientsDAOImpl" />
+	<bean id="likesDAO" p:session-ref="sqlSession"
+		class="com.fas.fahiru.dao.LikesDAOImpl" />
+	<bean id="postFahsDAO" p:session-ref="sqlSession"
+		class="com.fas.fahiru.dao.PostFahsDAOImpl" />
+	<bean id="repliesDAO" p:session-ref="sqlSession"
+		class="com.fas.fahiru.dao.RepliesDAOImpl" />
+	<bean id="scoresDAO" p:session-ref="sqlSession"
+		class="com.fas.fahiru.dao.ScoresDAOImpl" />
+	<bean id="sourcesDAO" p:session-ref="sqlSession"
+		class="com.fas.fahiru.dao.SourcesDAOImpl" />
+	<bean id="spotsDAO" p:session-ref="sqlSession"
+		class="com.fas.fahiru.dao.SpotsDAOImpl" />
+	<bean id="stepsDAO" p:session-ref="sqlSession"
+		class="com.fas.fahiru.dao.StepsDAOImpl" />
+	<bean id="tfCooksDAO" p:session-ref="sqlSession"
+		class="com.fas.fahiru.dao.TfCooksDAOImpl" />
+	<bean id="trendyFoodsDAO" p:session-ref="sqlSession"
+		class="com.fas.fahiru.dao.TrendyFoodsDAOImpl" />
+	<bean id="usersDAO" p:session-ref="sqlSession"
+		class="com.fas.fahiru.dao.UsersDAOImpl" />
+	<bean id="cookTipsDAO" p:session-ref="sqlSession" class="com.fas.fahiru.dao.CookTipsDAOImpl"/>
+		
+
+	<!-- Service설정 -->
+	<bean
+	id="repliesService"
+	p:likesDAO-ref="likesDAO"
+	p:repliesDAO-ref="repliesDAO"
+	p:paginateUtil-ref="paginateUtil" 
+	class="com.fas.fahiru.service.RepliesServiceImpl"/>
+	
+	<bean id="fahsService" 
+		p:fahsDAO-ref="fahsDAO"
+		p:spotsDAO-ref="spotsDAO" 
+		p:usersDAO-ref="usersDAO"
+		p:tfcooksDAO-ref="tfCooksDAO"
+		class="com.fas.fahiru.service.FahsServiceImpl" />
+		
+	<bean id="followsService"
+		 p:followsDAO-ref="followsDAO"
+		 	p:tfCooksDAO-ref="tfCooksDAO"
+		class="com.fas.fahiru.service.FollowsServiceImpl"></bean>
+		
+	<bean id="tfCooksService" p:tfCooksDAO-ref="tfCooksDAO"
+		class="com.fas.fahiru.service.TfCooksServiceImpl" />
+		
+	<bean id="spotsService" p:spotsDAO-ref="spotsDAO"
+		p:fahsDAO-ref="fahsDAO" p:likesDAO-ref="likesDAO"
+		p:tfCooksDAO-ref="tfCooksDAO"
+		class="com.fas.fahiru.service.SpotsServiceImpl" />
+
+	<bean id="usersService" p:usersDAO-ref="usersDAO"
+		class="com.fas.fahiru.service.UsersServiceImpl" />
+		
+	<bean id="trendyFoodsService"
+		p:trendyFoodsDAO-ref="trendyFoodsDAO" p:fahsDAO-ref="fahsDAO"
+		p:repliesDAO-ref="repliesDAO" p:likesDAO-ref="likesDAO"
+		p:scoresDAO-ref="scoresDAO"
+		class="com.fas.fahiru.service.TrendyFoodsServiceImpl" />
+		
+	<bean id="likesService" p:likesDAO-ref="likesDAO"
+		class="com.fas.fahiru.service.LikesServiceImpl" />
+		
+	<bean id="scoresService" p:scoresDAO-ref="scoresDAO"
+		class="com.fas.fahiru.service.ScoresServiceImpl" />
+		
+	<bean id="cooksService" 
+	 	p:fahsDAO-ref="fahsDAO"
+	 	p:sourcesDAO-ref="sourcesDAO"
+	 	p:ingredientsDAO-ref="ingredientsDAO"
+		p:tfCooksDAO-ref="tfCooksDAO"
+		p:cooksDAO-ref="cooksDAO" 
+		p:likesDAO-ref="likesDAO"
+		p:stepsDAO-ref="stepsDAO"
+		p:cookTipsDAO-ref="cookTipsDAO"
+		p:repliesDAO-ref="repliesDAO"
+		p:scoresDAO-ref="scoresDAO"
+		class="com.fas.fahiru.service.CooksServiceImpl" />
+		
+	<bean id="sourcesService" p:sourcesDAO-ref="sourcesDAO"
+		class="com.fas.fahiru.service.SourcesServiceImpl" />
+		
+	<bean id="stepsService" p:stepsDAO-ref="stepsDAO"
+		class="com.fas.fahiru.service.StepsServiceImpl" />
+		
+	<bean id="postFahsService" p:postFahsDAO-ref="postFahsDAO"
+		class="com.fas.fahiru.service.PostFahsServiceImpl" />
+		
+	<bean id="ingredientsService" 
+		p:tfCooksDAO-ref="tfCooksDAO"
+		p:ingredientsDAO-ref="ingredientsDAO"
+		class="com.fas.fahiru.service.IngredientsServiceImpl" />
+	<bean id="cookTipsService" p:cookTipsDAO-ref="cookTipsDAO" class="com.fas.fahiru.service.CookTipsServiceImpl"/>
+
+	<!-- Util 설정 -->
+	<bean id="paginateUtil" class="com.fas.fahiru.util.PaginateUtil" />
+	<bean id="resizeImageUtil"
+		class="com.fas.fahiru.util.ResizeImageUtil" />
+	<bean id="fileRenameUtil"
+		class="com.fas.fahiru.util.FileRenameUtil" />
+
+</beans>

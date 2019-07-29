@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sources">
+
+	<insert id="insert" parameterType="Source">
+		INSERT INTO SOURCES(NO,COOK_NO, name, unit, ammount)
+		VALUES(SOURCES_SEQ.NEXTVAL, #{cookNo}, #{name}, #{unit}, #{ammount})
+	</insert>
+
+	<select id="selectSources" parameterType="int" resultType="Source">
+		SELECT s.no, s.name name, s.unit unit, s.ammount ammount
+		FROM SOURCES s
+		WHERE s.cook_no = #{no}
+	</select>
+</mapper>

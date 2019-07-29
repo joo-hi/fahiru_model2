@@ -1,0 +1,505 @@
+@charset "UTF-8";
+
+a{
+	text-decoration: none;
+}
+button {
+    cursor: pointer;
+    font-family: "Source Sans Pro", 'Nanum Gothic Coding', sans-serif;
+}
+
+/*------------basic setting ----------------------------*/
+
+.spot_name a{
+	color:#FFA726; 
+}
+
+#spotImg{
+	border-radius:15px;
+	box-shadow: 2px 2px 15px #616161;
+}
+
+#spotListWrap {
+    width: 1100px;
+    min-height: 1000px;
+    margin: auto;
+    position: relative;
+}
+
+#spotFunctionSection {
+    position: relative;
+}
+
+#spotCardSection {
+    min-height: 1000px;
+/*     background: #F6F6F6; */
+}
+
+/*  ------------Function section----------------  */
+
+#spotInsert {
+    outline: none;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 20px;
+    right: 150px;
+    background-color: #FFCC80;
+    border:none;
+    font-size:20px;
+    box-shadow: 0 1px 6px 0 #FFA726, 0 3px 8px 0 #FFA726;
+}
+
+/*  --------------Card------------------------  */
+
+.spot_card {
+    width: 760px;
+    height: 260px;
+    background-color: #F5F5F5;
+/*     border: #9CCC65 4px solid; */
+    margin: 15px auto;
+    position: relative;
+    border-radius: 30px 0 0 0;
+    padding: 15px;
+    box-shadow: 2px 2px 15px #424242;
+    
+}
+
+.spot_card_main {
+    width: 300px;
+    height: 160px;
+    position: absolute;
+}
+
+.spot_name {
+    font-size: 22px;
+}
+
+.spot_img img{
+    width: 225px;
+    height: 225px;
+    margin-top: 7px;
+    position: relative;
+}
+
+.spot_score {
+    width: 150px;
+    height: 60px;
+    position: absolute;
+    right:200px;
+    top: 50px;
+}
+
+.spot_score div {
+    float: left;
+    text-align: center;
+}
+
+.spot_fah {
+    width: 170px;
+    height: 140px;
+    position: absolute;
+    left: 260px;
+    overflow: auto;
+    top: 30px;
+}
+
+.spot_card_bucket{
+	bottom:
+} 
+
+.spot_fah li {
+    margin-left: 10px;
+    height: 20px;
+    float: left;
+/*     background: #FFAB91; */
+    opacity: 0.7;
+    padding:5px;
+    line-height: 20px;
+}
+
+.spot_card_menu {
+    width: 300px;
+    height: 100px;
+    position: absolute;
+    bottom: 17px;
+    left: 255px;
+}
+
+.spot_card_info {
+    top: 20px;
+    width: 190px;
+    height: 50px;
+    text-align: left;
+    right: 10px;
+    line-height: 20px;
+    position: absolute;
+}
+
+.spot_card_info li {
+    margin-bottom: 15px;
+}
+
+.spot_card_spotter {
+    width: 85px;
+    height: 85px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.spot_card_buket {
+    width: 85px;
+    height: 85px;
+    position: absolute;
+    right: 100px;
+    bottom: 7px;
+    font-size: 22px;
+    text-align: center;
+    line-height: 45px;
+}
+
+.spot_card_buket button {
+    width: 75px;
+    height: 75px;
+    font-size: 40px;
+    right: 20px;
+    bottom: 20px;
+    position: absolute;
+    background-color: transparent;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+
+/* .spot_card_buket:hover{ */
+/*     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+/*     transform: scale(1.1); */
+/*     transition: ease .2s; */
+/*     border-radius: 30px; */
+/*     border: 1px solid #9CCC65; */
+/* } */
+
+/* .spot_card_buket:active{ */
+/*     transform: scale(.7); */
+/*     transition: ease .2s; */
+/* } */
+
+.spot_spotter_img img{
+/*     background-image: url("img/defaultimg.png"); */
+    width: 65px;
+    height: 65px;
+/*     background-size: 100% 100%; */
+    border-radius: 75px;
+    margin-left: 10px;
+}
+
+.spot_spotter_name {
+    font-size: 16px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.menu_btn {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 50px;
+}
+
+.menu_prev {
+    left: -10px;
+    display:none;
+    outline: none;
+}
+
+.menu_next {
+    right: -10px;
+    outline: none;
+}
+
+.trendy_menu_wrap {
+    width: 260px;
+    height: 80px;
+    position: relative;
+    top: 2px;
+    margin: auto;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.trendy_menu img{
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-right: 10px;
+}
+
+.trendy_menu_box {
+    width: 320px;
+    height: 70px;
+    position: absolute;
+    left: 0;
+}
+
+.menu1 {
+    background: red;
+}
+
+.menu2 {
+    background: yellow;
+}
+
+.menu3 {
+    background: green;
+}
+
+.menu4 {
+    background: darkorchid;
+}
+
+i {
+    color: #424242;
+}
+
+.spot_score i {
+    font-size: 50px;
+    margin-left: 15px;
+}
+
+.fa-thermometer-three-quarters {
+    color: blue;
+}
+
+.fa-temperature-high {
+    color: red;
+}
+
+#spotInsert a{
+	color:#FAFAFA;
+}
+
+.more_btn {
+    width: 100px;
+    color:#fafafa;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: #FFCC80;
+    border: none;
+    outline: none;
+    position: relative;
+    font-weight:900;
+    left: 50%;
+	bottom: 0;
+/*     margin-top: 50px; */
+    margin-left: -50px;
+    box-shadow: 0 8px 17px 0 #FB8C00, 0 6px 20px 0 #FF9800;
+}
+
+#spotInsert:hover,.more_btn:hover {
+    box-shadow: 0 2px 5px 0 #C5E1A5, 0 2px 10px 0 #7CB342;
+    background-color: #8BC34A;
+    transition: ease .2s;
+    color:#424242;
+}
+
+#spotInsert:active{
+    transform: scale(.7);
+    transition: ease .2s;
+    background-color: #689F38;
+}
+
+.more_btn:active{
+    transform: scale(.7);
+    transition: ease .1s;
+    background-color: #689F38;
+}
+
+/*  ------------CardSection---------------------  */
+
+
+.big {
+    font-size: 1em;
+}
+
+#spotFunctionSection .small {
+    font-size: .7em;
+    position: absolute;
+    bottom: 10px;
+    left: 150px;
+    font-family: 'Noto Sans KR' 'sans-serif';
+	width:90px;
+	box-shadow:0 1px 6px 0 #FFA726, 0 3px 8px 0 #FFA726;
+}
+
+#orderBy{
+	width:90px;
+	height:37px;
+	font-size:15px;
+	font-weight:900;
+	outline:none;
+}
+
+/* Custom dropdown */
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 10px; /* demo only */
+}
+
+.custom-dropdown select {
+    background-color: #FFCC80;
+    color: #fff;
+    font-size: inherit;
+    padding: .5em;
+    padding-right: 2.5em;
+    border: 0;
+    margin: 0;
+    border-radius: 3px;
+    text-indent: 0.01px;
+    text-overflow: '';
+    -webkit-appearance: button; /* hide default arrow in chrome OSX */
+}
+
+.custom-dropdown::before,
+.custom-dropdown::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+
+.custom-dropdown::after { /*  Custom dropdown arrow */
+    content: "\25BC";
+    height: 1em;
+    font-size: .625em;
+    line-height: 1;
+    right: 1.2em;
+    top: 50%;
+    margin-top: -.5em;
+    background-color: #FFCC80;
+}
+
+/*.custom-dropdown::before { !*  Custom dropdown arrow cover *!*/
+/*    width: 2em;*/
+/*    right: 0;*/
+/*    top: 0;*/
+/*    bottom: 0;*/
+/*    border-radius: 0 3px 3px 0;*/
+/*}*/
+
+.custom-dropdown select[disabled] {
+    color: rgba(0, 0, 0, .3);
+}
+
+.custom-dropdown select[disabled]::after {
+    color: rgba(0, 0, 0, .1);
+}
+
+.custom-dropdown::before {
+    background-color: rgba(0, 0, 0, .15);
+}
+
+.custom-dropdown::after {
+    color: rgba(0, 0, 0, .4);
+}
+
+#place {
+    width: 300px;
+    height: 30px;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #FAFAFA;
+    border: none;
+    box-shadow: 0 2px 5px 0 #FFCC80, 0 2px 10px 0 #FFCC80;
+    padding: 10px;
+}
+
+#place::placeholder{
+    color:#FFCC80;
+}
+
+.inner_search {
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+}
+.inner_search:hover{
+    text-shadow: 1px 1px 1px #424242;
+}
+
+#searchFieldset {
+    width: 700px;
+    margin: auto;
+    text-align: center;
+    line-height: 200px;
+}
+
+#spotInsert{
+	text-align:center;
+	line-height:50px;
+}
+
+#spotImg{
+	position: relative;
+	top: 10px;
+}
+
+#bucketCnt{
+	position: absolute;
+	top: 40px;
+	width: 50px;
+	text-align: center;
+}
+
+span{
+    color: #FFA726;
+}
+
+#searchNoResultWrap{
+    position: relative;
+    width: 1100px;
+    margin: auto;
+}
+
+.no_result{
+    position: relative;
+    width: 550px;
+    height: 100px;
+    /*background: palevioletred;*/
+    left: 225px;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 120px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.no_result_detail{
+    position: relative;
+    width: 700px;
+    height: 180px;
+    background: #e1e1e1;
+    left: 150px;
+    border-radius: 30px;
+    text-align: left;
+    line-height: 60px;
+    font-size: 20px;
+    padding: 20px;
+    font-weight:700;
+}
+
+#spotCardSection .spot_card_right{
+	position:absolute;
+	height:260px;
+	border-left:1px solid #616161;
+	width:210px;
+	right:10px;
+}

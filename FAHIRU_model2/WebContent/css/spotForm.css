@@ -1,0 +1,200 @@
+@charset "UTF-8";
+
+#bg{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background: rgba(0,0,0, .7);
+        }
+        body {
+            font-family: 'Source Sans Pro','Nanum+Gothic+Coding', sans-serif;
+        }
+
+        input{
+            border: none;
+            border-bottom: 1px #424242 solid;
+            padding: 5px;
+            font-family: "Source Sans Pro", 'Nanum Gothic Coding', sans-serif;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        #spotInfoSection label{
+            border: 1px solid #424242;
+            font-size: 50px;
+            /*background-color: #5cb85c;*/
+            cursor: pointer;
+            /*border: 1px solid #4cae4c;*/
+            border-radius: 10px;
+            height: 250px;
+            width: 250px;
+            left: 60px;
+            top: 120px;
+            text-align: center;
+            line-height: 250px;
+            position: relative;
+            background-size: 100% 100%;
+        }
+        #spotInfoSection input[type="file"] {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        #spotForm {
+            width: 800px;
+            min-height: 600px;
+            background-color: #FAFAFA;
+            position: absolute;
+            top:100px;
+            left:50%;
+            margin-left: -400px;
+        }
+        #spotInfoSection {
+            position: relative;
+            /*background: #9CCC65;*/
+            height:400px;
+        }
+        #spotSubInfoSection {
+            position: relative;
+            /*background: #7e57c2;*/
+            height: 400px;
+        }
+        .spotTitle {
+            position: absolute;
+            /*background: red;*/
+            font-size: 40px;
+            top: 20px;
+            left: 70px;
+            margin-bottom: 30px;
+        }
+
+        #spotMainInfo {
+            position: absolute;
+            bottom:25px;
+            left: 340px;
+        }
+        .spot_address_form {
+            margin-bottom: 5px;
+            height: 40px;
+        }
+
+        .spot_form {
+            width: 200px;
+        }
+        .address_form {
+            width: 400px;
+        }
+
+
+        #spotSubInfo {
+            /*background-color: #e0e0e0;*/
+            position: absolute;
+            left: 70px;
+            top:70px;
+        }
+
+        .spot_btn{
+            position: absolute;
+            bottom: 10px;
+            width: 120px;
+            height: 47px;
+            color: #fafafa;
+            text-shadow: 1px 1px #424242;
+            outline: none;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            background: rgb(242, 85, 46);
+
+
+        }
+        .spot_btn_left{
+            right:20px;
+        }
+        .spot_btn_right{
+            right:155px;
+        }
+
+        #spotForm h4 {
+
+            font-size:25px;
+            margin-bottom:10px;
+        }
+
+        #spotForm h5 {
+            display: inline-block;
+            font-size:20px;
+            margin-bottom:25px;
+        }
+
+        .sub_info_forms {
+        	width:80px;
+        }
+        
+        .sub_info_text{
+        	width:250px;
+        	height:100px;
+        	resize:none;
+        }
+        
+        .spot_btn>a{
+        	text-decoration:none;
+        	color:#222222;
+        } 
+
+        #closeBtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 40px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        #spotSubInfo select {
+            width: 60px;
+            height: 32px;
+
+        }
+
+        .filelabel {
+            border: 2px solid #424242;
+            border-radius: 5px;
+            display: inline-block;
+            position: absolute;
+            left: 315px;
+            top:55px;
+        }
+        
+        #imgBox{
+        	position: absolute;
+        	top:120px;
+        	left:60px;
+        	border-radius: 10px;
+        	border:1px solid transparent;
+        }
+
+        .filelabel:hover {
+            opacity: 0.5;              /* 半透明 */
+            border: 2px solid #424242;     /* 枠線(赤色) */
+            cursor: pointer;           /* マウス形状(ポインタ) */
+        }
+        #filesend {
+            display: none;  /* 本来のファイル選択フォームは非表示に */
+        }
+
+        .img_icon {
+            font-size: 30px;
+        }
+        
+        .no_image{
+        	display:none;
+        }

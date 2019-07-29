@@ -1,0 +1,1147 @@
+@charset "UTF-8";
+
+body{
+    overflow-x:hidden;
+    overflow-y:scroll;
+}
+
+/*없으면 jquery 안 됨 ㅠㅠ*/
+ul{
+    position: relative;
+}
+
+#content section li{
+}
+
+body .main{
+    font-size:50px
+}
+
+.login {
+	margin-top:23px;
+    font-size:16px;
+    font-weight:900;
+    color:#222222;
+}
+
+ul .category,.f_r{
+    position: absolute;
+    margin: 0;
+}
+
+.addFah{
+    top:30px;
+    right: 110px;
+    cursor: pointer;
+}
+
+/*
+0709 css 중복문제로 주석처리
+.login{
+    cursor: pointer;
+    top: 35px;
+    right: 30px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+*/
+
+.main{
+    top: 20px;
+    left: 30px;
+}
+
+.fah{
+    top: 30px;
+    left: 350px;
+}
+
+.spot{
+    top: 30px;
+    left: 470px;
+}
+
+.search{
+    top: 30px;
+    left: 620px;
+}
+
+.fah:hover {
+    cursor:pointer;
+    text-shadow: 2px 2px 1px #424242;
+    color:#E0E0E0;
+}
+
+.spot:hover{
+    cursor:pointer;
+    text-shadow: 2px 2px 1px #424242;
+    color:#E0E0E0;
+}
+
+.search:hover{
+    cursor:pointer;
+    text-shadow: 2px 2px 1px #424242;
+    color:#E0E0E0;
+}
+
+.addFah:hover{
+    cursor:pointer;
+    text-shadow: 2px 2px 1px #424242;
+    color:#E0E0E0;
+}
+
+#content section li{
+	float:left;
+	margin-right:30px;
+	cursor:pointer;
+	margin-top:50px;
+	height:105px;
+}
+
+#content section ul{
+	overflow:hidden;
+}
+
+#flaze{
+    width: 90px;
+    text-align: center;
+    line-height:170px;
+    font-size: 30px;
+    font-weight:700;
+    margin-bottom: 50px;
+}
+#feed{
+   text-indent:-10px;
+   width: 80px;
+   height: 105px;
+   text-align: center;
+   line-height:170px;
+   color:#424242;
+   font-size: 30px;
+   font-weight:700;
+   left :180px;
+}
+#following{
+   text-indent:-10px;
+   width: 140px;
+   height: 105px;
+   text-align: center;
+   line-height:170px;
+   font-size: 30px;
+    font-weight:700;
+   color:#424242;
+   left :300px;
+}
+
+#content section li:hover{
+    cursor:pointer;
+    color:#DD2C00;
+    margin-bottom: 50px;
+    border: transpatrent 5px solid
+}
+
+#flaze:active{
+    width: 90px;
+    height: 105px;
+    text-align: center;
+    line-height:170px;
+    font-weight:700;
+    margin-bottom: 45px;
+}
+
+/*#content section #following:hover{*/
+/*     cursor:pointer;*/
+/*     color:#DD2C00;*/
+/* }*/
+
+/*#content section #following:active{*/
+/*    cursor:pointer;*/
+/*    color:#DD2C00;*/
+/*    border-bottom: solid 5px #DD2C00;*/
+/*}*/
+
+/*#content section #feed:hover{*/
+/*    cursor:pointer;*/
+/*    color:#DD2C00;*/
+/*}*/
+
+#flazeWrap{
+	position:relative;
+	left:90px;
+	top:-50px;
+}
+
+#content{
+    width: 1100px;
+    margin: auto;
+    position:relative;
+}
+.ranking_fah{
+   	/*position: absolute; 앱솔루트를 하면 raking 친구들이 겹쳐집니다.*/
+   	width:350px;
+    height: 35px;
+    font-size: 25px;
+    color: #424242;
+    position: relative;
+}
+
+.ranking_fah:hover{
+    cursor: pointer;
+    color:#DD2C00;
+}
+
+/*#content section #feed:active{*/
+/*    cursor:pointer;*/
+/*    color:#DD2C00;*/
+/*    border-bottom: solid 5px #DD2C00;*/
+/*}*/
+
+#sideBar {
+    z-index: 2;
+    transform: translate(300px);
+    overflow: auto;
+    direction: rtl; /* 스크롤바 왼쪽으로 이동 */
+    width: 300px;
+    height: 100%;
+    background-color: #F6F6F6;
+    position: fixed;
+    right: 0;
+    border-left: .2px solid #9E9E9E;
+}
+
+#sideProfile {
+    position: relative;
+    height: 250px;
+    border-bottom: 1px solid #9E9E9E;
+}
+
+.trender_profile_image{
+    background-image: url("/img/defaultimg.png");
+    border-radius: 50%;
+    background-size:100% 100%;
+    width: 120px;
+    height:120px;
+    position: relative;
+    margin: 20px;
+    float: left;
+    cursor: pointer;
+}
+
+.profile_image:hover{
+    cursor: pointer;
+}
+
+
+#logout {
+    cursor:pointer;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:16px;
+    font-weight:900;
+    position: absolute;
+    border: none;
+    right: 5px;
+    bottom: 5px;
+    color:#424242;
+    background: transparent;
+}
+
+#nickname{
+    width: 300px;
+    position: absolute;
+    font-size: 20px;
+    text-align:center;
+    top:180px;
+}
+
+.user_nickname{
+    width: 120px;
+    position: absolute;
+    font-size: 20px;
+    text-align:center;
+    /*background: red;*/
+    bottom: -40px;
+}
+
+#sideText{
+    width: 300px;
+    height: 150px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 85px;
+    border-bottom: 1px solid #9E9E9E;
+}
+
+#sideText li{
+    cursor:pointer;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+#sideSubscribe{
+    font-size:25px;
+    text-align: center;
+    padding: 10px 20px 20px 20px;
+}
+
+#subscribeList{
+    direction:ltr;
+    font-size:17px;
+    font-weight:bold;
+    width: 260px;
+    background-color: #F6F6F6;
+    min-height: 500px;
+}
+
+
+#subscribeList li{
+    cursor:pointer;
+    text-indent: 0px;
+    line-height: 60px;
+    padding: 10px;
+    position: relative;
+
+}
+
+.subscribe_name{
+    font-size:22px;
+    font-family: 'Nanum Gothic Coding', monospace;
+    text-indent: 70px;
+    text-align:left;
+}
+
+.subscribe_alarm{
+    border:5px solid #DD2C00;
+    border-radius: 50%;
+    right: 20px;
+    top:36px;
+    position: absolute;
+}
+
+
+/*사이드바 subscribe 스크롤 숨기기*/
+#sideBar::-webkit-scrollbar {
+    position: fixed;
+}
+
+.subscribe_list_add{
+    height: 30px;
+}
+
+.subscribe_list_add:hover {
+    cursor: pointer;
+    color: #F6F6F6;
+    height: 30px;
+    background: #E0E0E0;
+    line-height: 10px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+#subscribeList{
+    height: 600px;
+    overflow-y:scroll;
+}
+
+#spotRankingBox{
+    position: relative;
+    width: 800px;
+    height: 300px;
+    /*background: palevioletred;*/
+    /*margin-left: 100px;*/
+    /*margin-top: 10px;*/
+    top: 700px;
+}
+
+#userRankingBox{
+    position: relative;
+    width: 800px;
+    height: 300px;
+    /*background: palevioletred;*/
+    /*margin-left: 100px;*/
+    /*margin-top: 10px;*/
+    top: 900px;
+}
+
+/*btn 색상과 크기 변경하는 클래스*/
+.btn{
+    display: block;
+    position: absolute;
+    font-size: 50px;
+    color: #424242;
+
+}
+
+.btn:hover{
+    cursor: pointer;
+    color: #DD2C00;
+
+}
+.prev_btn{
+    position: absolute;
+    left: -70px;
+    top: 130px;
+}
+
+.next_btn{
+    top: 130px;
+    right: -70px;
+}
+	
+
+.spot_prev_btn{
+    left: -70px;
+    top: 130px;
+}
+
+.spot_next_btn{
+    left: 830px;
+    top: 130px;
+}
+
+
+
+#spot1{
+    width: 800px;
+    height: 300px;
+    background: #9CCC65;
+}
+
+#spot2{
+    width: 800px;
+    height: 300px;
+    background: #9CCC65;
+}
+
+/*.trender_user{*/
+/*    margin: 20px;*/
+/*    float: left;*/
+/*}*/
+
+#content #rankingBoxWrap1{
+    position: relative;
+    width: 900px;
+    height: 300px;
+    /*height: 310px;*/
+    margin-top: 100px;
+    /*margin-top: 10px;*/
+    cursor: pointer;
+}
+
+#content #rankingBoxWrap2{
+    position: relative;
+    width: 900px;
+    height: 300px;
+    /*height: 310px;*/
+   	margin-top: 100px;	
+    /*margin-top: 10px;*/
+    cursor: pointer;
+}
+
+#content #rankingBoxWrap3{
+    position: relative;
+    width: 900px;
+    height: 300px;
+    /*height: 310px;*/
+    margin-top: 100px;
+    /*margin-top: 10px;*/
+    cursor: pointer;
+}
+
+.subscribe_btn{
+	width:55px;
+	height:40px;
+	background:transparent;
+	border:none;
+	outline:none;
+	position:absolute;
+	top:0;
+	right:10px;
+	cursor:pointer;
+	
+
+}
+.subscribe_btn>img{
+	width:35px;
+	height:35px;
+	position:absolute;
+	top:0;
+	left:0;1
+}
+.subscribe_btn>span{
+	font-size:25px;
+	font-weight:bold;
+	color:#DD2C00;
+	position:absolute;
+	right:0;
+	top:8px;
+}
+
+
+
+.total_wrap{
+    width: 900px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    background:#eeee;
+    margin:auto;
+    box-shadow: 0 12px 6px -6px #757575;
+}
+
+#firstTotalWrap ul {
+    width: 2100px;
+    height: 300px;
+}
+
+#firstTotalWrap li{
+    width: 300px;
+    height: 280px;
+    top: -10px;
+    left: -100px;
+    float: left;
+}
+
+#firstTotalBox li{
+    width: 300px;
+    height: 300px;
+    float: left;
+}
+
+#firstTotalBox{
+    width: 2100px;
+    left: 0;
+}
+
+#secondTotalBox li{
+    width: 300px;
+    height: 300px;
+    float: left;
+}
+
+#thirdTotalBox{
+    left: 0;
+    width: 2100px;
+}
+
+#thirdTotalBox li{
+    width: 300px;
+    height: 300px;
+    float: left;
+
+}
+
+#secondTotalBox{
+    left: 0;
+    width: 2100px;
+}
+
+#spotWrap{
+    width: 800px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+#spotRanking {
+    width: 6400px;
+    height: 300px;
+    float: left;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+}
+
+#spotRanking div{
+    width: 800px;
+    height: 300px;
+    /*margin-right: 100px;*/
+    float: left;
+}
+
+.box1{
+    background-color: red;
+}
+.box2{
+    background-color: orange;
+}
+.box3{
+    background-color: yellow;
+}
+.box4{
+    background-color: green;
+}
+.box5{
+    background-color: blue;
+}
+.box6{
+    background-color: purple;
+}
+.box7{
+    background-color: black;
+}
+
+/*.firstNext{*/
+/*    left :1020px;*/
+/*}*/
+/*.firstPrev{*/
+/*    left: 30px;*/
+/*}*/
+
+
+#spot1{
+    background: red;
+}
+
+#spot2{
+    background: orange;
+}
+
+#spot3{
+    background: yellow;
+}
+
+#spot4{
+    background: green;
+}
+
+#spot5{
+    background: blue;
+}
+
+#spot6{
+    background: #7e57c2;
+}
+
+
+
+#subscribeList li:hover{
+    background-color: #E0E0E0;
+}
+
+#sideText li:hover{
+    color: #DD2C00;
+}
+
+}
+
+
+/***********************************/
+
+.cooking_score {
+    font-size: 30px;
+    position: absolute;
+    right: 10px;
+    top:10px;
+    text-shadow: 1px 0 #FAFAFA;
+}
+
+.card_foodrendy{
+    width:300px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+.cook_card {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.img_card_foodrendy {
+    width: 300px;
+    height: 300px;
+}
+
+.card_foodrendy .back {
+    width: 300px;
+    height: 60px;
+    position: absolute;
+    left: 0;
+    transition: .10s ease;
+}
+
+.card_foodrendy:hover .top{
+    top:0;
+}
+
+.card_foodrendy:hover .bottom {
+    bottom: 0;
+}
+
+.card_foodrendy .top {
+    top:-60px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f26c43+1,000000+100&0.65+0,0+100 */
+    background: -moz-linear-gradient(top,  rgba(242,108,67,0.65) 0%, rgba(242,108,67,0.64) 1%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(242,108,67,0.65) 0%,rgba(242,108,67,0.64) 1%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(242,108,67,0.65) 0%,rgba(242,108,67,0.64) 1%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6f26c43', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+
+.card_foodrendy .bottom {
+    bottom: -60px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,f26c43+99&0+0,0.65+100 */
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(242,108,67,0.64) 99%, rgba(242,108,67,0.65) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(242,108,67,0.64) 99%,rgba(242,108,67,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(242,108,67,0.64) 99%,rgba(242,108,67,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6f26c43',GradientType=0 ); /* IE6-9 */
+}
+
+.card_foodrendy .foodrendy_name {
+    position: absolute;
+    top:10px;
+    left: 10px;
+    font-size: 30px;
+    color: #FAFAFA;
+    text-shadow: 1px 1px #424242;
+}
+.cook_card .foodrendy_name{
+	position: absolute;
+    top:10px;
+    left: 10px;
+    font-size: 30px;
+    color: #FAFAFA;
+    text-shadow: 1px 1px #424242;
+}
+
+.card_foodrendy .badge_taste{
+    position: absolute;
+    width:31px;
+    height: 57px;
+    background-image: url("/img/badge_taste.png");
+    right: 10px;
+
+}
+
+.cook_card .top {
+    top: -60px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f26c43+1,000000+100&0.65+0,0+100 */
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,fff176+99&0+0,0.65+100 */
+    background: -moz-linear-gradient(top, rgba(255, 241, 118, 0.65) 0%, rgba(255, 241, 118, 0.64) 1%, rgba(0, 0, 0, 0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(255, 241, 118, 0.65) 0%, rgba(255, 241, 118, 0.64) 1%, rgba(0, 0, 0, 0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(255, 241, 118, 0.65) 0%, rgba(255, 241, 118, 0.64) 1%, rgba(0, 0, 0, 0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6fff176', endColorstr='#00000000', GradientType=0); /* IE6-9 */
+}
+
+.cook_card .bottom {
+    bottom: -60px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,f26c43+99&0+0,0.65+100 */
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(255, 241, 118, 0.64) 99%, rgba(255, 241, 118, 0.65) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(255, 241, 118, 0.64) 99%, rgba(255, 241, 118, 0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(255, 241, 118, 0.64) 99%, rgba(255, 241, 118, 0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6fff176', GradientType=0); /* IE6-9 */
+}
+
+.cook_card .buketlist_icon {
+    width: 28px;
+    height: 28px;
+    background-image: url("/img/fire.png");
+    background-size: 100% 100%;
+    position: absolute;
+    right: 5px;
+    bottom: 21px;
+}
+
+.buketlist_cnt {
+    position: absolute;
+    color: #DD2C00;
+    bottom: 4px;
+}
+
+/*//카드*/
+
+#mainWrap{
+    width: 1100px;
+    margin: auto;
+    min-height: 1100px;
+}
+
+#mainWrap .bottom .fah_nickname, .fah_user{
+	padding:3px;
+	border-radius:5px;
+	text-align:left;
+	font-size:15px;
+	position:absolute;
+}
+
+.fah_nickname{
+	text-indent: 2px;
+	bottom:3px;
+}
+
+.fah_user {
+	width:35px;
+	height: 35px;
+	border-radius:20px;
+	left:4px;
+}
+
+.cook_card .back {
+    width: 300px;
+    height: 60px;
+    position: absolute;
+    left: 0;
+    transition: .10s ease;
+}
+
+.cook_card:hover .top {
+    top: 0;
+}
+
+.cook_card:hover .bottom {
+    bottom: 0;
+}
+
+#content .on{
+    color: #DD2C00;
+    border-bottom:5px solid #DD2C00 ;
+    background-image: url("../img/flame.gif") ;
+    background-size: 80px 115px;
+    background-repeat: no-repeat;
+    margin-bottom: 50px;
+}
+
+
+#rankingBoxWrap3 {
+	margin-borrom: 100px;
+}
+
+#firstTotalBox>a {
+	text-decoration: none;
+	color: #222222;
+}
+
+#banner {
+/* 1100px ->1400px 늘렸습니다_0707근경  */
+	width: 1400px;
+	height: 572px;
+	margin: auto;
+	background-image: url("../img/fahiru_mainbanner_two.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	position: relative;
+	box-shadow: 0 6px 6px -6px #424242;
+}
+
+#bannerSub {
+	width: 1400px;
+	height: 440px;
+	margin: 50px auto;
+	background-image: url("../img/fahiru_subBanner.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	position: relative;
+
+}
+
+#bannerRecommend{
+	width:920px;
+	height:450px;
+	position:relative;
+	margin:auto;
+}
+
+
+#bannerRecommend #recommendTitle{
+    height: 40px;
+    font-size: 25px;
+    font-weight:700;	
+    color: #424242;
+    position:absolute;
+    top:15px;
+    left:0;
+
+}
+
+
+#bannerRecommend #recommendLeft{
+	width:600px;
+	height:400px;
+	background-image: url("../img/fahiru_recommend_left.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	position:absolute;
+	left:0;
+	bottom:0;
+	cursor: pointer;
+	box-shadow: 0 6px 6px -6px #424242;
+}
+
+#bannerRecommend #recommendRight{
+	width:300px;
+	height:400px;
+	background-image: url("../img/fahiru_recommend_right.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	right:0;
+	bottom:0;
+	cursor: pointer;
+	box-shadow: 0 6px 6px -6px #424242;
+}
+
+
+
+#bannerBtn {
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	font-size: 30px;
+	cursor: pointer;
+	line-height: 50px;
+	/*잠깐 banner에 있는 btn을 display:none 했습니다.*/
+	display:none;
+}
+
+#bannerBtn:hover {
+	text-shadow: 3px 3px 1px #222222;
+	color: #fafafa;
+	font-weight: 700;
+}
+
+
+
+#fahListUL>.fah_list {
+	font-size: 14px;
+}
+
+.fah_menu_card {
+	cursor: pointer;
+	width: 250px;
+	height: 250px;
+	margin: 5px;
+	background-color: #dddddd;
+	overflow: hidden;
+	position: relative;
+}
+
+.fah_menu_add {
+	cursor: pointer;
+	clear: both;
+	width: 250px;
+	margin: 20px auto;
+	height: 80px;
+	background-color: #ddd;
+	line-height: 80px;
+	text-align: center;
+	font-size: 30px;
+}
+
+.fah_menu_card .back {
+	width: 250px;
+	height: 60px;
+	position: absolute;
+	left: 0;
+	transition: .10s ease;
+}
+
+/*fahListDiv end*/
+
+/* 0624 홍성표 수정*/
+.tf .top {
+	top: -60px;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f26c43+1,000000+100&0.65+0,0+100 */
+	background: -moz-linear-gradient(top, rgba(242, 108, 67, 0.65) 0%,
+		rgba(242, 108, 67, 0.64) 1%, rgba(0, 0, 0, 0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(242, 108, 67, 0.65) 0%,
+		rgba(242, 108, 67, 0.64) 1%, rgba(0, 0, 0, 0) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(242, 108, 67, 0.65) 0%,
+		rgba(242, 108, 67, 0.64) 1%, rgba(0, 0, 0, 0) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6f26c43',
+		endColorstr='#00000000', GradientType=0); /* IE6-9 */
+}
+
+.tf .bottom {
+	bottom: -60px;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,f26c43+99&0+0,0.65+100 */
+	background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%,
+		rgba(242, 108, 67, 0.64) 99%, rgba(242, 108, 67, 0.65) 100%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%,
+		rgba(242, 108, 67, 0.64) 99%, rgba(242, 108, 67, 0.65) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,
+		rgba(242, 108, 67, 0.64) 99%, rgba(242, 108, 67, 0.65) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000',
+		endColorstr='#a6f26c43', GradientType=0); /* IE6-9 */
+}
+
+.cook .top {
+	top: -60px;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f26c43+1,000000+100&0.65+0,0+100 */
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,fff176+99&0+0,0.65+100 */
+	background: -moz-linear-gradient(top, rgba(255, 241, 118, 0.65) 0%,
+		rgba(255, 241, 118, 0.64) 1%, rgba(0, 0, 0, 0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(255, 241, 118, 0.65) 0%,
+		rgba(255, 241, 118, 0.64) 1%, rgba(0, 0, 0, 0) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(255, 241, 118, 0.65) 0%,
+		rgba(255, 241, 118, 0.64) 1%, rgba(0, 0, 0, 0) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6fff176',
+		endColorstr='#00000000', GradientType=0); /* IE6-9 */
+}
+
+.cook .bottom {
+	bottom: -60px;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,f26c43+99&0+0,0.65+100 */
+	background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%,
+		rgba(255, 241, 118, 0.64) 99%, rgba(255, 241, 118, 0.65) 100%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%,
+		rgba(255, 241, 118, 0.64) 99%, rgba(255, 241, 118, 0.65) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,
+		rgba(255, 241, 118, 0.64) 99%, rgba(255, 241, 118, 0.65) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000',
+		endColorstr='#a6fff176', GradientType=0); /* IE6-9 */
+}
+
+.fah_menu_card:hover .top {
+	top: 0;
+}
+
+.fah_menu_card:hover .bottom {
+	bottom: 0;
+}
+
+.cooking_score {
+	width: 60px;
+	height: 60px;
+	font-size: 30px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	text-shadow: 1px 0 #FAFAFA;
+}
+
+#fahListDiv li {
+	float: left;
+}
+
+.fah_menu_img {
+	width: 250px;
+	height: 250px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.fah_nickname {
+	text-align: left;
+	font-size: 20px;
+	position: absolute;
+	background-color: rgba(250, 250, 250, .8);
+	padding: 1px;
+}
+
+.fah_card_bucket {
+	position: absolute;
+	height: 60px;
+	width: 60px;
+	right: 0;
+	text-align: center;
+}
+
+.fah_card_user {
+	position: absolute;
+	width: 100px;
+	height: 60px;
+}
+
+.buketlist_cnt {
+	font-size: 20px;
+	bottom: 2px;
+	width: 55px;
+	margin: auto;
+	color: #222222;
+	position: absolute;
+}
+
+.fah_user {
+	position: absolute;
+	top: 3px;
+	border-radius: 50%;
+}
+
+.fah_nickname {
+	position: absolute;
+	bottom: 2px;
+	left: 9px;
+	text-indent: 2px;
+}
+
+.food_name {
+	color: #fafafa;
+	font-size: 35px;
+	font-weight: 700;
+	text-indent: 7px;
+}
+
+a {
+	color: #222222;
+}
+
+#content .foodrendy_btn_left {
+	display: none;
+}
+
+.card_user_section {
+	position: absolute;
+	width: 120px;
+	height: 60px;
+}
+
+.main_card_bucket {
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	right: 0;
+}
+
+.buketlist_cnt {
+	line-height: -10px;
+	text-align: center;
+}
+
+.bucket_icon {
+	text-align: center;
+	font-size: 30px;
+	line-height: 40px;
+}
+
+.card_bucket_section {
+	position: absolute;
+	width: 55px;
+	height: 55px;
+	right: 5px;
+	border-radius: 20px;
+	background-color: rgba(250, 250, 250, .8);
+}
+
+.user_profile_box {
+	left: 5px;
+	position: absolute;
+	width: 50px;
+	height: 60px;
+	border-radius: 15px;
+	background-color: rgba(250, 250, 250, .8);
+}
+
+.card_bucket_section:hover {
+	
+}
+
+#flazeWrap .prev_event {
+	display: none;
+}
+
+.total_box {
+	transition: 0.1s ease;
+}

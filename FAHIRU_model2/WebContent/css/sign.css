@@ -1,0 +1,141 @@
+@charset "UTF-8";
+#bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0,0,0,.3);
+}
+
+span{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #000000;
+}
+
+
+#signFormWrap {
+    width: 550px;
+    height: 650px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -300px;
+    background-color: #fff;
+    padding: 30px;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+    user-select: none;
+}
+
+#birthDate{
+    margin-right: 30px;
+}
+
+
+#pwdCheck {
+	position: relative;
+	left: 59px;
+	top: -15px;
+    width: 295px;
+
+}
+#password {
+	position: relative;
+    width: 295px;
+    margin-left: 30px;
+
+}
+#email.input{
+    margin-left: 40px;
+    width: 220px;
+}
+#nickname.input{
+    margin-left: 40px;
+    width: 220px;
+}
+#gender{
+    margin-right: 50px;
+}
+.sign{
+    width: 470px;
+    margin-top: 30px;
+    margin-left:80px;
+}
+.input{
+    width: 250px;
+    height: 30px;
+
+}
+
+.birth_date{
+    width: 70px;
+    height: 30px;
+}
+
+.btn{
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    width: 80px;
+    height: 37px;
+    background-color: rgb(238,49,36);
+    text-shadow: 1px 1px #424242;
+    color: #FAFAFA;
+    border-radius: 2px;
+}
+.join{
+    margin-top: 30px;
+    margin-left: 80px;
+    width: 390px;
+    height: 60px;
+    font-size: 20px;
+
+}
+
+.email{
+    width: 450px;
+
+
+}
+
+.email_check{
+    margin-top: 5px;
+    text-indent: 90px;
+}
+
+.nickname_check{
+    margin-top: 5px;
+    text-indent: 90px;
+}
+
+.password_check{
+    margin-top: 3px;
+    text-indent: 92px;
+}
+
+.msg{
+    position: absolute;
+    height: 5px;
+    font-size: 15px;
+    color: red;
+}
+
+.msg.ok{
+    color: #2196f3;
+    text-indent: 92px;
+}
+
+#signLogo {
+    width: 350px;
+    height: 80px;
+    background-image: url("../img/FAHIRU.PNG");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    margin: 20px auto;
+    margin-bottom: 50px;
+}

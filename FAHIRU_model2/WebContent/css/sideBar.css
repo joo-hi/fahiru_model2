@@ -1,0 +1,162 @@
+@charset "UTF-8";
+#sideBar{
+    z-index: 2;
+    transform: translate(300px);
+    overflow:auto;
+    direction:rtl; /* 스크롤바 왼쪽으로 이동 */
+    width: 300px;
+    height: 100%;
+    background-color:#F6F6F6;
+    position: fixed;
+    z-index:1;
+    right: 0;
+    top:0;
+    border-left: .2px solid #9E9E9E;
+}
+
+#sideProfile{
+    position:relative;
+    height: 249px;
+    border-bottom: 1px solid #9E9E9E;
+}
+
+.profile_image:hover{
+    cursor: pointer;
+}
+
+#logout {
+    cursor:pointer;
+    font-size:16px;
+    font-weight:900;
+    position: absolute;
+    border: none;
+    right: 5px;
+    bottom: 5px;
+    color:#424242;
+    background: transparent;
+}
+
+.nickname{
+    width: 300px;
+    position: absolute;
+    font-size: 20px;
+    text-align:center;
+    top:180px;
+}
+
+#sideProfile a{
+	text-decoration: none;
+	color:#222222;
+}
+#sideText{
+    width: 300px;
+    height: 129px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 65px;
+    border-bottom: 1px solid #9E9E9E;
+}
+#sideText li{
+    cursor:pointer;
+    width: 300px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+#sideSubscribe{
+    font-size:25px;
+    text-align: center;
+    padding: 10px 20px 20px 20px;
+	height:450px;
+}
+
+#subscribeList{
+    direction:ltr;
+    font-size:17px;
+    font-weight:bold;
+    width: 258px;
+    background-color: #F6F6F6;
+    height: 388px;
+    margin-top:20px;
+    border:1px solid #424242;
+}
+
+#subscribeList li img{
+	width: 60px;
+    height: 60px;
+	position:absolute;
+	left:10px;
+	background-size: 60px 60px;
+    border-radius: 50%;
+}
+
+
+#subscribeList li{
+    cursor:pointer;
+    text-indent: 0px;
+    line-height: 60px;
+    padding: 10px;
+    position: relative;
+
+}
+
+.subscribe_name{
+    font-size:22px;
+    text-indent: 65px;
+    text-align:left;
+}
+
+.subscribe_alarm{
+    border:5px solid #DD2C00;
+    border-radius: 50%;
+    right: 20px;
+    top:36px;
+    position: absolute;
+}
+
+
+#sideBar::-webkit-scrollbar {
+
+    display:none;
+
+}
+
+.subscribe_list_add{
+    height: 30px;
+}
+
+.subscribe_list_add:hover {
+    cursor: pointer;
+    color: #F6F6F6;
+    height: 30px;
+    background: #E0E0E0;
+    line-height: 10px;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+#subscribe_list li:hover{
+    background-color: #E0E0E0;
+}
+#sideText li:hover{
+    color: #DD2C00;
+}
+
+#subscribe_list{
+    height: 600px;
+    overflow-y:scroll;
+
+}
+
+.profile_image {
+    background-image: url("/img/defaultimg.png");
+    border-radius: 50%;
+    background-size: 100% 100%;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    cursor: pointer;
+    top: 50px;
+    left: 50%;
+    margin-left: -60px;
+}

@@ -1,0 +1,532 @@
+@charset "UTF-8";
+
+a{
+	color:#424242;
+}
+
+h1{
+    text-align: center;
+    position: relative;
+    padding: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#trendyFood {
+	font-size:25px;
+    /*background: red;*/
+    height: 50px;
+    position: relative;
+    left: 50px;
+    width: 800px;
+}
+
+.cursor_pointer {
+    cursor: pointer;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 40px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color:#222222;
+}
+
+#bg {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    position: fixed;
+    padding: 100px;
+}
+
+#detailPage {
+    top: 100px;
+    left: 50%;
+    margin-left: -500px;
+    width: 1000px;
+    min-height: 2200px;
+    background-color: #fafafa;
+    position: relative;
+    border-radius: 100px 0 0 0;
+    padding-bottom:1px;
+}
+
+#spotName {
+    top: 50px;
+    left: 100px;
+    font-weight: bold;
+    font-size: 37px;
+    position: absolute;
+}
+
+
+/*#fahList h5 {*/
+/*    float: left;*/
+/*    margin-right: 10px;*/
+/*    font-size: 17px;*/
+/*}*/
+
+#map {
+    position: absolute;
+    background: url("img/fruit.jpg");
+    background-size: 100% 100%;
+    top: 140px;
+    left: 100px;
+    width: 300px;
+    height: 300px;
+    /*background-size: 100% 100%;*/
+    z-index: 1;
+}
+
+#cameraInfo {
+    position: absolute;
+    top: 450px;
+    left: 100px;
+    font-size: 30px;
+}
+
+#bucket {
+    top: 350px;
+    left: 430px;
+    position: absolute;
+    font-size: 22px;
+    text-align: center;
+}
+
+#bucket button {
+    width: 75px;
+    height: 75px;
+    font-size: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: #9E9E9E;
+    margin-bottom: 5px;
+    outline: none;
+}
+
+#share {
+    top: 350px;
+    left: 550px;
+    position: absolute;
+    text-align: center;
+}
+
+#share button {
+    width: 75px;
+    height: 75px;
+    font-size: 30px;
+    border-radius: 50%;
+    border: none;
+    background-color: #9E9E9E;
+}
+
+.user_profile {
+    right: 100px;
+    top: 300px;
+    font-size: 20px;
+    text-align: center;
+    position: absolute;
+    float: left;
+}
+
+.user_img {
+    background-image: url("img/defaultimg.png");
+    width: 100px;
+    height: 100px;
+    background-size: 100% 100%;
+    border-radius: 75px;
+    margin-bottom: 10px;
+    position: relative;
+    top: 20px;
+}
+
+#spotInfo {
+    width: 1000px;
+    height: 500px;
+    position: relative;
+    /*background: #7e57c2;*/
+}
+
+#spotInfoList {
+    width: 280px;
+    height: 100px;
+    top: 245px;
+    left: 430px;
+    position: absolute;
+    /*background: blue;*/
+    /*float: left;*/
+}
+
+#myEvaluation {
+    font-size: 22px;
+    line-height: 50px;
+    width: 220px;
+    height: 100px;
+    right: 60px;
+    top: 130px;
+    position: absolute;
+}
+
+#myEvaluation button {
+    outline: none;
+    border: none;
+    font-size: 30px;
+    position: absolute;
+    background-color: transparent;
+}
+
+button:hover {
+    cursor: pointer;
+    text-shadow: 3px 3px 2px #BDBDBD;
+}
+
+#myTaste button {
+    top: 15px;
+}
+
+#myPlating button {
+    top: 65px;
+}
+
+.good_btn {
+    font-size: 100px;
+    right: 40px;
+}
+
+.bad_btn {
+    right: 90px;
+}
+
+#spotImgIcon {
+    width: 40px;
+    height: 30px;
+    background-color: #FFCDD2;
+    border-radius: 0 5px 5px 0;
+    position: absolute;
+    transition: .4s ease;
+    top: 140px;
+    left: 365px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+}
+#spotMapIcon {
+    width: 40px;
+    height: 30px;
+    background-color: #BBDEFB;
+    position: absolute;
+    top: 180px;
+    left: 400px;
+    transition: .4s ease;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+}
+
+.spot_score {
+    width: 180px;
+    height: 60px;
+    position: absolute;
+    left: 475px;
+    top: 140px;
+}
+
+.spot_score div {
+    float: left;
+    text-align: center;
+}
+
+
+.spot_score i {
+    font-size: 50px;
+    margin-left: 15px;
+}
+
+.fa-thermometer-three-quarters {
+    color: blue;
+}
+
+.fa-temperature-high {
+    color: red;
+}
+
+.text_center {
+    position: relative;
+    width: 100px;
+    height: 20px;
+    text-align: center;
+    top: 20px;
+}
+
+/******** trendy food list *******/
+
+#trendyFoodListWrap {
+    font-size: 40px;
+    min-height: 270px;
+    /*background: blue;*/
+    padding: 25px;
+    position: relative;
+    /*top: 800px;*/
+    width: 900px;
+    color: #424242;
+    /*overflow: hidden;*/
+}
+
+.spot_trendy_food_img_box {
+    position: relative;
+    /*background: palevioletred;*/
+    width: 800px;
+    min-height: 225px;
+    margin: auto;
+}
+
+#spotTrendyFoodImgBoxUL {
+    list-style: none;
+    position: relative;
+    width: 800px;
+    min-height: 225px;
+    /*background: #FFDE2F;*/
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+#spotTrendyFoodImgBoxUL li {
+    width: 180px;
+    height: 180px;
+    background: #0BBC99;
+    margin: 10px;
+    float: left;
+    /*left: 100px;*/
+}
+
+.warning_btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 25px;
+    border: none;
+    color: red;
+    background-color: transparent;
+}
+
+.plus_btn {
+    position: absolute;
+    right: 100px;
+    top: 45px;
+    font-size: 25px;
+    background-color: transparent;
+    border: none;
+    color: #424242;
+}
+
+.detail_plus_btn {
+    position: absolute;
+    left: 380px;
+    top: 65px;
+    font-size: 30px;
+    border: none;
+    color: #424242;
+    background: transparent;
+}
+
+
+/************ spot detail info **************/
+#spotDetailInfo {
+    font-size: 30px;
+    min-height: 300px;
+    /*background: red;*/
+    /*padding: 50px;*/
+    position: relative;
+    padding: 50px;
+    /*top: 1200px;*/
+    width: 800px;
+    left: 50px;
+    line-height: 50px;
+}
+
+#detailInfoUpdate {
+    /*left: -30px;*/
+    background-color: #fafafa;
+    position: absolute;
+    z-index: 2;
+    bottom: 40px;
+    height: 400px;
+
+}
+
+.detail_plus_btn{
+	left: 415px;
+}
+
+#fahCloud {
+    position: relative;
+    /*background: #4b96e6;*/
+    width: 800px;
+    min-height: 80px;
+    font-size: 30px;
+    min-height: 250px;
+    padding: 50px;
+    /*top: 500px;*/
+    width: 900px;
+    line-height: 60px;
+    overflow: hidden;
+}
+#shopName{
+    font-size: 20px;
+    line-height: 30px;
+}
+#shopName:hover{
+    color: #DD2C00;
+}
+
+.add_fah {
+	top:50px;
+}
+
+/* .fah { */
+/*     height: 50px; */
+/*     margin: 10px 10px 0 0; */
+/*     float: left; */
+/*     padding-left: 10px; */
+/*     padding-right: 10px; */
+/*     background: #FFAB91; */
+/*     opacity: 0.7; */
+/*     color:#222222; */
+/* } */
+#detailInfo {
+    font-size: 40px;
+}
+
+#spotSubInfoSection {
+    /*position: relative;*
+    font-size: 30px;
+    min-height: 300px;
+    /*background: red;*/
+    /*padding: 50px;*/
+    position: relative;
+    /*padding: 50px;*/
+    /*top: 1200px;*/
+    width: 910px;
+    /*left: -30px;*/
+    line-height: 50px;
+    height: 400px;
+}
+
+
+#spotSubInfo {
+    /*background-color: #e0e0e0;*/
+    position: absolute;
+    /*left: 50px;*/
+    top: 70px;
+}
+
+.sub_info_forms {
+    width: 60px;
+    height: 25px;
+}
+
+.spot_btn_left {
+    position: relative;
+    right: 150px;
+}
+
+.spot_btn_right {
+    right: 40px;
+}
+
+.spot_btn {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    font-weight: bold;
+    color: #fafafa;
+    text-shadow: 1px 1px #424242;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 1px 1px #000;
+    cursor: pointer;
+    background: #424242;
+    font-family: "Noto Sans KR", "Source Sans Pro", sans-serif;
+}
+
+
+/****************    warning*/
+
+#warningWrap{
+    width: 500px;
+    height: 450px;
+    position: absolute;
+    bottom: 50px;
+    right: -150px;
+    background-color: #fafafa;
+    z-index: 10;
+    border: solid #424242 1px;
+}
+
+
+
+#writerAndContents{
+    position: relative;
+    width: 460px;
+    height: 60px;
+    /*background-color: yellow;*/
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-top: solid 1px #424242;
+    border-bottom: solid 1px #424242;
+}
+
+#writerAndContents div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#warningReason{
+    font-size: 20px;
+    margin: 20px;
+    padding: 0;
+    list-style: none;
+    /*background-color: #0BBC99;*/
+    position: relative;
+    width: 460px;
+    height: 190px;
+}
+
+
+.btn{
+    position: relative;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.close_btn{
+    left: 160px;
+}
+
+.popUp_warning_btn:hover{
+    background-color: #DD2C00;
+}
+
+.popUp_warning_btn{
+    left: 180px;
+}
+
+
+#warningWrap input[type=radio], label{
+    cursor: pointer;
+    margin-bottom: 15px;
+}

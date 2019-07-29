@@ -1,0 +1,256 @@
+@charset "UTF-8";
+/*
+
+수정전
+#fah .btn{
+    font-size: 30px;
+    background: transparent;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 900;
+}
+
+#bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,.75);
+    display: none;
+    z-index: 2;
+}
+
+#fah{
+    margin: 10px auto;
+    width: 560px;
+    height: 440px;
+    position: relative;
+    text-align: left;
+    padding: 20px;
+}
+#fahInput{
+    width: 300px;
+    height: 30px;
+}
+.input{
+    margin-bottom: 5px;
+    color: #626262;
+}
+#fahText{
+    width: 500px;
+    height: 200px;
+}
+#counter{
+    font-size: 15px;
+    color: #9E9E9E;
+    position: absolute;
+    bottom: 120px;
+    right: 90px;
+}
+.cancel{
+    width: 80px;
+    height: 30px;
+    right: 10px;
+    bottom: 10px;
+    border: none;
+    background-color: #9E9E9E;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.register{
+    width: 80px;
+    height: 30px;
+    right: 130px;
+    bottom: 10px;
+    border: none;
+    background-color: #9E9E9E;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.namu{
+    font-size: 20px;
+
+}
+.namu a{
+    text-decoration: none;
+    color: #424242;
+}
+
+.fah_add{
+    margin-bottom: 2px;
+    width: 200px;
+    height: 20px;
+    font-size: 15px;
+    text-align: left;
+}
+
+#namuwitky{
+    text-align: left;
+}
+#fahplus{
+    width: 600px;
+    height: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -280px;
+    margin-left: -330px;
+    background-color: #dddddd;
+    padding: 30px;
+    display: none;
+    z-index: 2;
+}
+
+
+#fahOverlapBtn{
+    width: 100px;
+    height: 35px;
+    margin-left: 10px;
+    border: none;
+    background-color: #BDBDBD;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+*/
+#bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,.75);
+    display: none;
+    z-index: 9;
+}
+
+#fah{
+    margin: 10px auto;
+    position: relative;
+    text-align: left;
+    padding: 20px;
+    user-select:none;
+    outline:none;
+}
+#fahInput{
+    width: 245px;
+    height: 30px;
+}
+.input{
+    margin-bottom: 5px;
+    color: #626262;
+}
+#fahText{
+    width: 345px;
+    height: 150px;
+}
+#counter{
+    font-size: 15px;
+    color: #9E9E9E;
+    position: relative;
+    bottom: 120px;
+    right: 90px;
+    display:none;
+    
+}
+.cancel{
+    width: 80px;
+    height: 30px;
+    right: 10px;
+    bottom: 10px;
+    border: none;
+    background-color: #9E9E9E;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.register{
+	font-size: 12px;
+    border: none;
+    cursor: pointer;
+    width: 350px;
+    height: 50px;
+    text-align:center;
+    line-height:50px;
+    background-color: rgb(238,49,36);
+    text-shadow: 1px 1px #424242;
+    color: #FAFAFA;
+    border-radius: 2px;
+    position: relative;
+    margin-top:15px;
+}
+.namu{
+    font-size: 20px;
+
+}
+.namu a{
+    text-decoration: none;
+    color: #424242;
+}
+
+.fah_add{
+    margin-bottom: 2px;
+    width: 200px;
+    height: 20px;
+    font-size: 15px;
+    text-align: left;
+}
+
+#namuwitky{
+    text-align: left;
+    display:none;
+}
+#fahplus{
+    width: 400px;
+    height: 450px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -230px;
+    background-color: #fafafa;
+    padding: 30px;
+    display: none;
+    z-index: 10;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+
+#fahOverlapBtn{
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    width: 80px;
+    height: 37px;
+    background-color: rgb(238,49,36);
+    text-shadow: 1px 1px #424242;
+    color: #FAFAFA;
+    border-radius: 2px;
+
+}
+
+
+#signLogo {
+    width: 200px;
+    height: 100px;
+    background-image: url("../img/addFah.PNG");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    position: relative;
+    margin:auto;
+    
+}
+
+.font_btn {
+	font-size: 13px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 5px;
+	
+}
+
+
+

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="fahs">
+	
+	<!-- 0709 승현 수정 -->
+	<select id="fahSearch" resultType="Fah" parameterType="PageVO">
+		SELECT
+		no,name,fahImg, score ,nickname,profileImg,userNo,cnt
+		FROM(SELECT no,name,fahImg, score ,nickname,profileImg,cnt,userNo,rownum r
+		FROM(SELECT f.no,f.name,f.fah_img fahImg, NVL(s.score,0)score,u.nickname,u.profile_img profileImg, NVL(l.cnt,0) cnt, f.user_no
+		userNo,f.regdate regdate
+		FROM fahs f,users u,
+		(SELECT fah_no ,SUM(score) score
+		FROM fahiru_scores
+		WHERE regdate > systimestamp-60
+		GROUP BY fah_no) s,
+		(SELECT post_no,count(post_no) cnt
+		FROM likes
+		WHERE
+		category_no = 1
+		GROUP BY post_no) l
+		WHERE s.fah_no(+) = f.no
+		AND f.user_no = u.no
+		AND l.post_no(+) = f.no 
+		<choose> 
+		<when test="type=='fah'">AND name LIKE #{name}</when> 
+		<otherwise>AND nickname LIKE #{name}</otherwise>
+		</choose>
+		ORDER BY score desc))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	<!-- 0709 승현 수정 end -->
+	
+	<select id="selectOneTop" resultType="Fah" parameterType="int">
+
+		SELECT f.no no ,name, user_no userNo,
+		fah_img fahImg,profile_img profileImg,nickname,NVL(c.cnt,0) cnt,explanation
+		FROM fahs
+		f,users u,(SELECT post_no,count(post_no)cnt
+		FROM likes
+		WHERE category_no=1
+		GROUP BY post_no) c
+		WHERE f.user_no = u.no
+		AND c.post_no(+)=f.no
+		AND
+		f.no=#{no}
+
+	</select>
+
+	<select id="selectListByUserNo" resultType="Fah"
+		parameterType="int">
+		SELECT f.no no, u.no userNo, f.name name, f.fah_img
+		fahImg
+		FROM users u, likes l, FAHS f
+		WHERE u.no = l.user_no
+		AND l.post_no
+		= f.no
+		AND l.category_no = 1
+		AND u.no = #{no}
+	</select>
+	
+	<!-- 0709 승현 수정 -->
+	<!-- 화씨 카드 -->
+	<select id="selectList" resultType="Fah"
+		parameterType="PageVO">
+		SELECT
+		no,name,fahImg, score ,nickname,profileImg,userNo,cnt
+		FROM(SELECT
+		no,name,fahImg, score ,nickname,profileImg,cnt,userNo,rownum r
+		FROM(SELECT f.no,f.name,f.fah_img fahImg, NVL(s.score,0)score
+		,u.nickname,u.profile_img profileImg, NVL(l.cnt,0) cnt, f.user_no
+		userNo,f.regdate regdate
+		FROM fahs f,users u,
+		(SELECT fah_no ,
+		SUM(score) score
+		FROM fahiru_scores
+		WHERE regdate > systimestamp-60
+		GROUP BY fah_no) s,
+		(SELECT post_no,count(post_no) cnt
+		FROM likes
+		WHERE
+		category_no = 1
+		GROUP BY post_no) l
+		WHERE s.fah_no(+) = f.no
+		AND f.user_no = u.no
+		AND l.post_no(+) = f.no
+		ORDER BY score desc))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	<!-- 0709 승현 수정 end-->
+
+	<select id="selectMainList" resultType="Fah">
+		SELECT no,name,fahImg,
+		score ,nickname,profileImg, cnt, r ranking
+		FROM(SELECT no,name,fahImg,
+		score ,nickname,profileImg,cnt,rownum r
+		FROM(SELECT
+		f.no,f.name,f.fah_img fahImg, NVL(s.score,0)score
+		,u.nickname,u.profile_img profileImg, NVL(l.cnt,0) cnt
+		FROM fahs
+		f,users u,
+		(SELECT fah_no , SUM(score) score
+		FROM fahiru_scores
+		WHERE regdate > systimestamp-60
+		GROUP BY fah_no) s,
+		(SELECT post_no,count(post_no) cnt
+		FROM likes
+		WHERE
+		category_no = 1
+		GROUP BY post_no) l
+		WHERE s.fah_no(+) = f.no
+		AND
+		f.user_no = u.no
+		AND l.post_no(+) = f.no
+		ORDER BY score desc))
+		WHERE r BETWEEN 1 AND 3
+	</select>
+
+	<select id="selectCheckFah" resultType="Fah"
+		parameterType="string">
+		SELECT no, user_no userNo, name
+		FROM fahs
+		WHERE name=#{name}
+	</select>
+
+	<select id="selectListBySpotNo" resultType="Fah"
+		parameterType="int">
+		SELECT fName, cntFah, f.no no
+		FROM(SELECT f.name fName,
+		COUNT(f.name) cntFah
+		FROM post_fahs pf, fahs f, TRENDY_FOODS tf
+		WHERE pf.fah_no = f.no
+		AND tf.no = pf.post_no
+		AND tf.spot_no = #{spotNo}
+		GROUP BY f.name) cloud, fahs f
+		WHERE cloud.fName = f.name
+	</select>
+
+	<!-- 0709 승현 수정 -->
+	<select id="selectMyPageList" resultType="Fah"
+		parameterType="PageVO">
+		SELECT no,name,fahImg, score
+		,nickname,profileImg,userNo,cnt
+		FROM(SELECT no,name,fahImg, score
+		,nickname,profileImg,cnt,userNo,rownum r
+		FROM(SELECT
+		f.no,f.name,f.fah_img fahImg, NVL(s.score,0)score
+		,u.nickname,u.profile_img profileImg, NVL(l.cnt,0) cnt, f.user_no
+		userNo
+		FROM fahs f,users u,
+		(SELECT fah_no , SUM(score) score
+		FROM
+		fahiru_scores
+		WHERE regdate > systimestamp-60
+		GROUP BY fah_no) s,
+		(SELECT post_no,count(post_no) cnt
+		FROM likes
+		WHERE
+		category_no = 1
+		GROUP
+		BY post_no) l
+		WHERE s.fah_no(+) = f.no AND f.user_no = #{no}
+		AND
+		f.user_no = u.no
+		AND l.post_no(+) = f.no
+		ORDER BY score desc))
+		WHERE r
+		BETWEEN #{start} AND #{end}
+	</select>
+	<!-- 0709 승현 수정 end -->
+
+	<!-- 화씨 추가 -->
+	<insert id="insertFah" parameterType="Fah">
+		INSERT INTO FAHS(NO,
+		CATEGORY_NO, user_no, name, explanation, fah_img, REGDATE)
+		VALUES(71,
+		1, #{userNo}, #{name}, #{explanation}, null, SYSTIMESTAMP)
+	</insert>
+
+	<select id="selectListNew" resultType="Fah">
+		SELECT no, name, fahImg,
+		regdate
+		FROM(SELECT no, name, fahImg, regdate, rownum r
+		FROM(SELECT no, name, fah_img fahImg, regdate
+		FROM fahs
+		ORDER BY regdate DESC))
+		WHERE r BETWEEN 1 AND 5
+	</select>
+
+	<select id="selectListTfFahs" resultType="Fah"
+		parameterType="int">
+		SELECT f.name name, f.no no, f.category_no categoryNo, f.user_no userNo,
+		explanation
+		FROM post_fahs p, fahs f, trendy_foods tf, tf_cooks tc
+		WHERE p.fah_no = f.no
+		AND p.category_no = 2
+		AND tf.no = tc.no
+		AND tc.category_no = 2
+		AND p.post_no = tf.no
+		AND p.post_no = tc.no
+		AND tf.no = #{no}
+	</select>
+	
+	<!-- 	07090709 주하 -->
+	<select id="selectCookFahList" parameterType="int" resultType="Fah">
+		SELECT f.name name, f.no no, f.category_no categoryNo, f.user_no userNo,
+		explanation
+		FROM post_fahs p, fahs f, cooks c, tf_cooks tc
+		WHERE p.fah_no = f.no
+		AND p.category_no = 3
+		AND c.no = tc.no
+		AND p.post_no = c.no
+		AND p.post_no = tc.no
+		AND c.no = #{no}
+	</select>
+	
+
+
+
+</mapper>

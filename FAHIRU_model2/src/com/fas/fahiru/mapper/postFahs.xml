@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="postFahs">
+
+	<insert id="insertTf" parameterType="PostFah">
+		INSERT INTO POST_FAHS(NO, CATEGORY_NO, FAH_NO, POST_NO, REGDATE)
+		VALUES(POST_FAHS_SEQ.NEXTVAL, 2, #{fahNo}, #{postNo}, SYSTIMESTAMP)
+	</insert>
+
+	<select id="selectFahsList" resultType="postFah" parameterType="int">
+		SELECT p.post_no, p.CATEGORY_NO, tc.score, fah_no
+		FROM POST_FAHS p, TF_COOKS tc
+		WHERE FAH_NO = #{fahNo}
+		AND p.post_no=tc.no
+		ORDER BY 3
+	</select>
+	
+	<insert id="insertCook" parameterType="PostFah">
+		INSERT INTO POST_FAHS(NO, CATEGORY_NO, FAH_NO, POST_NO, REGDATE)
+		VALUES(POST_FAHS_SEQ.NEXTVAL, 3, #{fahNo}, #{postNo}, SYSTIMESTAMP)
+	</insert>
+	
+	<select id="selectListByFahNo" parameterType="int" resultType="PostFah">
+		SELECT no, category_no, post_no
+		FROM post_fahs
+		WHERE fah_no = #{fahNo}
+	</select>
+	
+</mapper>

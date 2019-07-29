@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="steps">
+
+	<insert id="insert" parameterType="Step">
+		INSERT INTO STEPS(no, cook_no, cook_step_img, cook_step_txt, cook_order)
+		VALUES(STEPS_SEQ.NEXTVAL, #{cookNo}, #{cookStepImg}, #{cookStepTxt}, #{cookOrder})
+	</insert>
+	
+<!-- 07090709 주하 -->
+<select id="selectStepList" resultType="Step" parameterType="int">
+	SELECT no, cook_no cookNo, cook_step_img cookStepImg, cook_step_txt cookStepTxt, cook_order cookOrder
+	FROM steps
+	WHERE cook_no = #{no}
+</select>
+	
+</mapper>

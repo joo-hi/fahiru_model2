@@ -1,0 +1,541 @@
+@charset "UTF-8";
+
+#bg{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0,0,0, .7);
+}
+
+a{
+	text-decoration:none;
+	color:#222222;
+}
+
+body {
+    user-select: none;
+    font-family: "Source Sans Pro", 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+}
+
+button:hover {
+    /*text-shadow: 3px 3px 2px #BDBDBD;*/
+    background: rgba(221, 44, 0,.8);
+}
+
+button {
+    cursor: pointer;
+}
+
+input{
+    border: none;
+    border-bottom: 1px #424242 solid;
+    padding: 5px;
+    font-family: "Source Sans Pro", 'Nanum Gothic Coding', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+#cookRegistWrap {
+    width: 894px;
+    background: #fafafa;
+    position: absolute;
+    margin-left: -500px;
+    left: 50%;
+    top: 10%;
+    border-radius: 100px 0 0 0;
+    margin-bottom: 100px;
+    padding: 50px;
+    /*border: 3px solid transparent;*/
+    box-shadow: .2em .2em 8px #000;
+}
+
+#basicInfo {
+    position: relative;
+    margin: auto;
+    /*background: hotpink;*/
+    height: 330px;
+}
+
+#totalIngredients {
+    position: relative;
+    /*background: lightpink;*/
+    min-height: 170px;
+    overflow: hidden;
+}
+
+#totalIngredients::after {
+    clear: both;
+}
+
+#cookingOrder {
+    position: relative;
+    min-height: 300px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+#tipAndOpen {
+    position: relative;
+    /*background: mediumpurple;*/
+    height: 100px;
+}
+
+#cookTit h1{
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-indent: 15px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+/* ----------- basicInfo ------------   */
+
+#cookPicture{
+	width:250px;
+	height:250px;
+}
+
+#basicInfo > div {
+    position: absolute;
+}
+
+#cookPicture label {
+    border: 1px solid #929292;
+    font-size: 50px;
+    /*background-color: #5cb85c;*/
+    cursor: pointer;
+    /*border: 1px solid #DD2C00;*/
+    border-radius: 10px;
+    padding: 10px 10px;
+    height: 250px;
+    width: 250px;
+    text-align: center;
+    line-height: 250px;
+    position: relative;
+    bottom: -20px;
+    left: 20px;
+}
+
+#cookPicture input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+#cookFah {
+    width: 500px;
+    min-height: 150px;
+    right: 70px;
+    top: 30px;
+}
+
+#cookFah span {
+    font-size: 22px;
+}
+
+#fahList {
+    position: absolute;
+    width: 220px;
+    height: 120px;
+    right: -50px;
+    top: 15px;
+    padding: 5px;
+}
+
+#fahEnterBtn{
+    width: 80px;
+    background: rgb(242, 85, 46);
+    color: #fafafa;
+    text-shadow: 1px 1px #424242;
+    font-size: 20px;
+    border: 2px solid transparent;
+    border-radius: 2px 2px 2px 2px;
+    position: relative;
+    left: 0;
+    padding: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    outline: none;
+}
+#fahEnterBtn:hover{
+    background: rgba(221, 44, 0,.8);
+}
+
+.entered_fah {
+    float: left;
+    border: 1px #424242 solid;
+    border-radius: 5px;
+    /*background: deepskyblue;*/
+    padding: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.enter_error {
+    color: red;
+    font-size: 16px;
+    bottom: 3px;
+}
+
+#cookName {
+    font-size: 20px;
+    width: 350px;
+    height: 70px;
+    right: 215px;
+    bottom: 150px;
+    line-height: 70px;
+}
+
+#cookAmount {
+    width: 200px;
+    line-height: 70px;
+    right: 365px;
+    bottom: 110px;
+    font-size: 20px;
+}
+
+#cookingTime {
+    font-size: 20px;
+    width: 500px;
+    height: 90px;
+    right: 65px;
+    bottom: 15px;
+}
+
+#cookingTime label {
+    font-size: 16px;
+}
+
+#basicInfo #cookingTimeTitle {
+    margin-bottom: 10px;
+    font-size: 22px;
+    position: relative;
+}
+
+/* ----------- totalIngredients ---------------   */
+
+#totalIngredients > div {
+    margin: 10px;
+    width: 300px;
+    font-size: 22px;
+    float: left;
+}
+
+#mainIngredients {
+    min-height: 170px;
+    /*background: red;*/
+}
+
+#sourceIngredients {
+    min-height: 170px;
+    top: 0;
+    /*left: 300px;*/
+    /*background: white;*/
+}
+
+.source_add_btn {
+    width: 230px;
+    background: rgb(242, 85, 46);
+    color: #fafafa;
+    text-shadow: 1px 1px #424242;
+    font-size: 20px;
+    border: 2px solid transparent;
+    border-radius: 2px 2px 2px 2px;
+    position: relative;
+    left: 0;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+
+.mainIng_add_btn{
+    width: 225px;
+    background: rgb(242, 85, 46);
+    color: #fafafa;
+    text-shadow: 1px 1px #424242;
+    font-size: 20px;
+    border: 2px solid transparent;
+    border-radius: 2px 2px 2px 2px;
+    position: relative;
+    left: 0;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+
+/* ----------- cookingOrder ---------------   */
+
+#cookingOrder h3 {
+    font-size: 28px;
+}
+
+#cookStepPictureAll {
+    width: 220px;
+
+    background: rgb(242, 85, 46);
+    font-size: 18px;
+    font-weight: bold;
+    color: #fafafa;
+    text-shadow: 1px 1px #424242;
+    padding: 15px;
+    position: absolute;
+    right: 50px;
+    border: none;
+    top: -15px;
+
+}
+
+.cook_step_box {
+    position: relative;
+    width: 900px;
+    height: 210px;
+}
+
+
+.cook_step_box h5 {
+    font-size: 30px;
+    position: absolute;
+    top: 30px;
+    left: 60px;
+}
+
+.step_add {
+    margin-top: 10px;
+    width: 505px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 2px 2px 2px 2px;
+    position: relative;
+    color: #fafafa;
+    text-shadow: 1px 1px #424242;
+    font-size: 20px;
+    left: 160px;
+    background: rgb(242, 85, 46);
+    padding: 10px;
+}
+
+.cook_step_text {
+    width: 500px;
+    height: 160px;
+    resize: none;
+    position: absolute;
+    left: 160px;
+    top: 30px;
+}
+
+.cook_step_box label {
+
+    font-size: 50px;
+    /*background-color: #5cb85c;*/
+    cursor: pointer;
+    border: 1px solid #929292;
+    border-radius: 10px;
+    padding: 10px 10px;
+    height: 150px;
+    width: 150px;
+    text-align: center;
+    line-height: 150px;
+    position: absolute;
+    right: 50px;
+    top: 27px;
+    position: absolute;
+}
+
+.cook_step_box input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.step_change {
+    font-size: 25px;
+    position: absolute;
+    right: 10px;
+    border: none;
+    background: transparent;
+}
+
+.step_delete {
+    background: transparent;
+    border: none;
+    position: absolute;
+    top: 60px;
+    right: 3px;
+    font-size: 28px;
+}
+
+.step_up {
+    top: 100px;
+}
+
+.step_down {
+    top: 140px;
+}
+
+
+/* ----------- tipAndOpen ---------------   */
+
+#tipAndOpen {
+    font-size: 28px;
+}
+
+#tipAndOpen > div {
+    position: absolute;
+}
+
+#tipAndOpen label{
+    margin-bottom: 20px;
+}
+
+#honeyTipAccept {
+    top: 20px;
+}
+
+#openAccept {
+    top: 60px;
+}
+
+#lastBtnBox {
+    height: 100px;
+    position: relative;
+}
+
+.cook_btn {
+    width: 120px;
+    background: rgb(242, 85, 46);
+    color: #fafafa;
+    text-shadow: 1px 1px #424242;
+    font-size: 20px;
+    border: 2px solid transparent;
+    border-radius: 2px 2px 2px 2px;
+    position: absolute;
+    padding: 10px;
+    margin-top: 40px;
+    cursor: pointer;
+    outline: none;
+}
+
+
+.cook_cancle_btn {
+    right: 50px;
+}
+
+.cook_regist_btn {
+    right: 180px;
+}
+
+.ing_box {
+    position: relative;
+    width: 500px;
+}
+
+.close {
+    position: absolute;
+    top: 3px;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+/*  --------------아이폰 토글--------------  */
+
+.form-switch {
+    display: inline-block;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.form-switch i {
+    position: relative;
+    display: inline-block;
+    margin-right: .5rem;
+    width: 46px;
+    height: 26px;
+    background-color: #e6e6e6;
+    border-radius: 23px;
+    vertical-align: text-bottom;
+    transition: all 0.3s linear;
+}
+
+.form-switch i::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 42px;
+    height: 22px;
+    background-color: #fff;
+    border-radius: 11px;
+    transform: translate3d(2px, 2px, 0) scale3d(1, 1, 1);
+    transition: all 0.25s linear;
+}
+
+.form-switch i::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    background-color: #fff;
+    border-radius: 11px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24);
+    transform: translate3d(2px, 2px, 0);
+    transition: all 0.2s ease-in-out;
+}
+
+.form-switch:active i::after {
+    width: 28px;
+    transform: translate3d(2px, 2px, 0);
+}
+
+.form-switch:active input:checked + i::after { transform: translate3d(16px, 2px, 0); }
+
+.form-switch input { display: none; }
+
+.form-switch input:checked + i { background-color: #4BD763; }
+
+.form-switch input:checked + i::before { transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0); }
+
+.form-switch input:checked + i::after { transform: translate3d(22px, 2px, 0); }
+
+#closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 40px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#cookImgPlace{
+	position:absolute;
+	left:30px;
+	top:30px;
+	display:none;
+}
+
+.stepImgPlace{
+    position: absolute;
+    top: 28px;
+    right: 51px;
+    width: 172px;
+    height: 172px;
+    border-radius: 10px;
+	display:none;
+}

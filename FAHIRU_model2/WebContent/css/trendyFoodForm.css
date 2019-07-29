@@ -1,0 +1,320 @@
+@charset "UTF-8";
+
+body {
+	user-select:none;
+}
+
+h2{
+    font-size: 20px;
+    font-weight: 700;
+    color: #424242;
+}
+h3{
+    font-size: 20px;
+    font-weight: 700;
+    color: #424242;
+}
+
+span{
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+    display: block;
+    color: #424242;
+
+}
+input{
+    border: none;
+    border-bottom: 1px #424242 solid;
+    padding: 5px;
+    font-family: "Source Sans Pro", 'Nanum Gothic Coding', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+#bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(10%,10%,10%,.55);
+    display: block;
+}
+
+#trendyFoodForm h1{
+    font-size: 40px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-indent: 15px;
+    color: #424242;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#trendyFoodForm{
+    width: 600px;
+    height: 400px;
+    position: fixed;
+    top:50%;
+    left: 50%;
+    margin-top: -230px;
+    margin-left: -330px;
+    background-color: #fafafa;
+    padding: 30px;
+    z-index: 10;
+}
+
+#wrap{
+    width: 580px;
+    min-height: 380px;
+    background-color: #FAFAFA;
+    position: relative;
+    padding: 10px;
+}
+
+#trendyFoodLeftBox{
+    width: 250px;
+    height: 330px;
+    padding: 10px;
+    position: relative;
+    float: left;
+}
+#trendyFoodImg label{
+    border: 1px solid #424242;
+    font-size: 50px;
+    /*background-color: #5cb85c;*/
+    cursor: pointer;
+    /*border: 1px solid #4cae4c;*/
+    border-radius: 10px;
+    height: 250px;
+    width: 250px;
+    text-align: center;
+    line-height: 250px;
+    position: relative;
+    background-size: 100% 100%;
+}
+
+
+#trendyFoodImg input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+#trendyFoodImgDataBox{
+    width: 230px;
+    height: 30px;
+    position: absolute;
+    padding: 10px;
+
+}
+#trendyFoodImgDataText{
+    color: #424242;
+}
+
+#trendyFoodImgData{
+    width: 170px;
+    height: 20px;
+    margin: 10px;
+}
+#trendyFoodRightBox{
+    width: 290px;
+    min-height: 330px;
+    float: left;
+    padding: 10px;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+#fahAdd{
+    width: 270px;
+    height:100px;
+    padding: 10px;
+}
+#fahAddInput{
+    margin: 5px;
+    width: 160px;
+    height: 20px;
+}
+#fahListBox{
+    width: 255px;
+    min-height: 30px;
+    max-height: 80px;
+    border: 1px solid #929292;
+    position: relative;
+    background-color: #F6F6F6;
+    padding: 3px;
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: right;
+    line-height: 16px;
+    overflow: auto;
+}
+#fahAddBtn{
+    width: 70px;
+    height: 25px;
+    background-color: rgb(242, 85, 46);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    color: #fafafa;
+    text-shadow: 1px 1px #424242;
+}
+
+
+#spot{
+    width: 270px;
+    height: 40px;
+    padding: 10px;
+    position: relative;
+
+}
+#spotInput{
+    margin: 5px;
+    width: 160px;
+    height: 20px;
+    cursor: not-allowed;
+}
+#trendyFood{
+    position: relative;
+    width: 270px;
+    height: 50px;
+    padding: 10px;
+
+}
+#trendyFoodInput{
+    margin: 5px;
+    width: 160px;
+    height: 20px;
+    cursor: not-allowed;
+}
+#trendyFoodBtn{
+    width: 70px;
+    height: 25px;
+    background-color: rgb(242, 85, 46);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fafafa;
+    text-shadow: 1px 1px #424242;
+}
+.trendy_food{
+    width: 200px;
+    height: 20px;
+    text-indent:15px;
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+}
+#priceBox{
+    width: 270px;
+    height: 40px;
+    padding: 10px;
+}
+
+#price{
+    margin: 5px;
+    width: 160px;
+    height: 20px;
+}
+
+#register{
+    width: 80px;
+    background: rgb(242, 85, 46);
+    color: #fafafa;
+    text-shadow: 1px 1px #424242;
+    font-size: 15px;
+    border: 2px solid transparent;
+    border-radius: 2px 2px 2px 2px;
+    position: absolute;
+    padding: 5px;
+    margin-top: 40px;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    bottom:0;
+    right: 110px;
+}
+#cancle{
+
+    width: 80px;
+    background: rgb(242, 85, 46);
+    color: #fafafa;
+    text-shadow: 1px 1px #424242;
+    font-size: 15px;
+    border: 2px solid transparent;
+    border-radius: 2px 2px 2px 2px;
+    position: absolute;
+    bottom:0;
+    right: 0;
+    padding: 5px;
+    margin-top: 40px;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+}
+#register a,#cancle a{
+    text-decoration: none;
+    color: #fafafa;
+    text-shadow: 1px 1px #424242;
+}
+.deco{
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.fa-window-close{
+    position: absolute;
+    right: 0;
+    top:0;
+    margin: 5px;
+    cursor: pointer;
+}
+.msg{
+    font-size: 10px;
+    color: rgb(242, 85, 46);
+    font-weight: 700;
+
+}
+
+.msg.ok{
+    color: #424242;
+}
+
+.fah{
+    margin: 3px;
+    float: left;
+    min-width: 40px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 1px;
+    background-color:rgb(242, 85, 46);
+    color: #F6F6F6;
+    border-radius: 5px;
+    text-align: left;
+
+}
+#closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 40px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#checkFahList span{
+	position:absolute;
+	left:26px;
+    color: red;
+    font-size: 13px;
+    display: none;
+}

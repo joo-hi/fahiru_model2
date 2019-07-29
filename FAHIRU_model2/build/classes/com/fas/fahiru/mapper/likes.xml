@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="likes">
+
+	<select id="myPageRepliesLikesCnt" resultType="Like" parameterType="Like">
+			SELECT NVL(count(*),0) replyLikeCnt
+		FROM likes
+		WHERE category_no IN(2,3)
+			  AND post_no = #{postNo}
+			  AND reply_no = #{replyNo}
+	</select>
+
+	<select id="selectSpotBucketCnt" resultType="int" parameterType="int">
+		SELECT NVL(COUNT(POST_NO),0) SpotBucketCnt
+		FROM LIKES
+		WHERE CATEGORY_NO = 4
+		AND POST_NO = #{postNo}
+	</select>
+		
+	<select id="selectTfReplyCnt" parameterType="int" resultType="int">
+		SELECT count(user_no) tfCnt
+		FROM LIKES
+		WHERE category_no = 2
+		AND REPLY_NO = #{replyNo}
+		AND post_no = #{postNo}
+	</select>
+	
+	<!-- 0609 -->
+	
+	
+	<select id="selectTfLikeCnt" parameterType="Like" resultType="Like">
+		SELECT count(user_no) tfLikeCnt
+		FROM likes
+		WHERE category_no = 2
+		AND reply_no = #{replyNo}
+		AND post_no = #{postNo}
+	</select>
+	
+	<select id="selectOne"
+	resultType="Like"
+	 parameterType="Like">
+		SELECT no, user_no userNo, regdate
+		FROM likes
+		WHERE user_no = #{memberNo}
+	</select>
+
+	<!-- 0617 쥬하 -->
+	<select id="selectBucketTFCnt" resultType="int" parameterType="int">
+		SELECT NVL(COUNT(POST_NO),0) bucketTFCnt
+		FROM LIKES
+		WHERE CATEGORY_NO = 2
+		AND POST_NO = #{postNo}
+		AND reply_no IS NULL
+	</select>
+	
+	<!-- 0617 쥬하 -->
+	<insert id="insertBucketTF" parameterType="Like">
+		INSERT INTO LIKES(no, category_no, post_no, user_no, regdate)
+		VALUES(likes_seq.nextval,2,#{postNo},#{userNo},systimestamp)
+	</insert>
+	
+		
+	<!-- 0619 주하 -->
+	<select id="selectTfBucket" parameterType="int" resultType="Like">
+		SELECT user_no userNO, post_no postNo
+		FROM LIKES
+		WHERE user_no = #{userNo}
+		AND category_no = 2
+	</select>
+	
+	<!-- 0619 주하 -->
+	<delete id="deleteTfBucket" parameterType="Like">
+		DELETE LIKES
+		WHERE user_no = #{userNo}
+		AND category_no = 2
+		AND post_no = #{postNo}
+	</delete>
+	
+	<!-- 0620 주하 -->
+	<insert id="insertTfReplyLike"  parameterType="Like" >
+		INSERT INTO LIKES(no, category_no, post_no, user_no, reply_no, regdate)
+		VALUES(likes_seq.nextval, 2, #{postNo}, #{userNo}, #{replyNo}, systimestamp)	
+	</insert>
+
+	<!-- 0620 주하 -->
+	<delete id="deleteTfReplyLike" parameterType="Like">
+		DELETE LIKES
+		WHERE user_no = #{userNo}
+		AND category_no = 2
+		AND post_no = #{postNo}
+		AND reply_no = #{replyNo}
+	</delete>
+
+	<!-- 0620 주하 -->
+	<select id="selectTfReplyLike" parameterType="Like" resultType="Like">
+		SELECT no, post_no, reply_no
+		FROM LIKES
+		WHERE user_no = #{userNo}
+		AND post_no = #{postNo}
+		AND reply_no = #{replyNo}
+		AND category_no = 2
+	</select>
+
+	<!-- 0621 주하 -->
+	<select id="selectLikeTfCnt" resultType="int" parameterType="Like">
+		SELECT NVL(COUNT(reply_NO),0) replyTFCnt
+		FROM LIKES
+		WHERE CATEGORY_NO = 2
+		AND POST_NO = #{postNo}
+		AND reply_no = #{replyNo}
+	</select>
+	
+	<select id="selectOneBucketCnt" resultType= "int" parameterType="int">
+		SELECT NVL(COUNT(POST_NO),0)
+		FROM likes
+		WHERE category_no IN(2,3)
+		AND post_no = #{postNo}
+		AND reply_no is null 
+	</select>
+
+	<insert id="insertSub" parameterType="Like">
+		INSERT INTO LIKES(NO, CATEGORY_NO, POST_NO, USER_NO, REGDATE)
+		VALUES(LIKES_SEQ.NEXTVAL, 1, #{postNo}, #{userNo}, SYSTIMESTAMP)
+	</insert>
+	
+	<delete id="deleteSub" parameterType="Like">
+		DELETE likes
+		WHERE category_no = 1 
+		AND user_no =#{userNo}
+		AND post_no = #{postNo}
+	</delete>
+	
+	<select id="selectSubCheck" resultType="Like" parameterType="Like">
+		SELECT no, category_no categoryNo, post_no postNo, user_no userNo, regdate
+		FROM LIKES
+		WHERE CATEGORY_NO = 1
+		AND USER_NO = #{userNo}
+		AND post_no = #{postNo}
+	</select>
+	
+	<select id="selectSubCnt" resultType="int" parameterType="int">
+		SELECT COUNT(*) cnt
+		FROM likes
+		WHERE category_no = 1
+		AND post_no = #{postNo}
+	</select>
+	
+	<select id="selectCheckSpotBucket" resultType="Like" parameterType="Like">
+		SELECT no, post_no postNo, user_no userNo, regdate
+		FROM likes
+		WHERE category_no = 4
+		AND post_no = #{postNo}
+		AND user_no = #{userNo}
+	</select>
+	
+	
+	<insert id="insertSpotBucket" parameterType="Like">
+		INSERT INTO LIKES(NO, CATEGORY_NO, POST_NO, USER_NO, REGDATE)
+		VALUES(LIKES_SEQ.NEXTVAL, 4, #{postNo}, #{userNo}, SYSTIMESTAMP)
+	</insert>
+	
+	<delete id="deleteSubBucket" parameterType="Like">
+		DELETE likes
+		WHERE category_no = 4 
+		AND user_no = #{userNo}
+		AND post_no = #{postNo}
+	</delete>
+	
+	
+<!-- 	model2 bucket/* sadf */ -->
+	
+	<insert id="insertBucket" parameterType="Like">
+		INSERT INTO likes(no,category_no, post_no, user_no, regdate)
+		VALUES(likes_Seq.nextval,#{categoryNo}, #{postNo}, #{userNo}, systimestamp)
+	</insert>
+	
+	<delete id="deleteBucket" parameterType="Like">
+		DELETE likes
+		WHERE category_no = #{categoryNo}
+		AND user_no =#{userNo}
+		AND post_no = #{postNo}	
+	</delete>
+	
+	<select id="selectBucketCheck" parameterType="Like" resultType="Like">
+		SELECT no, category_no categoryNo, post_no postNo, user_no userNo, regdate
+		FROM likes
+		WHERE category_no = #{categoryNo}
+		AND post_no = #{postNo}
+		AND user_no = #{userNo}
+		AND reply_no IS null
+	</select>
+	
+		<!-- 0617 쥬하 -->
+	<select id="selectBucketCnt" resultType="int" parameterType="int">
+		SELECT NVL(COUNT(POST_NO),0) bucketCnt
+		FROM LIKES
+		WHERE CATEGORY_NO = #{categoryNo}
+		AND POST_NO = #{postNo}
+		AND reply_no IS NULL
+	</select>
+	
+		<!-- 0620 주하 -->
+	<select id="selectReplyLikeCheck" parameterType="Like" resultType="Like">
+		SELECT no, post_no, reply_no
+		FROM LIKES
+		WHERE user_no = #{userNo}
+		AND post_no = #{postNo}
+		AND reply_no = #{replyNo}
+		AND category_no = #{categoryNo}
+	</select>
+	
+		<!-- 0620 주하 -->
+	<insert id="insertReplyLike"  parameterType="Like" >
+		INSERT INTO LIKES(no, category_no, post_no, user_no, reply_no, regdate)
+		VALUES(likes_seq.nextval, #{categoryNo}, #{postNo}, #{userNo}, #{replyNo}, systimestamp)	
+	</insert>
+
+	<!-- 0620 주하 -->
+	<delete id="deleteReplyLike" parameterType="Like">
+		DELETE LIKES
+		WHERE user_no = #{userNo}
+		AND category_no = #{categoryNo}
+		AND post_no = #{postNo}
+		AND reply_no = #{replyNo}
+	</delete>
+	
+
+	
+	<!-- 07090709 주하 -->	
+<select id="selectCookBucketCnt" parameterType="int" resultType="int">
+	SELECT NVL((count(user_no)),0) cookBucketCnt
+	FROM likes
+	WHERE category_no = 3
+	AND post_no = #{no}
+	AND reply_no IS NULL
+	AND step_no IS NULL
+	AND honeytip_no IS NULL
+</select>
+
+<!-- 07130713 주하 -->
+	<select id="selectReplyLikeCnt" parameterType="Like" resultType="int">
+		SELECT count(user_no) likeCnt
+		FROM LIKES
+		WHERE REPLY_NO = #{replyNo}
+		AND post_no = #{postNo}
+	</select>
+	
+<!-- 	07140714 주하 -->
+<insert id="insertCookTipLike" parameterType="Like">
+	insert into likes(no, category_no, post_no, user_no, step_no, honeytip_no, regdate)
+	values(cook_tips_seq.nextval, 2, #{no}, #{userNo}, #{stepNo}, #{honeytipNo}, systimestamp)
+</insert>
+
+<delete id="deleteCookTipLike" parameterType="Like">
+	delete likes
+	where category_no = 2
+	and user_no = #{userNo}
+	and post_no = #{no}
+	and step_no = #{stepNo}
+	and honeytip_no = #{honeytipNo}
+</delete>
+
+<select id="selectCookTipLike" parameterType="Like" resultType="Like">
+	select no, post_no postNo, user_no userNo, step_no stepNo, honeytip_no honeytipNo
+	from likes
+	where category_no = 2
+	and user_no = #{userNo}
+	and post_no = #{no}
+	and step_no = #{stepNo}
+	and honeytip_no = #{honeytipNo}
+</select>
+
+<select id="selectCookTipLikeCnt" parameterType="Like" resultType="int">
+	select count(user_no) cookTipLikeCnt
+	from likes
+	where category_no = 2
+	and post_no = #{no}
+	and step_no = #{stepNo}
+	and honeytip_no = #{honeytipNo}
+</select>
+
+</mapper>

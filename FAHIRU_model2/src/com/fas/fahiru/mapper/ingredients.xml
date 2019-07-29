@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ingredients">
+
+	<insert id="insert" parameterType="Ingredient">
+		INSERT INTO INGREDIENTS(no,cook_no, name, unit)
+		VALUES(INGREDIENTS_SEQ.NEXTVAL, #{cookNo}, #{name}, #{unit})
+	</insert>
+
+	<select id="selectIngredients" parameterType="int" resultType="Ingredient">
+	SELECT i.name name, i.unit unit
+	FROM INGREDIENTS i
+	where i.cook_no = #{no}
+	</select>
+	
+</mapper>

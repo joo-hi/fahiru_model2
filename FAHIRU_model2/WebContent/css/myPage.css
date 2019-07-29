@@ -1,0 +1,1616 @@
+@charset "UTF-8";
+
+body {
+	position: relative;
+	font-style: italic;
+}
+
+.follow a {
+	text-decoration: none;
+	color: #616161;
+}
+
+.following a {
+	text-decoration: none;
+	color: #616161;
+}
+
+#listBox li a {
+	text-decoration: none;
+	color: #616161;
+}
+
+.total_comment a {
+	text-decoration: none;
+	color: #616161;
+}
+
+.trendfood_card a {
+	text-decoration: none;
+	color: #616161;
+}
+
+#mypageListContent li {
+	list-style: none;
+}
+
+#mypageWrap {
+	width: 1100px;
+	background: #fafafa;
+	/*background: #424242;*/
+	position: relative;
+	margin: auto;
+}
+
+.menu1>img {
+	width: 80px;
+	height: 80px;
+	background-size: 100% 100%;
+}
+
+#mypageInfoSection {
+	width: 1100px;
+	height: 400px;
+	background: #fafafa;
+	/*background: darkred;*/
+	position: relative;
+}
+
+#mypageListSection {
+	width: 1100px;
+	min-height: 600px;
+	background: #fafafa;
+	/*background: darkgoldenrod;*/
+	position: relative;
+}
+
+#mypageInfoContent {
+	width: 750px;
+	height: 300px;
+	background: #fafafa;
+	/*background: darkolivegreen;*/
+	position: absolute;
+	left: 0;
+}
+
+#mypageInfoFunction {
+	width: 350px;
+	height: 300px;
+	background: #fafafa;
+	/*background: darkcyan;*/
+	position: absolute;
+	right: 0;
+}
+
+#mypageInfoBadge {
+	width: 1100px;
+	height: 100px;
+	/*background: blueviolet;*/
+	position: absolute;
+	bottom: 0;
+}
+
+#mypagePostList {
+	width: 1100px;
+	height: 40px;
+	background: #EEEEEE;
+	/*background: darkgrey;*/
+	position: relative;
+	margin-bottom: 5px;
+}
+
+#mypageList {
+	width: 1100px;
+	height: 50px;
+	background: #EEEEEE;
+	/*background: darkseagreen;*/
+	position: relative;
+	margin-bottom: 5px;
+}
+
+#mypageListContent {
+	min-height: 700px;
+	background: #fafafa;
+	/*background: darkblue;*/
+	position: relative;
+}
+
+#mypageInfoContent #mypageImg {
+	width: 250px;
+	height: 250px;
+	background-image: url("img/defaultimg.png");
+	background-size: 100% 100%;
+	position: absolute;
+	top: 30px;
+	left: 60px;
+	overflow: hidden;
+}
+
+#mypageImg img {
+	position: relative;
+	top: 47px;
+	left: 0px;
+	z-index: 0;
+	border-radius: 50%;
+}
+
+#mypageNickname {
+	width: 400px;
+	height: 120px;
+	background: #fafafa;
+	/*background: darkslategray;*/
+	position: absolute;
+	bottom: 150px;
+	left: 400px;
+}
+
+#mypageNickname h3 {
+	padding-left: 45px;
+	font-size: 70px;
+	text-shadow: 1px 1px #fafafa;
+	line-height: 120px;
+	position: absolute;
+}
+
+#mypageIntroduce {
+	width: 250px;
+	height: 140px;
+	background: #fafafa;
+	/*background: deepskyblue;*/
+	position: relative;
+	right: -425px;
+	bottom: -150px;
+}
+
+#mypageIntroduce{
+	width: 250px;
+	height: 140px;
+}
+
+#introduceContent {
+	position: absolute;
+	width: 250px;
+	height: 150px;
+	top: -10px;
+	left: 0;
+	resize: none;
+	display: none;
+}
+
+.infoFunction {
+	font-size: 20px;
+	cursor: pointer;
+	position: absolute;
+}
+
+.infoFunction:hover {
+	color: #fafafa;
+	text-shadow: 1px 1px #424242;
+}
+
+.mypage_follow {
+	left: 15px;
+	top: 75px;
+}
+
+.mypage_following {
+	left: 15px;
+	top: 105px;
+}
+
+.badge_card {
+	margin-top: 12px;
+	margin-left: 10px;
+	width: 75px;
+	height: 75px;
+	background: antiquewhite;
+	float: left;
+	cursor: pointer;
+}
+
+#mypageList .categoryList_on {
+	color: #DD2C00;
+}
+
+#mypagePostList .mypagelist_on {
+	color: #DD2C00;
+}
+
+#mypagePostList div:first-child {
+	margin-left: 390px;
+}
+
+#mypagePostList div {
+	position: relative;
+	cursor: pointer;
+	font-size: 20px;
+	font-weight: 700;
+	color: #424242;
+	float: left;
+	margin-top: 12px;
+	margin-right: 30px;
+}
+
+#mypagePostList div:hover {
+	cursor: pointer;
+	color: #DD2C00;
+	text-shadow: 1px 1px #424242;
+}
+
+#mypageList div:first-child {
+	margin-left: 350px;
+}
+
+#mypageList div {
+	position: relative;
+	cursor: pointer;
+	font-size: 30px;
+	font-weight: 700;
+	color: #424242;
+	float: left;
+	margin-top: 10px;
+	margin-right: 30px;
+}
+
+#mypageList div:hover {
+	cursor: pointer;
+	color: #DD2C00;
+	text-shadow: 1px 1px #424242;
+}
+
+.intro_btn {
+	right: -50px;
+	bottom: -5px;
+}
+
+.my_info_btn {
+	top: -290px;
+	right: 10px;
+}
+
+#mypageListContent>ul {
+	width: 1080px;
+	min-height: 580px;
+	/**/
+	/*background: red;*/
+	margin: auto;
+}
+
+.fah_card_li {
+	width: 250px;
+	height: 250px;
+	background: darkgrey;
+	float: left;
+	margin: 10px;
+	list-style: none;
+}
+
+/*    화씨 카드*/
+.fah_card {
+	width: 250px;
+	height: 250px;
+	position: relative;
+	overflow: hidden;
+}
+
+.fah_card h4 {
+	font-size: 40px;
+	color: #fff;
+	text-shadow: 1px 1px #424242;
+	position: absolute;
+	width: 250px;
+	height: 250px;
+	line-height: 250px;
+	left: 0;
+	top: 0;
+	text-align: center;
+}
+
+.fah_card_img {
+	width: 250px;
+	height: 250px;
+}
+
+.fah_card .title {
+	display: inline-block;
+	width: 210px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+}
+
+.fah_card .fah {
+	font-size: 32px;
+	vertical-align: middle;
+}
+
+.fah_card .back {
+	width: 250px;
+	height: 60px;
+	position: absolute;
+	left: 0;
+	transition: .10s ease;
+}
+
+.fah_card:hover .top {
+	top: 0;
+}
+
+.fah_card:hover .bottom {
+	bottom: 0;
+}
+
+.fah_card .top {
+	top: -60px;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100 */
+	background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%,
+		rgba(0, 0, 0, 0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%,
+		rgba(0, 0, 0, 0) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%,
+		rgba(0, 0, 0, 0) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000',
+		endColorstr='#00000000', GradientType=0); /* IE6-9 */
+}
+
+.fah_card .bottom {
+	bottom: -60px;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+	background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%,
+		rgba(0, 0, 0, 0.65) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%,
+		rgba(0, 0, 0, 0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,
+		rgba(0, 0, 0, 0.65) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000',
+		endColorstr='#a6000000', GradientType=0); /* IE6-9 */
+}
+
+.fah_card .trend_score {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 30px;
+	color: #FAFAFA;
+	text-shadow: 1px 1px #424242;
+}
+
+.fah_card .fah_user {
+	width: 35px;
+	height: 35px;
+	background-image: url("img/defaultimg.png");
+	background-size: 100% 100%;
+	border-radius: 50%;
+	position: absolute;
+	left: 10px;
+	bottom: 17px;
+}
+
+.fah_card .fah_nickname {
+	color: #FAFAFA;
+	position: absolute;
+	left: 5px;
+	bottom: 2px;
+}
+
+.fah_card .subscribe_icon {
+	width: 28px;
+	height: 28px;
+	background-image: url("img/fire.png");
+	background-size: 100% 100%;
+	position: absolute;
+	right: 5px;
+	bottom: 21px;
+}
+
+.fah_card .subscribe_cnt {
+	position: absolute;
+	color: #DD2C00;
+	right: 9px;
+	bottom: 4px;
+}
+
+/*trendy food card(red)*/
+.trendfood_card {
+	width: 250px;
+	height: 250px;
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+}
+
+.trendfood_card_li {
+	float: left;
+}
+
+.trendfood_img_card {
+	width: 250px;
+	height: 250px;
+}
+
+.trendfood_card .back {
+	width: 250px;
+	height: 60px;
+	position: absolute;
+	left: 0;
+	transition: .10s ease;
+}
+
+.trendfood_card:hover .top {
+	top: 0;
+}
+
+.trendfood_card:hover .bottom {
+	bottom: 0;
+}
+
+.trendfood_card .top {
+	top: -60px;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f26c43+1,000000+100&0.65+0,0+100 */
+	background: -moz-linear-gradient(top, rgba(242, 108, 67, 0.65) 0%,
+		rgba(242, 108, 67, 0.64) 1%, rgba(0, 0, 0, 0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(242, 108, 67, 0.65) 0%,
+		rgba(242, 108, 67, 0.64) 1%, rgba(0, 0, 0, 0) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(242, 108, 67, 0.65) 0%,
+		rgba(242, 108, 67, 0.64) 1%, rgba(0, 0, 0, 0) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6f26c43',
+		endColorstr='#00000000', GradientType=0); /* IE6-9 */
+}
+
+.trendfood_card .bottom {
+	bottom: -60px;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,f26c43+99&0+0,0.65+100 */
+	background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%,
+		rgba(242, 108, 67, 0.64) 99%, rgba(242, 108, 67, 0.65) 100%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%,
+		rgba(242, 108, 67, 0.64) 99%, rgba(242, 108, 67, 0.65) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,
+		rgba(242, 108, 67, 0.64) 99%, rgba(242, 108, 67, 0.65) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000',
+		endColorstr='#a6f26c43', GradientType=0); /* IE6-9 */
+}
+
+.trendfood_card .foodrendy_name {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	font-size: 30px;
+	color: #FAFAFA;
+	text-shadow: 1px 1px #424242;
+}
+
+/*taste badge start*/
+.trendfood_card .badgeBox_taste {
+	top: -10px;
+	right: -215px;
+	position: relative;
+	width: 28px;
+	height: 70px;
+	/*background: #e0e0e0;*/
+}
+
+.trendfood_card .badgeBox_taste>.badge {
+	width: 30px;
+	height: 55px;
+	position: absolute;
+	background: rgba(207, 16, 32, .9);
+	box-shadow: 1px 0 4px #424242;
+	border-radius: 2px 2px 1px 1px;
+}
+
+.trendfood_card .badgeBox_taste>.left {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8px;
+	border-color: rgba(207, 16, 32, .9) transparent transparent
+		rgba(207, 16, 32, .9);
+	float: left;
+	position: absolute;
+	left: 2px;
+	bottom: 0;
+}
+
+.trendfood_card .badgeBox_taste>.left:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 20px;
+	top: -15px;
+	left: 15px;
+	transform: rotate(45deg);
+	transform-origin: left top;
+	box-shadow: -2px 1px 8px 1px #424242;
+}
+
+.trendfood_card .badgeBox_taste>.right {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8px;
+	border-color: rgba(207, 16, 32, .9) rgba(207, 16, 32, .9) transparent
+		transparent;
+	float: left;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.trendfood_card .badgeBox_taste>.right:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 20px;
+	top: -15px;
+	left: 8px;
+	transform-origin: left top;
+	box-shadow: -2px 1px 8px 1px #424242;
+}
+
+.trendfood_card .badgeBox_taste .badge_taste {
+	position: absolute;
+	font-size: 30px;
+	color: #fafafa;
+	text-shadow: 1.5px 1.5px #424242;
+	left: 7px;
+	top: 15px;
+}
+
+/*taste badge end*/
+
+/* plating badge start*/
+.trendfood_card .badgeBox_plating {
+	left: 180px;
+	top: -80px;
+	position: relative;
+	width: 28px;
+	height: 70px;
+	/*background: #e0e0e0;*/
+}
+
+.trendfood_card .badgeBox_plating>.badge {
+	width: 30px;
+	height: 55px;
+	position: absolute;
+	background: rgba(43, 63, 107, .9);
+	box-shadow: 1px 0 4px #424242;
+	border-radius: 2px 2px 1px 1px;
+}
+
+.trendfood_card .badgeBox_plating>.left {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8px;
+	border-color: rgba(43, 63, 107, .9) transparent transparent
+		rgba(43, 63, 107, .9);
+	float: left;
+	position: absolute;
+	left: 2px;
+	bottom: 0;
+}
+
+.trendfood_card .badgeBox_plating>.left:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 20px;
+	top: -15px;
+	left: 15px;
+	transform: rotate(45deg);
+	transform-origin: left top;
+	box-shadow: -2px 1px 8px 1px #424242;
+}
+
+.trendfood_card .badgeBox_plating>.right {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8px;
+	border-color: rgba(43, 63, 107, .9) rgba(43, 63, 107, .9) transparent
+		transparent;
+	float: left;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.trendfood_card .badgeBox_plating>.right:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 20px;
+	top: -15px;
+	left: 8px;
+	transform-origin: left top;
+	box-shadow: -2px 1px 8px 1px #424242;
+}
+
+.trendfood_card .badge_plating {
+	position: absolute;
+	font-size: 30px;
+	font-weight: bold;
+	color: #fafafa;
+	text-shadow: 2px 2px #424242;
+	right: 7px;
+	top: 15px;
+}
+
+/* plating badge end*/
+.trendfood_card .btn {
+	font-size: 30px;
+	color: #DD2C00;
+	position: absolute;
+	right: 5px;
+	bottom: 21px;
+}
+
+.trendfood_card .buketlist_cnt {
+	position: absolute;
+	color: #DD2C00;
+	right: 9px;
+	bottom: 4px;
+}
+
+.cooking_score {
+	font-size: 30px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	text-shadow: 1px 0 #FAFAFA;
+}
+
+.trendfood_user .trendfood_img {
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	left: 10px;
+	bottom: 17px;
+}
+
+.trendfood_user .trendfood_nickname {
+	color: #FAFAFA;
+	position: absolute;
+	left: 5px;
+	bottom: 2px;
+}
+
+/*trendy food card(red) end*/
+
+/*cook card(yellow) css start*/
+.cook_card {
+	width: 250px;
+	height: 250px;
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+}
+
+.cook_card_li {
+	float: left;
+}
+
+.cook_img_card {
+	width: 250px;
+	height: 250px;
+}
+
+.cook_card .back {
+	width: 250px;
+	height: 60px;
+	position: absolute;
+	left: 0;
+	transition: .10s ease;
+}
+
+.cook_card:hover .top {
+	top: 0;
+}
+
+.cook_card:hover .bottom {
+	bottom: 0;
+}
+
+.cook_card .top {
+	top: -60px;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f26c43+1,000000+100&0.65+0,0+100 */
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,fff176+99&0+0,0.65+100 */
+	background: -moz-linear-gradient(top, rgba(255, 241, 118, 0.65) 0%,
+		rgba(255, 241, 118, 0.64) 1%, rgba(0, 0, 0, 0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(255, 241, 118, 0.65) 0%,
+		rgba(255, 241, 118, 0.64) 1%, rgba(0, 0, 0, 0) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(255, 241, 118, 0.65) 0%,
+		rgba(255, 241, 118, 0.64) 1%, rgba(0, 0, 0, 0) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6fff176',
+		endColorstr='#00000000', GradientType=0); /* IE6-9 */
+}
+
+.cook_card .bottom {
+	bottom: -60px;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,f26c43+99&0+0,0.65+100 */
+	background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%,
+		rgba(255, 241, 118, 0.64) 99%, rgba(255, 241, 118, 0.65) 100%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%,
+		rgba(255, 241, 118, 0.64) 99%, rgba(255, 241, 118, 0.65) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,
+		rgba(255, 241, 118, 0.64) 99%, rgba(255, 241, 118, 0.65) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000',
+		endColorstr='#a6fff176', GradientType=0); /* IE6-9 */
+}
+
+.cook_card .foodrendy_name {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	font-size: 30px;
+	color: #FAFAFA;
+	text-shadow: 1px 1px #424242;
+}
+
+.cook_card .btn {
+	font-size: 30px;
+	color: #DD2C00;
+	position: absolute;
+	right: 5px;
+	bottom: 21px;
+}
+
+.cook_card .buketlist_cnt {
+	position: absolute;
+	color: #DD2C00;
+	right: 9px;
+	bottom: 4px;
+}
+
+.cooking_score {
+	font-size: 30px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	text-shadow: 1px 0 #FAFAFA;
+}
+
+.cook_user .cook_img {
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	left: 10px;
+	bottom: 17px;
+}
+
+.cook_img img, .trendfood_img img {
+	width: 35px;
+	height: 35px;
+	background-image: url("img/defaultimg.png");
+	background-size: 100% 100%;
+	border-radius: 50%;
+}
+
+.cook_user .cook_nickname {
+	color: #FAFAFA;
+	position: absolute;
+	left: 5px;
+	bottom: 2px;
+}
+
+/*taste badge start*/
+.cook_card .badgeBox_taste {
+	top: -10px;
+	right: -215px;
+	position: relative;
+	width: 28px;
+	height: 70px;
+	/*background: #e0e0e0;*/
+}
+
+.cook_card .badgeBox_taste>.badge {
+	width: 30px;
+	height: 55px;
+	position: absolute;
+	background: rgba(207, 16, 32, .9);
+	box-shadow: 1px 0 4px #424242;
+	border-radius: 2px 2px 1px 1px;
+}
+
+.cook_card .badgeBox_taste>.left {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8px;
+	border-color: rgba(207, 16, 32, .9) transparent transparent
+		rgba(207, 16, 32, .9);
+	float: left;
+	position: absolute;
+	left: 2px;
+	bottom: 0;
+}
+
+.cook_card .badgeBox_taste>.left:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 20px;
+	top: -15px;
+	left: 15px;
+	transform: rotate(45deg);
+	transform-origin: left top;
+	box-shadow: -2px 1px 8px 1px #424242;
+}
+
+.cook_card .badgeBox_taste>.right {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8px;
+	border-color: rgba(207, 16, 32, .9) rgba(207, 16, 32, .9) transparent
+		transparent;
+	float: left;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.cook_card .badgeBox_taste>.right:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 20px;
+	top: -15px;
+	left: 8px;
+	transform-origin: left top;
+	box-shadow: -2px 1px 8px 1px #424242;
+}
+
+.cook_card .badgeBox_taste .badge_taste {
+	position: absolute;
+	font-size: 30px;
+	color: #fafafa;
+	text-shadow: 1.5px 1.5px #424242;
+	left: 7px;
+	top: 15px;
+}
+
+/*taste badge end*/
+
+/* plating badge start*/
+.cook_card .badgeBox_plating {
+	left: 180px;
+	top: -80px;
+	position: relative;
+	width: 28px;
+	height: 70px;
+	/*background: #e0e0e0;*/
+}
+
+.cook_card .badgeBox_plating>.badge {
+	width: 30px;
+	height: 55px;
+	position: absolute;
+	background: rgba(43, 63, 107, .9);
+	box-shadow: 1px 0 4px #424242;
+	border-radius: 2px 2px 1px 1px;
+}
+
+.cook_card .badgeBox_plating>.left {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8px;
+	border-color: rgba(43, 63, 107, .9) transparent transparent
+		rgba(43, 63, 107, .9);
+	float: left;
+	position: absolute;
+	left: 2px;
+	bottom: 0;
+}
+
+.cook_card .badgeBox_plating>.left:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 20px;
+	top: -15px;
+	left: 15px;
+	transform: rotate(45deg);
+	transform-origin: left top;
+	box-shadow: -2px 1px 8px 1px #424242;
+}
+
+.cook_card .badgeBox_plating>.right {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8px;
+	border-color: rgba(43, 63, 107, .9) rgba(43, 63, 107, .9) transparent
+		transparent;
+	float: left;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.cook_card .badgeBox_plating>.right:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 20px;
+	top: -15px;
+	left: 8px;
+	transform-origin: left top;
+	box-shadow: -2px 1px 8px 1px #424242;
+}
+
+.cook_card .badge_plating {
+	position: absolute;
+	font-size: 30px;
+	font-weight: bold;
+	color: #fafafa;
+	text-shadow: 2px 2px #424242;
+	right: 7px;
+	top: 15px;
+}
+
+/* plating badge end*/
+.cook_card .btn {
+	font-size: 30px;
+	color: #DD2C00;
+	position: absolute;
+	right: 5px;
+	bottom: 21px;
+}
+
+/* //cook card(red) end*/
+
+/* spot card */
+.spot_card {
+	width: 760px;
+	height: 260px;
+	background-color: #EEEEEE;
+	border: #9CCC65 4px solid;
+	margin: auto;
+	margin-bottom: 15px;
+	position: relative;
+	border-radius: 30px 0 0 0;
+	padding: 15px;
+	top: 15px;
+}
+
+.spot_card_main {
+	width: 300px;
+	height: 160px;
+	position: absolute;
+}
+
+.spot_name {
+	font-size: 22px;
+}
+
+.spot_img {
+	width: 225px;
+	height: 225px;
+	background-image: url("img/cake.jpg");
+	background-size: 100% 100%;
+	position: absolute;
+	margin-top: 7px;
+}
+
+.spot_score {
+	width: 180px;
+	height: 60px;
+	position: absolute;
+	left: 240px;
+	top: 42px;
+}
+
+.spot_score div {
+	float: left;
+	text-align: center;
+}
+
+.spot_fah {
+	width: 300px;
+	height: 20px;
+	position: absolute;
+	left: 235px;
+	overflow: auto;
+	top: 120px;
+}
+
+.spot_fah li {
+	margin-right: 10px;
+	float: left;
+}
+
+.spot_card_menu {
+	width: 300px;
+	height: 100px;
+	position: absolute;
+	bottom: 17px;
+	text-align: center;
+	left: 255px;
+}
+
+.spot_card_info {
+	top: 60px;
+	width: 170px;
+	height: 50px;
+	text-align: left;
+	right: 10px;
+	line-height: 20px;
+	position: absolute;
+}
+
+.spot_card_info li {
+	margin-bottom: 15px;
+}
+
+.spot_card_spotter {
+	width: 85px;
+	height: 85px;
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+}
+
+.spot_card_spotter a {
+	text-decoration: none;
+	color: #424242;
+}
+
+.spot_card_buket {
+	width: 85px;
+	height: 85px;
+	position: absolute;
+	right: 100px;
+	bottom: 20px;
+	font-size: 22px;
+	text-align: center;
+	line-height: 45px;
+}
+
+.spot_card_buket button {
+	width: 75px;
+	height: 75px;
+	font-size: 40px;
+	left: 5px;
+	position: absolute;
+	background-color: transparent;
+	border-radius: 30px;
+	border: none;
+}
+
+.spot_spotter_img {
+	width: 65px;
+	height: 65px;
+	margin-left: 10px;
+}
+
+.spot_spotter_img img {
+	background-image: url("img/defaultimg.png");
+	background-size: 100% 100%;
+	border-radius: 50%;
+	width: 65px;
+	height: 65px;
+}
+
+.spot_spotter_name {
+	font-size: 16px;
+	text-align: center;
+	line-height: 20px;
+}
+
+.menu_btn {
+	width: 30px;
+	height: 30px;
+	font-size: 20px;
+	border: none;
+	background-color: transparent;
+	position: absolute;
+	top: 50px;
+}
+
+.menu_prev {
+	left: -10px;
+}
+
+.menu_next {
+	right: -10px;
+}
+
+.trendy_menu_wrap {
+	width: 260px;
+	height: 80px;
+	background: white;
+	position: relative;
+	top: 2px;
+	margin: auto;
+	overflow: hidden;
+}
+
+.trendy_menu {
+	width: 80px;
+	height: 80px;
+	float: left;
+	margin-right: 10px;
+}
+
+.trendy_menu_box {
+	width: 320px;
+	height: 70px;
+	position: absolute;
+	left: 0;
+}
+
+.menu1 {
+	background: red;
+	background-size: 100% 100%;
+}
+
+.menu2 {
+	background: yellow;
+	background-size: 100% 100%;
+}
+
+.menu3 {
+	background: blue;
+	background-size: 100% 100%;
+}
+
+.menu4 {
+	background: darkorchid;
+	background-image: url("img/cake.jpg");
+	background-size: 100% 100%;
+}
+
+i {
+	color: #424242;
+}
+
+.spot_score i {
+	font-size: 50px;
+	margin-left: 15px;
+}
+
+.fa-thermometer-three-quarters {
+	color: blue;
+}
+
+.fa-temperature-high {
+	color: red;
+}
+
+/*spot */
+#mypageImg label {
+	font-size: 50px;
+	cursor: pointer;
+	position: absolute;
+	right: 0;
+	bottom: 40px;
+}
+
+#mypageImg input[type="file"] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+/*//////////////spot card///////////////*/
+
+/*/////////////팔로워/////////////*/
+#followBg {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .7);
+	position: absolute;
+	top: 0;
+	display: none;
+}
+
+#followWrap {
+	width: 400px;
+	height: 800px;
+	background: #FAFAFA;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-top: 50px;
+	margin-left: -200px;
+	border-radius: 15px 5px 0 0;
+	display: none;
+}
+
+#followTitle {
+	width: 400px;
+	height: 50px;
+	background: #FAFAFA;
+	border-bottom: 1px solid #424242;
+	border-radius: 15px 5px 0 0;
+	position: relative;
+}
+
+#followTitle h2 {
+	font-size: 25px;
+	text-shadow: 1px 1px #424242;
+	text-align: center;
+	line-height: 50px;
+}
+
+#followBox {
+	width: 400px;
+	min-height: 750px;
+	position: relative;
+	background: #ffff;
+	border-radius: 0 0 5px 5px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#followBox ul {
+	width: 400px;
+	height: 750px;
+	background: #FAFAFA;
+	padding-top: 10px;
+}
+
+.follow {
+	width: 400px;
+	height: 55px;
+	background: #FAFAFA;
+	margin-bottom: 1px;
+	position: relative;
+}
+
+.follow_img {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	left: 15px;
+	top: 5px;
+}
+
+.follow_img img {
+	width: 40px;
+	height: 40px;
+	background-image: url("img/defaultimg.png");
+	background-size: 100% 100%;
+	border-radius: 50%;
+}
+
+.follow_nickname {
+	position: absolute;
+	left: 70px;
+	top: 20px;
+}
+
+.follow_btn {
+	position: absolute;
+	right: 30px;
+	top: 15px;
+	box-shadow: .1em .1em #424242;
+	text-shadow: 1px 1px #424242;
+	border: 1px solid #424242;
+	border-radius: 3px;
+	outline: none;
+	cursor: pointer;
+	padding: 7px;
+	background: #fafafa;
+	color: #000;
+}
+
+.close {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-size: 40px;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	outline: none;
+}
+
+.follow_list_add {
+	width: 400px;
+	height: 55px;
+	text-align: center;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+/*follow css end*/
+
+/*following css start*/
+#followingBg {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .7);
+	position: absolute;
+	top: 0;
+	display: none;
+}
+
+#followingWrap {
+	width: 400px;
+	height: 800px;
+	background: #FAFAFA;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-top: 50px;
+	margin-left: -200px;
+	border-radius: 15px 5px 0 0;
+	box-shadow: .2em .2em #424242;
+	display: none;
+}
+
+#followingTitle {
+	width: 400px;
+	height: 50px;
+	background: #FAFAFA;
+	border-bottom: 1px solid #424242;
+	border-radius: 15px 5px 0 0;
+	position: relative;
+}
+
+#followingTitle h2 {
+	font-size: 25px;
+	text-shadow: 1px 1px #424242;
+	text-align: center;
+	line-height: 50px;
+}
+
+#followingBox {
+	width: 400px;
+	min-height: 750px;
+	position: relative;
+	background: #ffff;
+	border-radius: 0 0 5px 5px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#followingBox ul {
+	width: 400px;
+	height: 750px;
+	background: #FAFAFA;
+	padding-top: 10px;
+}
+
+.following {
+	width: 400px;
+	height: 55px;
+	background: #FAFAFA;
+	margin-bottom: 1px;
+	position: relative;
+}
+
+.following_img {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	left: 15px;
+	top: 5px;
+}
+
+.following_img img {
+	width: 40px;
+	height: 40px;
+	background-image: url("img/defaultimg.png");
+	background-size: 100% 100%;
+	border-radius: 50%;
+}
+
+.following_nickname {
+	position: absolute;
+	left: 70px;
+	top: 20px;
+}
+
+.follow_btn {
+	position: absolute;
+	right: 30px;
+	top: 15px;
+	box-shadow: .1em .1em #424242;
+	border: .5px solid #000;
+	border-radius: 3px;
+	outline: none;
+	cursor: pointer;
+	padding: 7px;
+	background-color: #fff;
+	color: #000;
+}
+
+.follow_btn.on {
+	border: .5px solid #000;
+	box-shadow: .1em .1em #424242;
+	text-shadow: 1px 1px #424242;
+	background: #DD2C00;
+	color: #fff;
+}
+
+.close {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-size: 40px;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+	outline: none;
+}
+
+.following_list_add {
+	width: 400px;
+	height: 55px;
+	text-align: center;
+	font-size: 30px;
+	cursor: pointer;
+}
+
+/*following css end */
+
+/*comment css start*/
+.total_comment {
+	position: relative;
+	/*background: #0BBC99;*/
+	width: 900px;
+	height: 200px;
+	margin: auto;
+	margin-bottom: 10px;
+	border: 1px solid #424242;
+}
+
+.user {
+	left: 100px;
+	position: absolute;
+	width: 100px;
+	height: 155px;
+}
+
+.user_img {
+	width: 100px;
+	height: 100px;
+	margin-bottom: 10px;
+	position: relative;
+	top: 20px;
+}
+
+.user_img img {
+	background-image: url("img/defaultimg.png");
+	background-size: 100% 100%;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+
+.comment_contents {
+	position: absolute;
+	width: 550px;
+	height: 115px;
+	/*background: red;*/
+	left: 200px;
+	padding: 20px;
+}
+
+.comment_img {
+	position: absolute;
+	width: 155px;
+	height: 155px;
+	/*background: #4b96e6;*/
+	right: 0;
+	bottom: -20px;
+}
+
+.comment_img img{
+	width: 155px;
+	height: 155px;
+	background-image: url("img/cake.jpg");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	
+}
+
+.total_heart {
+	position: absolute;
+	/*background: red;*/
+	width: 52px;
+	height: 70px;
+	right: 25px;
+	bottom:50px;
+	font-size: 20px;
+	text-align: center;
+	float: left;
+}
+.total_heart p{
+	display: block;
+	position: absolute;
+	left:20px;
+	bottom: 0;
+}
+
+.comment_heart_btn {
+	position: absolute;
+	background: transparent;
+	color: #FFAB91;
+	font-size: 40px;
+	border: transparent;
+	right: 0;
+	outline: none;
+}
+
+.text_center {
+	position: relative;
+	width: 100px;
+	height: 20px;
+	text-align: center;
+	top: 20px;
+}
+
+.more_btn {
+	width: 510px;
+	height: 50px;
+	background-color: #DD2C00;
+	text-align: center;
+	line-height: 22px;
+	user-select: none;
+	font-size: 25px;
+	color: #fff;
+	text-shadow: 1px 1px #424242;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	clear: both;
+	display: block;
+	margin: auto;
+}
+
+.more_btn:hover {
+	background-color: rgba(221, 44, 0, .9);
+}
+
+.mypage_btn {
+	border: none;
+	padding: 6px;
+	color: #fafafa;
+	background: #424242;
+	font-weight: bold;
+	border-radius: 2px;
+	text-shadow: 1px 1px #424242;
+	box-shadow: 1px 1px #000;
+	outline: none;
+	user-select: none;
+	cursor: pointer;
+	position: absolute;
+}
+
+.mypage_btn a {
+	text-decoration: none;
+	color: #fafafa;
+	display: block;
+}
+
+.mypage_btn:hover {
+	color: #000;
+}
+
+#myPageFollowBtn {
+	top: 0;
+	right: 0;
+}

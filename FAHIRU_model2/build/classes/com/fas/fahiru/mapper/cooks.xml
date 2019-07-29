@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cooks">
+
+	<!-- 0709 승현 수정 -->
+	<select id="MyPageCookBucketList" resultType="Cook"
+		parameterType="PageVO">
+		SELECT no,nickname,profileImg,score,name,img,taste,plating,cnt,systimestamp
+		FROM(SELECT
+		no,nickname,profileImg,score,name,img,taste,plating,cnt,systimestamp,rownum r
+		FROM(SELECT u.no no , nickname, profile_img profileImg, score, tc.name name, img,
+		c.taste taste, c.plating
+		plating,l.cnt cnt,systimestamp
+		FROM users u, tf_cooks tc, cooks c ,(SELECT post_no ,count(post_no) cnt
+		FROM likes
+		WHERE category_no=3
+		AND reply_no is null
+		AND step_no is null
+		AND honeytip_no is null
+		AND user_no = #{no}
+		GROUP BY post_no) l
+		WHERE u.no = tc.user_no AND l.post_no = tc.no AND tc.no = c.no))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	<!-- 0709 승현 수정 end -->
+
+
+<insert id="insert" parameterType="Cook">
+	INSERT INTO COOKS(no, cook_time, cook_amount, open_accept,
+					  tip_accept, regdate, taste, plating)
+	VALUES(#{no}, #{cookTime}, #{cookAmount}, #{openAccept}, #{tipAccept}, SYSTIMESTAMP, 0.0, 0.0)
+</insert>
+
+
+<select id="selectOneByNo" parameterType="int" resultType="fah">
+	SELECT f.name name, f.no no, f.category_no categoryNo, f.user_no userNo, explanation
+	FROM post_fahs p, fahs f, cooks c, tf_cooks tc
+	WHERE p.fah_no = f.no
+	AND p.category_no = 3
+	AND c.no = tc.no
+	AND tc.category_no = 3
+	AND p.post_no = c.no
+	AND p.post_no = tc.no
+	AND c.no = #{no}
+</select>
+	
+<select id="selectBucketCnt" parameterType="int" resultType="int">
+	SELECT count(user_no) cookBucketCnt
+	FROM likes
+	WHERE category_no = 3
+	AND post_no = #{postNo}
+</select>
+
+<select id="myPageCookList" parameterType="PageVO" resultType="Cook">
+SELECT no,categoryNo, score, taste, plating, name,nickname, profileImg, img,systimestamp, cnt
+FROM(SELECT no, categoryNo , score, taste, plating, name , nickname, profileImg,img,systimestamp, cnt, rownum r
+	 FROM(SELECT tc.no no, tc.category_no categoryNo,score,taste,plating, tc.name name,
+				 nickname,profile_img profileImg,img, systimestamp, NVL(l.cnt,0) cnt
+		 FROM tf_cooks tc, users u,cooks c,
+			  (SELECT post_no postNo, COUNT(POST_NO) cnt
+				FROM LIKES 
+				WHERE REPLY_NO IS NULL 
+				AND STEP_NO IS NULL 
+				AND HONEYTIP_NO IS NULL
+				AND CATEGORY_NO =3 
+				GROUP BY POST_NO) l
+    	 WHERE tc.user_no = u.no
+		 AND l.postNo(+) = tc.no
+		 AND c.no = tc.no
+		 AND u.no = #{no}
+		 AND category_no = 3
+		 ORDER BY SCORE DESC))
+WHERE r BETWEEN #{start} AND #{end}
+</select>
+
+
+
+<select id="selectCookFahList" parameterType="int" resultType="Fah">
+	SELECT f.name name
+	FROM post_fahs p, fahs f, cooks c, tf_cooks tc
+	WHERE p.fah_no = f.no
+	AND p.category_no = 3
+	AND c.no = tc.no
+	AND tc.category_no = 3
+	AND p.post_no = c.no
+	AND p.post_no = tc.no
+	AND c.no = #{no}
+</select>
+
+<!-- 	07090709 주하 -->
+<select id="selectOneCooksDetail" parameterType="int" resultType="Cook">
+	SELECT c.no no, tc.name name, tc.img img, tc.img_filter imgFilter, u.profile_img profileImg, nickname, c.taste taste, c.plating  plating,
+		   c.cook_time cookTime, c.cook_amount cookAmount, c.open_accept openAccept, c.tip_accept tipAccept, u.no userNo
+	FROM Users u, tf_cooks tc, cooks c
+	WHERE u.no = tc.user_no 
+	AND tc.no = c.no
+	AND tc.category_no = 3
+	AND c.no = #{no}
+</select>
+	
+</mapper>

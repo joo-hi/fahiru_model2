@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tfCooks">
+
+	<!-- trendyFoods 자동완성 select -->
+	<select id="selectTf" parameterType="String" resultType="TrendyFood">
+		SELECT DISTINCT name
+		FROM tf_cooks 
+		WHERE name LIKE #{trendyFoodName}
+	</select>
+	
+	<!-- tfCook insert -->
+	<insert id="insertTf" parameterType="TfCook">
+		<selectKey order="BEFORE" resultType="int" keyProperty="no">
+			SELECT tf_cook_seq.nextval 
+			FROM dual
+		</selectKey>
+		INSERT INTO tf_cooks(no, user_no, category_no, score, name , img, img_filter)
+		VALUES(#{no}, #{userNo}, 2, 0.0, #{name}, #{img}, null)
+	</insert>
+
+<!-- 0716 근경 추가 -->
+
+<!-- fahDetailPage 전체보기 -->
+	<select id="selectTcListByFahNo" resultType="TfCook"
+		parameterType="int">
+		SELECT tc.no, p.category_no categoryNo, tc.score, p.fah_no, tc.name,
+		u.nickname, u.profile_img profileImg, tc.img, NVL(l.cnt,0) CNT
+		FROM post_fahs p, tf_cooks tc, users u,
+		(SELECT POST_NO, COUNT(POST_NO) CNT
+		FROM LIKES
+		WHERE REPLY_NO IS NULL
+		AND STEP_NO IS NULL
+		AND HONEYTIP_NO IS NULL
+		AND CATEGORY_NO IN (2, 3)
+		GROUP BY POST_NO) l
+		WHERE p.post_no = tc.no
+		AND tc.user_no = u.no
+		AND p.category_no = tc.category_no
+		AND tc.no = l.post_no(+)
+		AND p.fah_no = #{fahNo}
+		ORDER BY SCORE DESC
+	</select>
+
+<!-- fahDetailPage tf만 보기 -->
+	<select id="selectTcListByFahNoTf" resultType="TfCook"
+		parameterType="int">
+		SELECT tc.no, p.category_no categoryNo, tc.score, p.fah_no, tc.name,
+		u.nickname, u.profile_img profileImg, tc.img, NVL(l.cnt,0) CNT
+		FROM post_fahs p, tf_cooks tc, users u,
+		(SELECT POST_NO, COUNT(POST_NO) CNT
+		FROM LIKES
+		WHERE REPLY_NO IS NULL
+		AND STEP_NO IS NULL
+		AND HONEYTIP_NO IS
+		NULL
+		AND CATEGORY_NO IN (2, 3)
+		GROUP BY POST_NO) l
+		WHERE p.post_no = tc.no
+		AND tc.user_no = u.no
+		AND p.category_no = tc.category_no
+		AND tc.no = l.post_no(+)
+		AND p.fah_no = #{fahNo}
+		AND tc.category_no = 2
+		ORDER BY SCORE DESC
+	</select>
+
+<!-- fahDetailPage cook만 보기 -->
+	<select id="selectTcListByFahNoCook" resultType="TfCook"
+		parameterType="int">
+		SELECT tc.no, p.category_no categoryNo, tc.score, p.fah_no, tc.name,
+		u.nickname, u.profile_img profileImg, tc.img, NVL(l.cnt,0) CNT
+		FROM post_fahs p, tf_cooks tc, users u,
+		(SELECT POST_NO, COUNT(POST_NO) CNT
+		FROM LIKES
+		WHERE REPLY_NO IS NULL
+		AND STEP_NO IS NULL
+		AND HONEYTIP_NO IS
+		NULL
+		AND CATEGORY_NO IN (2, 3)
+		GROUP BY POST_NO) l
+		WHERE p.post_no = tc.no
+		AND tc.user_no = u.no
+		AND p.category_no = tc.category_no
+		AND tc.no = l.post_no(+)
+		AND p.fah_no = #{fahNo}
+		AND tc.category_no = 3
+		ORDER BY SCORE DESC
+	</select>
+
+	<!-- main follow List에 user번호의 게시물 출력 -->
+	<select id="selectTcListByUserNo" resultType="TfCook"
+		parameterType="int">
+		SELECT tc.name, tc.user_no userNo, tc.score, tc.img,
+		NVL(l.cnt,0) CNT, r.regdate, tc.category_no categoryNo
+		FROM TF_COOKS
+		tc,
+		(SELECT POST_NO, COUNT(POST_NO) CNT
+		FROM LIKES
+		WHERE REPLY_NO IS NULL
+		AND STEP_NO IS NULL
+		AND HONEYTIP_NO IS NULL
+		AND CATEGORY_NO IN (2, 3)
+		GROUP BY POST_NO) l,
+		(SELECT t.no, ABS(CAST(tregdate AS DATE)-CAST(cregdate AS DATE)) regdate
+		FROM
+		(SELECT tc.no no, tc.name, NVL(t.regdate,TO_DATE('1970-01-01','YYYY-MM-DD'))
+		tregdate
+		FROM TRENDY_FOODS t, TF_COOKS tc
+		WHERE t.no(+) = tc.no) t,
+		(SELECT tc.no no, tc.name, NVL(c.regdate,TO_DATE('1970-01-01','YYYY-MM-DD'))
+		cregdate
+		FROM cooks c, TF_COOKS tc
+		WHERE c.no(+) = tc.no) c
+		WHERE t.no = c.no
+		ORDER BY REGDATE DESC) r
+		WHERE tc.no = l.post_no(+)
+		AND r.no = tc.no
+		AND
+		tc.user_no = #{userNo}
+	</select>
+	
+	<!-- 페이징처리 -->
+	<!-- fahDetailPage 전체보기 페이징처리 -->
+	<select id="selectTcListByFahNoMap" parameterType="PageVO" resultType="TfCook">
+SELECT no, categoryNo, score, fahNo, name, nickname, profileImg, img, cnt, r 
+FROM(SELECT no, categoryNo, score, fahNo, name, nickname, profileImg, img, cnt, rownum r
+FROM(SELECT tc.no, p.category_no categoryNo, tc.score, p.fah_no fahNo, tc.name,
+		u.nickname, u.profile_img profileImg, tc.img, NVL(l.cnt,0) CNT
+		FROM post_fahs p, tf_cooks tc, users u,
+		(SELECT POST_NO, COUNT(POST_NO) CNT
+		FROM LIKES
+		WHERE REPLY_NO IS NULL
+		AND STEP_NO IS NULL
+		AND HONEYTIP_NO IS NULL
+		AND CATEGORY_NO IN (2, 3)
+		GROUP BY POST_NO) l
+		WHERE p.post_no = tc.no
+		AND tc.user_no = u.no
+		AND p.category_no = tc.category_no
+		AND tc.no = l.post_no(+)
+		AND p.fah_no = #{no}
+		ORDER BY SCORE DESC))
+WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectTcListByFahNoMapTf" parameterType="PageVO" resultType="TfCook">
+		SELECT no,categoryNo,score,fahNo, name, nickname, profileImg,img,cnt, rownum r
+		FROM(SELECT no,categoryNo,score,fah_no fahNo, name, nickname, profileImg,img,cnt, rownum r
+		FROM(SELECT tc.no, p.category_no categoryNo, tc.score, p.fah_no, tc.name,
+		u.nickname, u.profile_img profileImg, tc.img, NVL(l.cnt,0) CNT
+		FROM post_fahs p, tf_cooks tc, users u,
+		(SELECT POST_NO, COUNT(POST_NO) CNT
+		FROM LIKES
+		WHERE REPLY_NO IS NULL
+		AND STEP_NO IS NULL
+		AND HONEYTIP_NO IS
+		NULL
+		AND CATEGORY_NO IN (2, 3)
+		GROUP BY POST_NO) l
+		WHERE p.post_no = tc.no
+		AND tc.user_no = u.no
+		AND p.category_no = tc.category_no
+		AND tc.no = l.post_no(+)
+		AND p.fah_no = #{no}
+		AND tc.category_no = 2
+		ORDER BY SCORE DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+		<select id="selectTcListByFahNoMapCook" parameterType="PageVO" resultType="TfCook">
+		SELECT no,categoryNo,score,fahNo, name, nickname, profileImg,img,cnt, rownum r
+		FROM(SELECT no,categoryNo,score,fah_no fahNo, name, nickname, profileImg,img,cnt, rownum r
+		FROM(SELECT tc.no, p.category_no categoryNo, tc.score, p.fah_no, tc.name,
+		u.nickname, u.profile_img profileImg, tc.img, NVL(l.cnt,0) CNT
+		FROM post_fahs p, tf_cooks tc, users u,
+		(SELECT POST_NO, COUNT(POST_NO) CNT
+		FROM LIKES
+		WHERE REPLY_NO IS NULL
+		AND STEP_NO IS NULL
+		AND HONEYTIP_NO IS
+		NULL
+		AND CATEGORY_NO IN (2, 3)
+		GROUP BY POST_NO) l
+		WHERE p.post_no = tc.no
+		AND tc.user_no = u.no
+		AND p.category_no = tc.category_no
+		AND tc.no = l.post_no(+)
+		AND p.fah_no = #{no}
+		AND tc.category_no = 3
+		ORDER BY SCORE DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+
+
+
+<!-- //0716 근경 끝 -->
+
+
+
+<!--  
+	<select id="selectTcListByFahNo" resultType="TfCook"
+		parameterType="int">
+		SELECT tc.no, p.category_no categoryNo, tc.score, p.fah_no, tc.name,
+		u.nickname, u.profile_img profileImg, tc.img, NVL(l.cnt,0) CNT
+		FROM post_fahs p, tf_cooks tc, users u,
+		(SELECT POST_NO, COUNT(POST_NO) CNT
+		FROM LIKES
+		WHERE REPLY_NO IS NULL
+		AND STEP_NO IS NULL
+		AND HONEYTIP_NO IS NULL
+		AND CATEGORY_NO IN (2, 3)
+		GROUP BY POST_NO) l
+		WHERE p.post_no = tc.no
+		AND tc.user_no = u.no
+		AND p.category_no = tc.category_no
+		AND tc.no = l.post_no(+)
+		AND p.fah_no = #{fahNo}
+		ORDER BY SCORE DESC
+	</select>
+
+	<select id="selectTcListByUserNo" resultType="TfCook"
+		parameterType="int">
+		SELECT tc.name, tc.user_no userNo, tc.score, tc.img,
+		NVL(l.cnt,0) CNT, r.regdate, tc.category_no categoryNo
+		FROM TF_COOKS
+		tc,
+		(SELECT POST_NO, COUNT(POST_NO) CNT
+		FROM LIKES
+		WHERE REPLY_NO IS NULL
+		AND STEP_NO IS NULL
+		AND HONEYTIP_NO IS NULL
+		AND CATEGORY_NO IN (2, 3)
+		GROUP BY POST_NO) l,
+		(SELECT t.no, ABS(CAST(tregdate AS DATE)-CAST(cregdate AS DATE)) regdate
+		FROM
+		(SELECT tc.no no, tc.name, NVL(t.regdate,TO_DATE('1970-01-01','YYYY-MM-DD'))
+		tregdate
+		FROM TRENDY_FOODS t, TF_COOKS tc
+		WHERE t.no(+) = tc.no) t,
+		(SELECT tc.no no, tc.name, NVL(c.regdate,TO_DATE('1970-01-01','YYYY-MM-DD'))
+		cregdate
+		FROM cooks c, TF_COOKS tc
+		WHERE c.no(+) = tc.no) c
+		WHERE t.no = c.no
+		ORDER BY REGDATE DESC) r
+		WHERE tc.no = l.post_no(+)
+		AND r.no = tc.no
+		AND
+		tc.user_no = #{userNo}
+	</select>
+-->
+
+	<insert id="cookInsert" parameterType="TfCook">
+		<selectKey order="BEFORE" resultType="int" keyProperty="no">
+			SELECT tf_cook_seq.nextval 
+			FROM dual
+		</selectKey>
+		INSERT INTO TF_COOKS(no,
+		user_no, category_no, score, name, img, img_filter)
+		VALUES(#{no},
+		#{userNo}, 3, 0.0, #{name}, #{img}, null)
+	</insert>
+
+	<select id="selectOne" resultType="TfCook"
+		parameterType="String">
+		SELECT no, name
+		FROM TF_COOKS
+		WHERE name = #{name}
+	</select>
+
+	<select id="selectListbySpotNo" parameterType="int"
+		resultType="TfCook">
+		SELECT tc.name name, tc.no no, tc.img img
+		FROM trendy_foods
+		f,tf_cooks tc
+		WHERE tc.no = f.no
+		AND f.spot_no = #{spotNo}
+	</select>
+
+
+	<!-- 수정해야하는 페이지 입니다._06-09*/ -->
+	<select id="selectGetTfCook" resultType="TfCook"
+		parameterType="TfCook">
+		SELECT s.name sNAme, tc.name tcName
+		FROM spots
+		s, tf_cooks tc, trendy_foods tf
+		WHERE s.no = tf.spot_no
+		AND tc.no =
+		tf.no
+		AND s.name=#{spotName}
+		AND tc.name = #{tfCookName}
+	</select>
+
+	<select id="selectListFeed" resultType="TfCook"
+		parameterType="int">
+		SELECT tc.NO, u.no userNo, SCORE, tc.NAME, IMG,
+		u.nickname, u.profile_img profileImg, tf.regdate,
+		tc.category_no categoryNo
+		FROM TF_COOKS tc, USERS u, trendy_foods tf
+		WHERE tc.NO IN
+		(SELECT POST_NO
+		FROM POST_FAHS
+		WHERE FAH_NO IN (SELECT POST_NO
+		FROM LIKES
+		WHERE CATEGORY_NO = 1
+		AND USER_NO = #{userNo})
+		GROUP BY POST_NO)
+		AND tc.user_no = u.no
+		AND tf.no = tc.no
+		ORDER BY regdate
+		DESC
+	</select>
+
+	<select id="selectListBySearch" resultType="TfCook"
+		parameterType="String">
+		SELECT tc.no, user_no userNo, score, name, img,
+		nickname, profile_img profileImg
+		FROM tf_cooks tc, users u
+		WHERE tc.no
+		IN (SELECT post_no
+		FROM post_fahs
+		WHERE fah_no IN (SELECT no
+		FROM FAHS
+		WHERE name LIKE #{name})
+		AND category_no=2)
+		AND tc.user_no = u.no
+	</select>
+
+	<select id="selectListTfBySearch" resultType="TfCook"
+		parameterType="String">
+		SELECT tf.no, tf.userNo, score, name, img, nickname,
+		profile_img profileImg
+		FROM(SELECT tc.no no, user_no userNo, score,
+		name, img
+		FROM tf_cooks tc
+		WHERE tc.no IN (SELECT post_no
+		FROM post_fahs
+		WHERE fah_no IN (SELECT no
+		FROM FAHS
+		WHERE name LIKE #{name})
+		AND category_no=2
+		GROUP BY post_no)
+		OR name LIKE #{name}
+		AND category_no = 2) tf, users u
+		WHERE
+		tf.userNo = u.no
+	</select>
+
+	<select id="selectListCookBySearch" resultType="TfCook"
+		parameterType="String">
+		SELECT tf.no, tf.userNo, score, name, img, nickname,
+		profile_img profileImg
+		FROM(SELECT tc.no no, user_no userNo, score,
+		name, img
+		FROM tf_cooks tc
+		WHERE tc.no IN (SELECT post_no
+		FROM post_fahs
+		WHERE fah_no IN (SELECT no
+		FROM FAHS
+		WHERE name LIKE #{name})
+		AND category_no=3
+		GROUP BY post_no)
+		OR name LIKE #{name}
+		AND category_no = 3) tf, users u
+		WHERE
+		tf.userNo = u.no
+	</select>
+
+
+</mapper>

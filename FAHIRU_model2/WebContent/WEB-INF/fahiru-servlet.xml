@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+	<!-- 꼭 설정해야함 -->
+	<mvc:annotation-driven />
+
+	<!-- 비지니스 로직이 전혀 없는 페이지는 그냥 view-controller설정이 가능 -->
+
+	<mvc:view-controller path="/main.jsp" />
+
+
+	<!-- Interceptor 설정 <mvc:interceptors> <mvc:interceptor> <bean class="com.fas.fahiru.interceptor.LoginCheckInterceptor"/> 
+		</mvc:interceptor> </mvc:interceptors> -->
+
+	<!-- REST경우 모든 요청을 DispatcherServlet에서 받기 때문에 css, js, fonts등 폴더들에 접근시키는 
+		설정이 필요 -->
+	<mvc:resources location="/css/" mapping="/css/**" />
+	<mvc:resources location="/fonts/" mapping="/fonts/**" />
+	<mvc:resources location="/js/" mapping="/js/**" />
+	<mvc:resources location="/img/" mapping="/img/**" />
+	<mvc:resources location="/profile/" mapping="/profile/**" />
+	<mvc:resources location="/upload/" mapping="/upload/**" />
+	<mvc:resources location="/cookImg/" mapping="/cookImg/**" />
+	<mvc:resources location="/cookStep/" mapping="/cookStep/**" />
+	<mvc:resources location="/replyImg/" mapping="/replyImg/**" />
+	<mvc:resources location="/tfImg/" mapping="/tfImg/**" />
+	<mvc:resources location="/spotImg/" mapping="/spotImg/**" />
+
+	<!-- /WEB-INF/view와 .jsp 중복을 편리하게 처리 컨트롤러에서 return자료형이 String일 경우 작동 -->
+	<mvc:view-resolvers>
+		<mvc:jsp suffix=".jsp" prefix="/WEB-INF/view/" />
+	</mvc:view-resolvers>
+
+	<!-- SpringWebMVC에 대한 설정 (Service에 의존하기에 p:로 주입) -->
+	<bean p:fahsService-ref="fahsService"
+		  p:tfCooksService-ref="tfCooksService"
+		class="com.fas.fahiru.controller.IndexController" />
+	
+	
+
+	<bean 
+		p:followsService-ref="followsService"
+		p:spotsService-ref="spotsService"
+		p:usersService-ref="usersService"
+		p:tfCooksService-ref="tfCooksService"
+		p:likesService-ref="likesService" 
+		p:imageUtil-ref="resizeImageUtil"
+		p:fileRenameUtil-ref="fileRenameUtil"
+		p:scoresService-ref="scoresService" 
+		p:fahsService-ref="fahsService"
+		p:repliesService-ref="repliesService"
+		p:cookTipsService-ref="cookTipsService"
+		class="com.fas.fahiru.controller.AjaxController" />
+
+	<bean p:fahsService-ref="fahsService"
+	p:tfCooksService-ref="tfCooksService"
+		class="com.fas.fahiru.controller.FahController"></bean>
+
+	<bean p:fileRenameUtil-ref="fileRenameUtil"
+		p:spotsService-ref="spotsService"
+		p:repliesService-ref="repliesService"
+		p:cooksService-ref="cooksService"
+		p:trendyFoodsService-ref="trendyFoodsService"
+		p:fahsService-ref="fahsService" p:usersService-ref="usersService"
+		p:imageUtil-ref="resizeImageUtil"
+		p:followsService-ref="followsService"
+		class="com.fas.fahiru.controller.MyPageAajaxController" />
+
+	<bean p:spotsService-ref="spotsService"
+		class="com.fas.fahiru.controller.SpotController" />
+
+	<bean p:usersService-ref="usersService"
+		class="com.fas.fahiru.controller.UserController" />
+
+	<bean p:trendyFoodsService-ref="trendyFoodsService"
+		class="com.fas.fahiru.controller.TfController" />
+
+	<bean p:cooksService-ref="cooksService"
+		p:postFahsService-ref="postFahsService"
+		p:sourcesService-ref="sourcesService"
+		p:tfCooksService-ref="tfCooksService"
+		p:stepsService-ref="stepsService"
+		p:ingredientsService-ref="ingredientsService"
+		p:usersService-ref="usersService"
+		p:cookTipsService-ref="cookTipsService"
+		class="com.fas.fahiru.controller.CookController" />
+	<bean class="com.fas.fahiru.controller.FormController"/>	
+	
+	<!-- MultipartResovler -->
+
+	<bean id="multipartResolver" p:defaultEncoding="UTF-8"
+		p:maxUploadSize="104857600"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+</beans>

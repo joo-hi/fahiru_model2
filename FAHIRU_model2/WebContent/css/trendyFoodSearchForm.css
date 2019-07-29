@@ -1,0 +1,234 @@
+@charset "UTF-8";
+
+#bg {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: rgba(10%, 10%, 10%, .55);
+}
+
+.tf_form {
+	position: relative;
+	padding: 0px;
+	min-height: 150px;
+	/*background-color: antiquewhite;*/
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0
+		rgba(0, 0, 0, 0.12);
+}
+
+#trendyFoodForm {
+	width: 600px;
+	min-height: 160px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -230px;
+	margin-left: -330px;
+	background-color: #fafafa;
+	padding: 50px;
+}
+
+.trendy_food.name {
+	position: absolute;
+	width: 330px;
+	height: 63px;
+	/*background-color: aqua;*/
+}
+
+.trendy_food.name span {
+	position: absolute;
+	left: 15px;
+	top: 34px;
+}
+
+#trendyFoodInputLine {
+	width: 244px;
+	position: relative;
+	border-bottom: 2px solid #424242;
+	float: left;
+	left: 75px;
+	top: 60px;
+}
+
+#trendyFoodInput {
+	width: 244px;
+	height: 28px;
+	border: none;
+	background-color: transparent;
+	position: absolute;
+	left: 0;
+	bottom: 0px;
+}
+
+.tf_auto {
+	position: absolute;
+	width: 244px;
+	background-color: #eee;
+	top: 62px;
+	left: 75px;
+	z-index: 1;
+	display: none;
+}
+
+#trendyFoodForm .tf_auto>ul {
+	position: relative;
+	list-style: none;
+}
+
+.tf_auto>ul>li {
+	position: relative;
+	width: 220px;
+	padding: 12px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0
+		rgba(0, 0, 0, 0.12);
+	cursor: pointer;
+}
+
+#spotSearch {
+	/*background-color: blueviolet;*/
+	position: absolute;
+	right: 0px;
+	top: 42px;
+	width: 275px;
+	height: 50px;
+	display: none;
+}
+
+#spotFoodName {
+	position: absolute;
+	line-height: 50px;
+	left: 15px;
+}
+
+#spotInputLine {
+	width: 200px;
+	height: 28px;
+	position: relative;
+	border-bottom: 2px solid #424242;
+	float: left;
+	left: 70px;
+	top: 10px;
+}
+
+#spotInput {
+	width: 200px;
+	height: 28px;
+	border: none;
+	background-color: transparent;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#searchBtn {
+	position: absolute;
+	width: 70px;
+	height: 40px;
+	/*background-color: darkgoldenrod;*/
+	right: 10px;
+	top: 95px;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
+#searchBtn:hover {
+	box-shadow: 0 0 1px 2px #ddd;
+}
+
+.spot_list {
+	/*background-color: coral;*/
+	position: relative;
+	min-width: 592px;
+	height: 300px;
+	padding: 4px;
+	list-style: none;
+	overflow-y: scroll;
+	display: none;
+}
+
+.spot_list .spot_detail {
+	/*background-color: darkgreen;*/
+	height: 50px;
+	margin: 10px 0px 10px 10px;
+	border-bottom: 1px solid #424242;
+	font-size:13px;
+}
+
+#spotList {
+	list-style: none;
+	position: absolute;
+	left: 8px;
+	line-height: 50px;
+	overflow: auto;
+	width:570px;
+}
+
+.spot_auto_item {
+	overflow: auto;
+	position: relative;
+}
+
+.spot_list .spot_detail .spot_name {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.spot_name:hover {
+	cursor: pointer;
+	text-decoration: underline #424242;
+}
+
+.accept {
+	width: 85px;
+	height: 30px;
+	position:absolute;
+	right:0px;
+}
+
+.accept_btn {
+	outline: none;
+	border: none;
+	border-bottom: 2px solid #424242;
+	cursor: pointer;
+	width: 85px;
+	height: 30px;
+}
+
+.disable_btn {
+	outline: none;
+	border: none;
+	border-bottom: 2px solid #424242;
+	cursor: pointer;
+	width: 85px;
+	height: 30px;
+	color: red;
+	cursor: not-allowed;
+}
+
+.deco {
+	position: absolute;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	width: 70px;
+	height: 35px;
+	margin-top: 8px;
+}
+
+.deco:hover {
+	box-shadow: 0 0 1px 2px #ddd;
+}
+
+#register {
+	right: 110px;
+}
+
+.cancel_btn a {
+	text-decoration: none;
+	color: #424242;
+	text-align: center;
+	right: 25px;
+	background-color: #ddd;
+	line-height: 35px;
+}

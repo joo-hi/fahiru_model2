@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="replies">
+	<!-- 0709 승현 수정 -->
+	<select id="myPageRepliesList"  parameterType="PageVO" resultType="Reply">
+	SELECT no,userNo,nickname,profileImg,postNo,categoryNo,content,replyImg,likeCnt,regdate
+	FROM(SELECT no,userNo,nickname,profileImg,postNo,categoryNo,content,replyImg,regdate,likeCnt ,rownum r
+		FROM(SELECT r.no no,u.no userNo,nickname,profile_img profileImg,r.post_no postNo,r.category_no categoryNo,content,reply_img replyImg,NVL(c.likes,0) likeCnt ,r.regdate regdate
+			FROM replies r,users u,
+			(SELECT reply_no,COUNT(*) likes
+			FROM likes
+			WHERE reply_no IS NOT NULL
+			GROUP BY reply_no) c
+			WHERE r.no = c.reply_no(+) AND u.no=r.user_no AND u.no = #{no}))
+	WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	
+	<select id="myPageRepliesLikeCnt" parameterType="int" resultType="int">
+		SELECT post_no,count(post_no) cnt 
+		FROM likes 
+		WHERE category_no IN(2,3)
+		AND post_no =#{postNo} AND step_no IS NULL AND honeytip_no IS NULL  
+		GROUP BY post_no
+	</select>
+	<!-- 0709 승현 수정 end -->
+	
+
+
+
+	
+	<!-- 0610 -->
+<delete id="deleteReply" parameterType="int">
+	DELETE replies
+	WHERE no = #{no}
+</delete>
+
+<select id="selectCheckMyReply" resultType="Reply" parameterType="Reply">
+	SELECT user_no userNo, COUNT(user_no) cnt
+	FROM REPLIES
+	WHERE user_No= #{userNo}
+	AND post_No = #{postNo}
+	GROUP BY user_no
+</select>
+
+<select id="selectListMyReply" resultType="Reply" parameterType="Reply">
+	SELECT r.no no, r.user_no userNo, r.post_no postNo, r.content, r.regdate, u.nickname nickname, u.profile_img profileImg, r.reply_img replyImg
+	FROM REPLIES r, users u
+	WHERE r.user_no = u.no
+	AND user_no = #{userNo}
+	AND post_no = #{postNo}
+</select>
+
+	
+<!-- 0618 쥬하 -->
+<update id="updateReply" parameterType="Reply">
+	UPDATE replies
+	SET content=#{content}
+	WHERE post_no = #{no}
+	AND category_no = 2
+</update>
+
+
+<!-- 0711 성표 -->
+<select id="selectTotalTFReplies" resultType="int" parameterType="int">
+	SELECT count(post_no)
+	FROM replies
+	WHERE category_no = 2
+	GROUP BY post_no
+	HAVING post_no = #{postNo}
+</select>
+
+<insert id="insert" parameterType="Reply">
+	INSERT INTO replies(no, category_no, user_no, post_no, content, reply_img, regdate)
+	VALUES(replies_seq.nextval, #{categoryNo}, #{userNo}, #{postNo}, #{content}, #{replyImg}, systimestamp)
+</insert>
+	
+	<!-- 0610 -->
+<delete id="delete" parameterType="int">
+	DELETE replies
+	WHERE no = #{no}
+</delete>
+
+<!-- 0711 홍성표 -->
+
+<select id="selectListReplyOrderByLike" parameterType="PageVO" resultType="Reply">
+	SELECT no, cnt, replyImg, rn
+	FROM(SELECT r.no, NVL(lc.cnt, 0) cnt, r.reply_img replyImg, rownum rn
+		 FROM replies r, (SELECT reply_no replyNo, count(*) cnt
+						  FROM likes 
+						  WHERE category_no = 2
+						  AND post_no = #{no}
+						  AND reply_no is not null
+						  GROUP BY reply_no
+						  ORDER BY cnt DESC) lc
+		WHERE post_no = #{no}
+		AND r.no = lc.replyNo(+)
+		AND r.reply_img is not null)
+	WHERE rn BETWEEN #{start} AND #{end}
+</select>
+
+<select id="selectReplyImgCnt" resultType="int" parameterType="int">
+	SELECT NVL(COUNT(*),0) cnt
+	FROM(SELECT r.no, NVL(lc.cnt, 0) cnt, r.reply_img replyImg, rownum rn
+		 FROM replies r, (SELECT reply_no replyNo, count(*) cnt
+						  FROM likes 
+						  WHERE category_no = 2
+						  AND post_no = #{no}
+						  AND reply_no is not null
+						  GROUP BY reply_no
+						  ORDER BY cnt DESC) lc
+		WHERE post_no = #{no}
+		AND r.no = lc.replyNo(+)
+		AND r.reply_img is not null)
+</select>
+
+<select id="selectRepliesTotal" resultType="int" parameterType="int">
+	SELECT COUNT(post_no) totalCnt
+	FROM replies
+	WHERE post_no = #{postNo}
+</select>
+
+<!-- 07110711 주하	 -->
+<insert id="insertTfReply" parameterType="Reply">
+	INSERT INTO replies(no, category_no, user_no, post_no, content, reply_img, regdate)
+	VALUES(replies_seq.nextval, 2, #{userNo}, #{postNo}, #{content}, #{replyImg}, systimestamp)
+</insert>
+
+<!-- 07130713 주하 -->
+<select id="selectListReplies"
+			resultType="Reply"
+			parameterType="PageVO">
+SELECT no, categoryNo, userNo, postNo, content, replyImg, regdate, nickname, profileImg
+FROM(SELECT no, categoryNo, userNo, postNo, content, replyImg, regdate, ROWNUM R, nickname, profileImg
+	 FROM (SELECT r.no no, r.category_no categoryNo, r.user_no userNo, r.post_no postNo, content, reply_img replyImg, r.regdate regdate, u.nickname nickname, u.profile_img profileImg
+	 	   FROM REPLIES r, CATEGORIES c, USERS u 
+	 	   WHERE c.no = 2
+		   AND r.post_no = #{no}
+		   AND u.no = r.user_no
+	  	   ORDER BY r.REGDATE))
+WHERE R BETWEEN #{start} AND #{end}
+</select>
+</mapper>

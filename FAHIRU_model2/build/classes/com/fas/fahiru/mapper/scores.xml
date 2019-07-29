@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="scores">
+
+
+<!-- 0626 주하 -->
+<select id="selectTasteTG" resultType="Score" parameterType="Score">
+	SELECT no, user_no userNo
+	FROM SCORES
+	WHERE CODE LIKE 'T%'
+	AND user_no = #{userNo}
+	AND post_no = #{postNo}
+	AND category_no = 2
+</select>
+
+
+
+<!-- 0627 주하 -->
+<select id="selectCheckTaste" parameterType="Score" resultType="Score">
+	SELECT no, user_no userNo, code, post_no postNo, category_no categoryNo
+	FROM SCORES
+	WHERE CODE LIKE 'T%'
+	AND user_no = #{userNo}
+	AND post_no = #{postNo}
+	AND category_no = #{categoryNo}
+</select>
+
+<!-- 0627 주하 -->
+<select id="selectCheckPlating" parameterType="Score" resultType="Score">
+	SELECT no, user_no userNo, code, post_no postNo, category_no categoryNo
+	FROM SCORES
+	WHERE CODE LIKE 'P%'
+	AND user_no = #{userNo}
+	AND post_no = #{postNo}
+	AND category_no = #{categoryNo}
+</select>
+
+<!-- 0622 주하 -->
+<insert id="insert" parameterType="Score">
+	INSERT INTO scores(no, category_no, user_no, post_no, code, regdate)
+	VALUES(scores_seq.nextval, #{categoryNo}, #{userNo}, #{postNo}, #{code}, systimestamp)
+</insert>
+
+<!-- 0626 주하 -->
+<delete id="delete" parameterType="Score">
+	DELETE SCORES
+	WHERE user_no = #{userNo}
+	AND post_no = #{postNo}
+	AND code = #{code}
+	AND category_no = #{categoryNo}
+</delete>
+
+
+<!-- 07150715 주하 -->
+<select id="selectTasteScore" parameterType="int" resultType="double">
+SELECT distinct ((baby.counting / mother.countingUnder) * 50) cookTasteResult
+FROM (SELECT count(user_no) counting
+	FROM SCORES
+	WHERE post_no = #{postNo}
+	AND code = 'TG')baby,(SELECT count(s.user_no) countingUnder
+						FROM SCORES s
+						WHERE code LIKE 'T%'
+						AND post_no = #{postNo}
+						GROUP BY post_no)mother, scores s
+</select>
+
+<!-- 07150715 주하 -->
+<select id="selectPlatingScore" parameterType="int" resultType="double">
+SELECT distinct((baby.counting / mother.countingUnder) * 50) cookPlatingResult
+FROM (SELECT count(user_no) counting
+	FROM SCORES
+	WHERE post_no = #{postNo}
+	AND code = 'PG')baby,(SELECT count(s.user_no) countingUnder
+						FROM SCORES s
+						WHERE code LIKE 'P%'
+						AND post_no = #{postNo}
+						GROUP BY post_no)mother, scores s
+</select>
+
+	
+</mapper>

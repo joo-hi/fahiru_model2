@@ -1,0 +1,105 @@
+#bg {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0, .7);
+    position: fixed;
+}
+#personalInfoWrap{
+    width: 800px;
+    height: 400px;
+    background: #fafafa;
+    border: 2px solid #424242;
+    position: absolute;
+    top:200px;
+    left:50%;
+    margin-left: -400px;
+}
+.update{
+    position: absolute;
+    bottom: -60px;
+    right:  -100px;
+}
+.personal_btn_cancle {
+    position: absolute;
+    bottom: -60px;
+    right: -200px;
+}
+
+.personal_btn_check {
+	height:35px;
+    margin-left: 7px;
+}
+
+.personl_btn_close {
+    position: absolute;
+    top: -95px;
+    right: -230px;
+    font-size: 40px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+#personalInfoForm {
+    position: absolute;
+    top:100px;
+    left: 400px;
+    margin-left: -135px;
+    user-select: none;
+
+}
+.msg{
+    position: absolute;
+    width:300px;
+    height: 5px;
+    font-size: 15px;
+    color: red;
+}
+
+.msg.ok{
+    color: #2196f3;
+    text-indent: 85px;
+}
+
+
+#personalInfoForm h3 {
+    position: relative;
+    top: -50px;
+    font-size: 30px;
+}
+
+#personalInfoForm h4 {
+    font-size: 20px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#personalInfoForm div {
+    margin-bottom: 20px;
+}
+
+.input {
+    width: 120px;
+    height: 25px;
+}
+
+.personal_btn {
+    width: 80px;
+    height: 40px;
+    border: none;
+    padding: 6px;
+    color: #fff;
+    background: rgb(242, 85, 46);
+    border-radius: 2px;
+    text-shadow: 1px 1px #424242;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.personal_btn:hover{
+
+    background: rgba(242, 85, 46,.9);
+}
+
+
+

@@ -1,0 +1,126 @@
+@charset "UTF-8";
+.add_fah{
+    top:27px;
+    right: 200px;
+    cursor: pointer;
+}
+ul .category,.f_r{
+    position: absolute;
+    margin: 0;
+}
+
+.login{
+	width:90px;
+	height:30px;
+	position:absolute;
+	right:80px;
+	top:55px;
+	text-align:center;
+	font-size:26px;
+	line-height:30px;
+	color:#222222;
+}
+
+header{
+    width:100%;
+    height: 90px;
+    background: transparent;
+    border-bottom: 1px solid #BDBDBD;
+}
+#header>ul{
+	margin-top:20px;
+}
+
+.login_user{
+	margin-top:20px;
+} 
+
+.bold .main a{
+    background-image: url("../img/fahiruLogo.png");
+    width: 211px;
+    height: 65px;
+    background-size:100% 100%;
+}
+.main a{	
+	width:211px;
+	height:65px;
+	display:block;
+    text-indent:-999px;
+    overflow:hidden;
+}
+
+.add_fah{
+	width: 70px;
+    height: 39px;
+    text-indent:-9999px;
+    background-size:100% 100%;
+    background-image: url("../img/addFah.PNG");
+} 
+
+header a{
+	text-decoration: none;
+	font-size:30px;
+    font-weight:900;
+    background: transparent;
+    color: #222222;
+}
+
+.main{
+    top: 10px;
+    left: 70px;
+}
+
+.fah{
+    top: 40px;
+    left: 380px;
+}
+.spot{
+    top: 40px;
+    left: 620px;
+}
+.search{
+    top: 40px;
+    left: 765px;
+}
+.fah:hover {
+    cursor:pointer;
+    text-shadow: 2px 2px 1px #424242;
+    color:#E0E0E0;
+}
+
+.spot:hover{
+    cursor:pointer;
+    text-shadow: 2px 2px 1px #424242;
+    color:#E0E0E0;
+}
+
+.search:hover{
+    cursor:pointer;
+    text-shadow: 2px 2px 1px #424242;
+    color:#E0E0E0;
+}
+
+.add_fah:hover{
+    cursor:pointer;
+    text-shadow: 2px 2px 1px #424242;
+    color:#E0E0E0;
+}
+
+.login_user{
+	width:70px;
+	height:70px;
+	background: url("../img/defaultimg.png");
+    background-size: 100% 100%;
+	position:absolute;
+	cursor:pointer;
+	right:90px;
+	top:15px;
+    border-radius: 50%;
+}
+
+.login a{
+	text-decoration:none;
+	color: #222222;
+}
+
+

@@ -1,0 +1,222 @@
+@charset "UTF-8";
+#fahWrap {
+
+    width: 1100px;
+    min-height: 800px;
+    background-color: #FAFAFA;
+    margin:100px auto;
+    position: relative;
+    border: 2px solid #424242;
+}
+
+#fahSearch {
+    position: absolute;
+    top:30px;
+    z-index:5;
+
+    /*background: #9CCC65;*/
+}
+#fahFilter {
+
+    height: 100px;
+    /*background:deepskyblue;*/
+	z-index:1;
+}
+
+.card_fah{
+    width:250px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card_fah:hover {
+    cursor: pointer;
+}
+
+.card_fah h4 {
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 1px 1px #424242;
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    line-height: 250px;
+    left: 0;
+    top: 0;
+    text-align: center;
+    user-select: none;
+
+
+}
+.img_card_fah {
+
+    width: 250px;
+    height: 250px;
+}
+.card_fah .title {
+    display: inline-block;
+    width: 210px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+.card_fah .fah {
+    font-size: 32px;
+    vertical-align: middle;
+}
+
+.card_fah .back {
+    width: 250px;
+    height: 60px;
+    position: absolute;
+    left: 0;
+    transition: .1s ease;
+}
+.card_fah:hover .top{
+    top:0;
+    cursor: pointer;
+}
+
+.card_fah:hover .bottom {
+    bottom: 0;
+    cursor: pointer;
+}
+.card_fah .top {
+    top:-60px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100 */
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+
+}
+.card_fah .bottom {
+    bottom: -60px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.65+100 */
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+}
+.card_fah .trend_score {
+    position: absolute;
+    top:10px;
+    right: 10px;
+    font-size: 30px;
+    color: #FAFAFA;
+    text-shadow: 1px 1px #424242;
+    user-select: none;
+}
+
+.card_fah .fah_user {
+    width: 35px;
+    height: 35px;
+    background-image: url("img/defaultimg.png");
+    background-size: 100% 100%;
+    border-radius: 50%;
+    position: absolute;
+    left: 12px;
+    bottom: 20px;
+}
+
+.card_fah .fah_nickname {
+    color:#FAFAFA;
+    position: absolute;
+    left: 5px;
+    bottom: 2px;
+}
+
+.card_fah .subscribe_icon {
+    width: 28px;
+    height: 28px;
+    background-image: url("img/fire.png");
+    background-size: 100% 100%;
+    position: absolute;
+    right: 5px;
+    bottom: 21px;
+}
+
+.card_fah .subscribe_cnt {
+    position: absolute;
+    color: #DD2C00;
+    right: 13px;
+    bottom: 4px;
+}
+
+.card_fah_list {
+    float: left;
+    margin:5px;
+}
+
+#fahSearch {
+    position: relative;
+}
+
+#fahSearchForm {
+    position: absolute;
+    left: 50%;
+    margin-left:-280px;
+}
+
+#fahFilter {
+    position: relative;
+    z-index: 3;
+}
+#fahFilterForm {
+    position: absolute;
+    right: 40px;
+    bottom: 50px;
+    z-index: 2;
+
+}
+
+#fahSearch .innerSearch{
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+
+}
+
+#fahInputForm {
+    width: 350px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #424242;
+    box-shadow: 0 1px #424242;
+    outline: none;
+    z-index: 1;
+}
+
+#fahSection ul {
+    width: 1040px;
+    margin: auto;
+
+
+}
+
+
+.more_btn {
+    width: 510px;
+    height: 50px;
+    background-color:#DD2C00;
+    text-align: center;
+    line-height: 22px;
+    user-select: none;
+    font-size: 25px;
+    color: #fff;
+    text-shadow: 1px 1px #424242;
+    bottom: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+	clear:both;
+    display: block;
+    margin:auto;
+}
+.more_btn:hover {
+    background-color:rgba(221, 44, 0,.9);
+}

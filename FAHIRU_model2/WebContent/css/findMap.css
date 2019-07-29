@@ -1,0 +1,289 @@
+@charset "UTF-8";
+button{
+    cursor: pointer;
+}
+
+#spotCheckWrap{
+    width: 900px;@charset "UTF-8";
+
+a{
+	text-decoration: none;
+}
+
+button{
+    cursor: pointer;
+}
+
+#spotCheckWrap{
+    width: 900px;
+    height: 700px;
+    position: relative;
+    margin: 50px auto ;
+    background: #fafafa;
+
+}
+
+#spotSearchSection{
+    height: 70px;
+    /*left: 50%;*/
+    /*margin-left:-250px;*/
+    text-align: center;
+    position: relative;
+    /*background: hotpink;*/
+    line-height: 70px;
+}
+
+#spotListSection{
+    width: 400px;
+    height: 460px;
+    position: absolute;
+    /*background: lightpink;*/
+    overflow-y: auto;
+    padding: 10px;
+    right:0;
+    top: 70px;
+}
+
+.spot_one {
+    margin-bottom: 10px;
+    font-size:17px;
+}
+
+.spot_one span{
+    line-height: 20px;
+}
+
+#spotListSection ul{
+    width: 360px;
+    list-style: decimal;
+    padding-left: 30px;
+}
+
+ul li {
+    width: 360px;
+    cursor: pointer;
+    position: relative;
+}
+
+.spot_check{
+    width: 70px;
+    height: 30px;
+    position: absolute;
+    font-size: 15px;
+    right: 0px;
+    top: 0;
+    text-align: center;
+    line-height: 40px;
+}
+
+#oneAddress {
+    width: 450px;
+    height: 100px;
+    position: absolute;
+    font-size: 20px;
+    text-align: right;
+    bottom: 0;
+    /*background-color: #9CCC65;*/
+}
+
+#map {
+    font-size: 70px;
+    line-height: 200px;
+    text-align: center;
+    width: 471px;
+    height: 471px;
+    border: 2px #424242 solid;
+    text-shadow: 4px 4px 1px #BDBDBD;
+    border-radius: .25em;
+    position: relative;
+    right:0;
+    background-color: #fafafa;
+}
+
+#spotResistBtn{
+    position:absolute;
+    font-size: 30px;
+    right: 60px;
+    bottom: -100px;
+    border: 3px solid #424242;
+    border-radius: 10px;
+    background: transparent;
+}
+
+#spotResistBtn:hover{
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#get{
+	width:20px;
+	height:20px;
+}
+
+.inner_search {
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+}
+.inner_search:hover{
+    text-shadow: 1px 1px 1px #424242;
+}
+
+#place {
+    width: 200px;
+    height: 25px;
+    outline: none;
+    background-color: #F5F5F5;
+    padding: 10px;
+    border: none;
+    box-shadow: 0 2px 5px 0 #E0E0E0, 0 2px 10px 0 #E0E0E0;
+    font-family: "Source Sans Pro", 'Nanum Gothic Coding', sans-serif;
+    font-weight: 500;
+}
+#place:focus{
+    border-bottom: 3px solid #424242;
+    box-shadow: 0 12px 15px 0 #BDBDBD, 0 17px 50px #E0E0E0 ;
+}
+    height: 700px;
+    position: relative;
+    margin: 50px auto ;
+    background: #fafafa;
+
+}
+
+#spotSearchSection{
+    height: 70px;
+    /*left: 50%;*/
+    /*margin-left:-250px;*/
+    text-align: center;
+    position: relative;
+    /*background: hotpink;*/
+    line-height: 70px;
+}
+
+#spotListSection{
+    width: 400px;
+    height: 460px;
+    position: absolute;
+    /*background: lightpink;*/
+    overflow-y: auto;
+    padding: 10px;
+    right:0;
+    top: 70px;
+}
+
+.spot_one {
+    margin-bottom: 10px;
+    font-size:17px;
+}
+
+.spot_one span{
+    line-height: 20px;
+}
+
+#spotListSection ul{
+    width: 360px;
+    list-style: decimal;
+    padding-left: 30px;
+}
+
+ul li {
+    width: 360px;
+    cursor: pointer;
+    position: relative;
+}
+
+#spotCheck{
+    width: 70px;
+    height: 30px;
+    position: absolute;
+    font-size: 15px;
+    right: 0px;
+    top: 0;
+    text-align: center;
+    line-height: 40px;
+}
+
+#oneAddress {
+    width: 450px;
+    height: 100px;
+    position: absolute;
+    font-size: 20px;
+    text-align: right;
+    bottom: 0;
+    /*background-color: #9CCC65;*/
+}
+
+#map {
+    font-size: 70px;
+    line-height: 200px;
+    text-align: center;
+    width: 471px;
+    height: 471px;
+    border: 2px #424242 solid;
+    text-shadow: 4px 4px 1px #BDBDBD;
+    border-radius: .25em;
+    position: relative;
+    right:0;
+    background-color: #fafafa;
+}
+
+#spotResistBtn{
+    position:absolute;
+    font-size: 30px;
+    right: 60px;
+    bottom: 50px;
+    border: 3px solid #424242;
+    border-radius: 10px;
+    background: transparent;
+}
+
+#spotResistBtn:hover{
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.regist:hover{
+    text-shadow: 1px 1px 1px #424242;
+}
+
+#get{
+	width:20px;
+	height:20px;
+}
+
+.inner_search {
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+}
+.inner_search:hover{
+    text-shadow: 1px 1px 1px #424242;
+}
+
+#place {
+    width: 200px;
+    height: 25px;
+    outline: none;
+    background-color: #F5F5F5;
+    padding: 10px;
+    border: none;
+    box-shadow: 0 2px 5px 0 #E0E0E0, 0 2px 10px 0 #E0E0E0;
+    font-family: "Source Sans Pro", 'Nanum Gothic Coding', sans-serif;
+    font-weight: 500;
+}
+#place:focus{
+    border-bottom: 3px solid #424242;
+    box-shadow: 0 12px 15px 0 #BDBDBD, 0 17px 50px #E0E0E0 ;
+}
+
+.spot_check{
+	color:blue;
+}
+
+#this{
+	height:150px;
+}
+
+#this a{
+	color:#424242;
+	decoration:none;
+}

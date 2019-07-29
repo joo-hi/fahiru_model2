@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="users">
+
+<select id="selectLogin"
+		resultType="User"
+		parameterType="User">
+		SELECT no, email, nickname, password, birth_date birthDate, gender, message, profile_img profileImg
+		FROM Users
+		WHERE email = #{email} AND password= #{password}
+</select>
+
+<select id="selectCheckEmail"
+	resultType="int"
+	parameterType="string">
+	SELECT COUNT(*)
+	FROM users
+	WHERE email = #{email}
+</select>
+
+<insert id="insertSign" parameterType="User">
+	INSERT INTO Users(no, email, nickname, password, gender, birth_date, regdate)
+	VALUES(users_seq.nextval, #{email}, #{nickname}, #{password}, #{gender}, #{birthDate}, SYSTIMESTAMP)
+</insert>
+
+<select id="selectCheckNickname"
+	resultType="int"
+	parameterType="string">
+		SELECT COUNT(*)
+		FROM Users
+		WHERE nickname = #{nickname}
+</select>
+
+<update id="profileUpdate" parameterType="User">
+	UPDATE users
+	SET profile_img = #{profileImg}
+	WHERE no = #{no}
+</update>
+
+<update id="informationUpdate" parameterType="User">
+	UPDATE users
+	SET nickname=#{nickname},birth_date=#{birthDate}
+	WHERE no = #{no}
+</update>
+
+<select id="follower">
+select count(follower_user_no) 팔로워수
+from follows
+GROUP BY  follower_user_no
+HAVING follower_user_no = 1
+</select>
+
+<update id="introUpdate" parameterType="User">
+UPDATE users
+SET message = #{message}
+WHERE no =#{no}
+</update>
+<!-- 0709 승현 수정 -->
+<select id="myPageSelectOne" parameterType="int" resultType="User"> 
+	SELECT no, email, nickname, password, birth_date birthDate, gender, message,
+		profile_img profileImg,following.cnt followingCnt,follower.cnt
+		followerCnt
+		FROM users u,(SELECT NVL(follower_user_no,#{no}) ,count(follower_user_no) cnt
+		FROM follows f, users u
+		WHERE u.no = f.follower_user_no(+) AND u.no = #{no}
+		GROUP BY follower_user_no)follower,(SELECT NVL(following_user_no,#{no})
+		,count(following_user_no) cnt
+		FROM follows f, users u
+		WHERE u.no = f.following_user_no(+) AND u.no = #{no}
+		GROUP BY following_user_no)following
+		WHERE no = #{no}
+</select>
+<!-- 0709 승현 수정 end -->
+
+
+	<select id="selectListNew" resultType="User">
+		SELECT no, nickname, profileImg, regdate
+		FROM(SELECT no, nickname, profileImg, regdate, rownum r
+	  	   FROM(SELECT no, nickname, profile_img profileImg, regdate
+		  		FROM users
+	 		 	ORDER BY regdate DESC))
+		WHERE r BETWEEN 1 AND 5
+	</select>
+	
+	<!-- 유저 검색을 위하여......에휴.. -->
+	<select id="selectListBySearch" resultType="UserForSearch" parameterType="String">
+		SELECT spotCnt, fahCnt, tcCnt, NVL((spotCnt+fahCnt+tcCnt),0) totalCnt, 
+			   u.nickname, u.no, u.profile_img profileImg, NVL(followCnt,0) followCnt
+		FROM(SELECT user_no userNo, count(user_no) spotCnt
+			 FROM spots
+			 WHERE user_no IN (SELECT u.NO
+		 					   FROM USERS u
+							   WHERE NICKNAME LIKE #{name})
+			 GROUP BY user_no) s,
+			(SELECT user_no userNo, count(user_no) tcCnt
+			 FROM TF_COOKS
+			 WHERE user_no IN (SELECT u.NO
+		 					   FROM USERS u
+						   	   WHERE NICKNAME LIKE #{name})
+			 GROUP BY user_no) tc,
+			(SELECT user_no userNo, count(user_no) fahCnt
+			 FROM FAHS
+			 WHERE user_no IN (SELECT u.NO
+		 					   FROM USERS u
+							   WHERE NICKNAME LIKE #{name})
+			 GROUP BY user_no) f, users u,
+			(SELECT count(following_user_no) followCnt, following_user_no userNo
+			 FROM follows
+			 WHERE following_user_no IN (SELECT u.NO
+					 					 FROM USERS u
+										 WHERE NICKNAME LIKE #{name})
+			 GROUP BY following_user_no) fCnt
+		WHERE f.userNo(+) = u.no
+		AND s.userNo(+) = u.no
+		AND tc.userNo(+) = u.no
+		AND fCnt.userNo(+) = u.no
+		AND u.nickname LIKE #{name}
+	</select>
+	
+
+</mapper>

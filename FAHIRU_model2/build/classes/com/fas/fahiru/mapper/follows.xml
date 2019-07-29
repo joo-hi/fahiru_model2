@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="follows">
+
+	<select id="selectFollowingListH" resultType="Follow"
+		parameterType="int">
+		SELECT u.nickname nickname, u.profile_img
+		userProfileImg, u.no no
+		FROM FOLLOWS f, users u
+		WHERE follower_user_no =
+		#{followingUserNo}
+		AND f.following_user_no = u.no
+	</select>
+
+	<select id="selectFollowingList" resultType="Follow"
+		parameterType="PageVO">
+		SELECT nickname,
+		userProfileImg,followerUserNo,followingUserNo,no
+		FROM(SELECT nickname,
+		userProfileImg, no,followerUserNo,followingUserNo,rownum r
+		FROM(SELECT nickname, profile_img userProfileImg,u.no no,follower_user_no
+		followerUserNo,following_user_no followingUserNo
+		FROM follows f, users u
+		WHERE following_user_no = #{no}
+		AND f.follower_user_no = u.no))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+
+	<select id="selectFollowerList" resultType="Follow"
+		parameterType="PageVO">
+		SELECT nickname,
+		userProfileImg,no,followerUserNo,followingUserNo
+		FROM(SELECT nickname,
+		userProfileImg,no ,followerUserNo,followingUserNo,rownum r
+		FROM(SELECT nickname, profile_img userProfileImg, u.no no, follower_user_no
+		followerUserNo,following_user_no followingUserNo
+		FROM follows f, users u
+		WHERE follower_user_no = #{no}
+		AND f.following_user_no = u.no))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+
+	<select id="followerSelectOne" resultType="int"
+		parameterType="Follow">
+		SELECT count(*)
+		FROM follows
+		WHERE follower_user_no = #{followerUserNo}
+		AND following_user_no =
+		#{followingUserNo}
+	</select>
+
+	<insert id="followingInsert" parameterType="Follow">
+		INSERT INTO follows
+		VALUES(follows_seq.nextval,#{followingUserNo},#{followerUserNo},systimestamp)
+	</insert>
+
+	<delete id="followingDelete" parameterType="Follow">
+		DELETE follows
+		WHERE follower_user_no = #{followerUserNo}
+		AND following_user_no = #{followingUserNo}
+	</delete>
+
+	<select id="followingCnt" parameterType="int"
+		resultType="Follow">
+		SELECT NVL(following_user_no,#{no}) ,count(following_user_no) cnt
+		FROM follows f, users u
+		WHERE u.no = f.following_user_no(+) AND u.no = #{no}
+		GROUP BY following_user_no(+)
+	</select>
+
+	<select id="followerCnt" parameterType="int" resultType="Follow">
+		SELECT NVL(follower_user_no,#{no}) ,count(follower_user_no) cnt
+		FROM follows f, users u
+		WHERE u.no = f.follower_user_no(+) AND u.no = #{no}
+		GROUP BY follower_user_no(+)
+	</select>
+
+	<select id="selectFollowCnt" parameterType="Follow"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM follows
+		WHERE following_user_no = #{followingUserNo}
+		AND follower_user_no = #{followerUserNo}
+	</select>
+
+</mapper>

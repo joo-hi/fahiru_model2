@@ -1,0 +1,395 @@
+@charset "UTF-8";
+
+main section{
+    overflow: hidden;
+}
+
+main section div:first-child{
+    margin-left: 50px;
+}
+
+main section div{
+    position: relative;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 700;
+    color: #424242;
+    float: left;
+    margin-right: 30px;
+}
+
+section div:hover {
+    cursor: pointer;
+    color: #DD2C00;
+}
+
+#content {
+    width: 1100px;
+    min-height: 100px;
+    margin: auto;
+}
+
+#detailSearchWrap {
+    width: 1100px;
+    hight: 200px;
+    margin: 100px auto;
+    position: relative;
+    background: red;
+}
+
+
+#searchWrap{
+    position: absolute;
+    right: 0;
+    top: 90px;
+    margin: auto;
+    /*background: red;*/
+}
+
+.inner_search{
+    position: relative;
+    left: 0;
+    font-size: 30px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+#searchInput {
+    transition: .4s ease;
+    width: 250px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #424242;
+    box-shadow: 0 1px #424242;
+    padding: 10px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 20px;
+    /*text-align: center;*/
+    outline: none;
+    /*display: none;*/
+    left:0;
+    position: relative;
+}
+
+
+.cursor_pointer {
+    cursor: pointer;
+}
+
+
+.profile_image {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+}
+
+.search_user_multi_card{
+    position: relative;
+    width: 1100px;
+    height: 280px;
+    /*background: palevioletred;*/
+}
+
+.search_user_wrap {
+    position: relative;
+    float: left;
+    width: 430px;
+    height: 180px;
+    left: 60px;
+    font-size: 25px;
+    padding: 15px;
+    line-height: 50px;
+    background: #dfdfdf;
+    border-radius: 20px;
+    margin-top: 70px;
+    margin-right: 70px;
+}
+
+.search_user_img {
+    position: absolute;
+    left: 310px;
+    bottom: 40px;
+}
+
+.user_nickname {
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/*더보기 btn*/
+
+.more_btn {
+    position: relative;
+    /*background: red;*/
+    left: 530px;
+    bottom : -40px;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+#searchResultWrap {
+    width: 1100px;
+    position: relative;
+    padding: 0 0 30px 0;
+    margin: auto;
+}
+
+.on{
+    color: #DD2C00;
+}
+
+
+/* searchSpot tab */
+/*  --------------Card------------------------  */
+
+/*#spotCardSection{*/
+/*    min-height: 1100px;*/
+/*    !*background: #F6F6F6;*!*/
+/*    !*background: red;*!*/
+/*}*/
+
+.spot_card{
+    /*left: 100px;*/
+    top: 50px;
+    width: 760px;
+    height: 260px;
+    background-color: #EEEEEE;
+    border: #9CCC65 4px solid;
+    /*margin: auto;*/
+    left: 200px;
+    margin-top: 60px;
+    position: relative;
+    border-radius: 30px 0 0 0;
+    padding: 15px;
+}
+
+.spot_card_main{
+    width: 300px;
+    height: 160px;
+    position: absolute;
+}
+.spot_name{
+    font-size:22px;
+}
+.spot_img{
+    width: 225px;
+    height: 225px;
+    background-image: url("img/cake.jpg");
+    background-size: 100% 100%;
+    position: absolute;
+    margin-top: 7px;
+}
+.spot_score{
+    width: 180px;
+    height: 60px;
+    position: absolute;
+    left: 240px;
+    top: 42px;
+}
+
+.spot_score div{
+    float: left;
+    text-align: center;
+}
+
+.spot_fah{
+    width: 300px;
+    height: 20px;
+    position: absolute;
+    left: 235px;
+    overflow: auto;
+    top: 120px;
+}
+
+.spot_fah li{
+    margin-right: 10px;
+    float: left;
+}
+
+.spot_card_menu{
+    width: 300px;
+    height: 100px;
+    position: absolute;
+    bottom: 17px;
+    text-align: center;
+    left: 255px;
+}
+.spot_card_info{
+    top: 60px;
+    width: 170px;
+    height: 50px;
+    text-align: left;
+    right: 10px;
+    line-height: 20px;
+    position: absolute;
+}
+.spot_card_info li{
+    margin-bottom: 15px;
+}
+.spot_card_spotter{
+    width: 85px;
+    height: 85px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+.spot_card_buket{
+    width: 85px;
+    height: 85px;
+    position: absolute;
+    right: 100px;
+    bottom: 20px;
+    font-size: 22px;
+    text-align: center;
+    line-height: 45px;
+}
+
+.spot_card_buket button{
+    width: 75px;
+    height: 75px;
+    font-size: 40px;
+    left: 5px;
+    position: absolute;
+    background-color: transparent;
+    border-radius: 30px;
+    border: none;
+}
+
+.spot_spotter_img{
+    background-image: url("img/defaultimg.png");
+    width: 65px;
+    height: 65px;
+    background-size: 100% 100%;
+    border-radius: 75px;
+    margin-left: 10px;
+}
+.spot_spotter_name{
+    font-size: 16px;
+    text-align: center;
+    line-height: 20px;
+}
+
+.menu_btn{
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 50px;
+}
+.menu_prev{
+    cursor: pointer;
+    left: -10px;
+}
+.menu_next{
+    cursor: pointer;
+    right: -10px;
+}
+
+.trendy_menu_wrap{
+    width: 260px;
+    height: 80px;
+    background: white;
+    position: relative;
+    top: 2px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.trendy_menu{
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-right: 10px;
+}
+.trendy_menu_box{
+    width: 320px;
+    height: 70px;
+    position: absolute;
+    left: 0;
+}
+.menu1{
+    background: red;
+}
+.menu2{
+    background: yellow;
+}
+.menu3{
+    background: green;
+}
+.menu4{
+    background: darkorchid;
+}
+
+i{
+    color: #424242;
+}
+
+.spot_score i {
+    font-size: 50px;
+    margin-left: 15px;
+}
+.fa-thermometer-three-quarters{
+    color : blue;
+}
+.fa-temperature-high{
+    color: red;
+}
+
+
+.spot_more_btn {
+    position: relative;
+    /*background: red;*/
+    left: 550px;
+    bottom : -110px;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+
+/*  --------------trendyFood Card------------------------  */
+
+/*#searchTrendyFoodTotalWrap{*/
+/*    position: relative;*/
+/*    width: 1100px;*/
+/*    !*min-height: 1100px;*!*/
+/*}*/
+
+.search_trendy_food_list{
+    position:relative;
+    width: 1050px;
+    min-height: 300px;
+    /*background: palevioletred;*/
+    margin-top: 40px;
+    float: left;
+    left: 30px;
+}
+
+.search_trendy_food_card img{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    /*background: #00DDFF;*/
+    float: left;
+    margin-left: 40px;
+    margin-bottom: 60px;
+}
+
+.trendy_food_more_btn {
+    position: relative;
+    /*background: red;*/
+    left: 530px;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+}

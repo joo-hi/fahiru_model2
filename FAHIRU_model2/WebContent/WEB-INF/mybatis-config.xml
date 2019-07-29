@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<!-- 컬럼에 NULL값을 넣기위해 -->
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+
+	<!-- typeAlias org.jbp.guestbook.vo.Guest 패키지명.클래스명이 너무 길경우 짧게 쓰려고 alias를 
+		지정할 수 있습니다. -->
+	<!--  vo를 만든 후에 알리아스 설정 ! -->
+	<typeAliases>
+		<typeAlias alias="Cook" type="com.fas.fahiru.vo.Cook" />
+		<typeAlias alias="CookTip" type="com.fas.fahiru.vo.CookTip" />
+		<typeAlias alias="Fah" type="com.fas.fahiru.vo.Fah" />
+		<typeAlias alias="FahiruScore" type="com.fas.fahiru.vo.FahiruScore" />
+		<typeAlias alias="Follow" type="com.fas.fahiru.vo.Follow" />
+		<typeAlias alias="Ingredient" type="com.fas.fahiru.vo.Ingredient" />
+		<typeAlias alias="Like" type="com.fas.fahiru.vo.Like" />
+		<typeAlias alias="PageVO" type="com.fas.fahiru.vo.PageVO" />
+		<typeAlias alias="PostFah" type="com.fas.fahiru.vo.PostFah" />
+		<typeAlias alias="Reply" type="com.fas.fahiru.vo.Reply" />
+		<typeAlias alias="Score" type="com.fas.fahiru.vo.Score" />
+		<typeAlias alias="Source" type="com.fas.fahiru.vo.Source" />
+		<typeAlias alias="Spot" type="com.fas.fahiru.vo.Spot" />
+		<typeAlias alias="Step" type="com.fas.fahiru.vo.Step" />
+		<typeAlias alias="TfCook" type="com.fas.fahiru.vo.TfCook" />
+		<typeAlias alias="TrendyFood" type="com.fas.fahiru.vo.TrendyFood" />
+		<typeAlias alias="User" type="com.fas.fahiru.vo.User" />
+		<typeAlias alias="UserEmblem" type="com.fas.fahiru.vo.UserEmblem" />
+		<typeAlias alias="Warning" type="com.fas.fahiru.vo.Warning" />
+		<typeAlias alias="UserForSearch" type="com.fas.fahiru.vo.UserForSearch" />
+	</typeAliases>
+	
+	<!-- mapper파일의 경로 -->
+	<mappers>
+		<mapper resource="com/fas/fahiru/mapper/cooks.xml" />
+		<mapper resource="com/fas/fahiru/mapper/users.xml" />
+		<mapper resource="com/fas/fahiru/mapper/likes.xml" />
+		<mapper resource="com/fas/fahiru/mapper/fahs.xml" />
+		<mapper resource="com/fas/fahiru/mapper/spots.xml" />
+		<mapper resource="com/fas/fahiru/mapper/follows.xml" />
+		<mapper resource="com/fas/fahiru/mapper/tfCooks.xml" />
+		<mapper resource="com/fas/fahiru/mapper/steps.xml" />
+		<mapper resource="com/fas/fahiru/mapper/postFahs.xml" />
+		<mapper resource="com/fas/fahiru/mapper/ingredients.xml" />
+		<mapper resource="com/fas/fahiru/mapper/sources.xml" />
+		<mapper resource="com/fas/fahiru/mapper/scores.xml" />
+		<mapper resource="com/fas/fahiru/mapper/replies.xml" />
+		<mapper resource="com/fas/fahiru/mapper/trendyFoods.xml" />
+		<mapper resource="com/fas/fahiru/mapper/cookTips.xml" />
+		
+	</mappers>
+
+</configuration>

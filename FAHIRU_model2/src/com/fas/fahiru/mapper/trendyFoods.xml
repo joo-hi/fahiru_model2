@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="trendyFoods">
+
+
+	<!-- trendyFoods insert -->
+	<insert id="insertTf" parameterType="TrendyFood">
+		INSERT INTO trendy_foods(no, spot_no, price, taste, plating, regdate)
+		VALUES(#{no}, #{spotNo}, #{price}, 0.0, 0.0, systimestamp)
+	</insert>
+
+
+	<!-- 0709 승현 수정 -->
+	<select id="MyPageTrendyFoodBucketList" resultType="TrendyFood"
+		parameterType="PageVO">
+		SELECT no,nickname,profileImg,score,name,img,taste,plating,cnt,systimestamp
+		FROM(SELECT no,nickname,profileImg,score,name,img,taste,plating,cnt,systimestamp,rownum r
+		FROM(SELECT u.no no , nickname, profile_img profileImg, score,
+		tc.name name, img,t.taste taste, t.plating plating,c.cnt cnt,systimestamp
+		FROM users u, tf_cooks tc, trendy_foods t ,(SELECT
+		post_no ,count(post_no) cnt
+		FROM likes
+		WHERE category_no=2
+		AND reply_no is null
+		AND step_no is null
+		AND honeytip_no is null
+		AND user_no = #{no}
+		GROUP BY post_no) c
+		WHERE u.no = tc.user_no AND c.post_no = tc.no AND tc.no = t.no ORDER BY score DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	<!-- 0709 승현 수정 end -->
+
+	
+	<!-- 	0617 주하 -->
+	<select id="myPageTrendyFoodList" parameterType="PageVO" resultType="TrendyFood">
+	SELECT no,categoryNo, score, taste, plating, name,nickname,
+		profileImg,
+		img,systimestamp, cnt, userNo
+		FROM(SELECT no, categoryNo ,
+		score, taste, plating, name , nickname,
+		profileImg,img,systimestamp,
+		cnt, userNo, rownum r
+		FROM(SELECT tc.no no, tc.category_no
+		categoryNo,score,taste,plating, tc.name
+		name, u.no userNo,
+		nickname,profile_img profileImg,img, systimestamp, NVL(l.cnt,0) cnt
+		FROM tf_cooks tc, users u,trendy_foods tf,
+		(SELECT post_no postNo,
+		COUNT(POST_NO) cnt
+		FROM LIKES
+		WHERE REPLY_NO IS NULL
+		AND STEP_NO IS NULL
+		AND HONEYTIP_NO IS NULL
+		AND CATEGORY_NO =2
+		GROUP BY POST_NO) l
+		WHERE
+		tc.user_no = u.no
+		AND l.postNo(+) = tc.no
+		AND tf.no = tc.no
+		AND u.no =
+		#{no}
+		AND category_no = 2
+		ORDER BY SCORE DESC))
+		WHERE r BETWEEN #{start}
+		AND #{end}
+	</select>
+	
+	<!-- 	0617 주하 -->
+	<select id="selectListTFdetail" resultType="TrendyFood" parameterType="int">
+
+	SELECT tc.name name, tc.img img, tc.img_filter imgFilter, price, s.name shopName, nickname, profile_img profileImg, NVL(l.cnt,0) cnt, tf.no no, tf.taste taste, tf.plating plating
+	FROM TRENDY_FOODS tf, TF_COOKS tc, SPOTS s, USERS u,
+		 (SELECT post_no,count(post_no) cnt
+		  FROM likes
+		  WHERE category_no = 2
+		  AND reply_no is null
+		  GROUP BY post_no) l
+	WHERE tc.no = tf.no
+	AND s.no = tf.spot_no
+	AND tc.category_no = 2
+	AND u.no = tc.user_no
+	AND tf.no = #{no}
+</select>
+	
+
+<!-- 	0617 주하 -->
+<select id="selectOneByTcNo" resultType="TrendyFood" parameterType="int">
+	SELECT tc.no no, tc.name name, tc.img img, tc.img_filter imgFilter, f.price price, f.taste taste, 
+			f.plating plating, u.nickname nickname, s.name shopName, f.spot_no spotNo, u.profile_img profileImg, u.no userNo
+	FROM tf_cooks tc, trendy_foods f, users u, spots s
+	WHERE tc.no = f.no
+	AND tc.user_no = u.no
+	AND f.spot_no = s.no
+	AND tc.no = #{no}
+</select>
+	
+</mapper>

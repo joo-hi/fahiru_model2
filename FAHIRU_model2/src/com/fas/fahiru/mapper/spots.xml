@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="spots">
+
+	<!-- tf 검색 후 spot list -->
+	<select id="selectListByTF" parameterType="Spot" resultType="Spot">
+		SELECT s.no, s.name, s.address, DECODE(ss.no,null,'F','T') exist
+		FROM spots s,
+		(SELECT s.no
+			FROM trendy_foods t,spots s, tf_cooks tf
+			WHERE t.spot_no = s.no AND tf.no = t.no
+			AND tf.name = #{tfName}) ss
+		WHERE s.no = ss.no(+)
+		AND s.name LIKE #{name}
+	</select>
+
+	<insert id="insert" parameterType="Spot">
+		INSERT INTO SPOTS(NO, CATEGORY_NO, USER_NO, NAME, IMG, IMG_FILTER, ADDRESS, SUB_ADDRESS, TIME_INFO, PARKING, TOGETHER, TASTE,PLATING,
+		LATITUDE, LONGITUDE, REGDATE, spot_Id)
+		VALUES(SPOTS_seq.nextval,#{categoryNo},2,#{name},#{img},#{imgFilter},#{address},#{subAddress},#{timeInfo},#{parking},#{together},0,0,#{latitude},#{longitude},SYSTIMESTAMP, #{spotId})
+	</insert>
+	
+	<select id="selectOneSpot" parameterType="int" resultType="Spot">
+		SELECT s.no no, s.category_no categoryNo, s.user_no userNo, s.name name, s.img img, img_filter imgFilter, address, u.nickname nickname,
+		sub_address subAddress, time_info timeInfo, parking, together, taste, plating, latitude, longitude, s.regdate, u.profile_img profileImg
+		FROM spots s, users u
+		WHERE s.user_no = u.no
+		AND  s.no = #{no}
+	</select>
+	
+	<!-- 0709 승현 수정 -->
+	<select id="MyPageSpotBucketList" resultType="Spot"
+		parameterType="PageVO">
+		SELECT userNo,name,img, address, subAddress, timeInfo, nickname, profileimg,
+		tftaste, tfplating,cnt ,sno no
+		FROM(SELECT userNo,name,img, address, subAddress, timeInfo, nickname, profileimg,
+		tftaste, tfplating,cnt ,ROWNUM R, sno
+		FROM (SELECT U.no userNo,s.no sno, S.name name, S.img img, S.address
+		address, S.sub_address subAddress, S.time_info timeInfo, U.nickname
+		nickname, U.profile_img profileImg, NVL(t.ftaste,0) tftaste,
+		NVL(t.fplating,0) tfplating,NVL(l.cnt,1) cnt
+		FROM SPOTS S, USERS U,
+		(SELECT tf.spot_no SpotNo, ROUND(AVG(NVL(tf.taste,0)),1) ftaste,
+		ROUND(AVG(NVL(tf.plating,0)),1) fplating
+		FROM TRENDY_FOODS tf, TF_COOKS tc, SPOTS s
+		WHERE tf.no = tc.no
+		Group by tf.spot_no) t ,
+		(SELECT post_no ,count(post_no) cnt
+		FROM likes
+		WHERE category_no=4
+		AND reply_no is null
+		AND step_no is null
+		AND honeytip_no is null
+		
+		GROUP BY post_no) l
+		WHERE U.no = S.user_no AND S.no = t.SpotNo(+) AND s.no = l.post_no(+) AND u.no = #{no}
+		ORDER BY (t.ftaste+t.fplating) DESC))
+		WHERE R BETWEEN #{start} AND #{end}
+	</select>
+	<!-- 0709 승현 수정 end -->
+
+	<select id="myPageSpotList" resultType="Spot" parameterType="PageVO">
+	SELECT userNo,name,img, address, subAddress, timeInfo, nickname, profileimg, tftaste, tfplating, sno no
+	FROM(SELECT userNo,name,img, address, subAddress, timeInfo, nickname, profileimg, tftaste, tfplating, ROWNUM R, sno
+		 FROM (SELECT U.no userNo,s.no sno, S.name name, S.img img, S.address address, S.sub_address subAddress, S.time_info timeInfo, U.nickname nickname, U.profile_img profileImg, t.ftaste tftaste, t.fplating tfplating
+	 		   FROM SPOTS S, USERS U,  
+			    (SELECT tf.spot_no SpotNo, ROUND(AVG(NVL(tf.taste,0)),1) ftaste, ROUND(AVG(NVL(tf.plating,0)),1) fplating
+			     FROM TRENDY_FOODS tf, TF_COOKS tc, SPOTS s
+			     WHERE tf.no = tc.no
+			     Group by tf.spot_no) t
+	 	   WHERE U.no = S.user_no
+	  	   AND s.no = t.SpotNo AND U.no = #{no}
+	  	   ORDER BY (t.ftaste+t.fplating) DESC))
+	WHERE R BETWEEN #{start} AND #{end}
+	</select>
+	
+		
+<select id="selectTotalSpot"
+		resultType="int">
+	SELECT COUNT(*) cnt
+	FROM spots
+	<!-- 여기 주석 처리하면 내가 쓴 글만 삭제 수정 가능 -->
+</select>
+
+	
+<select id="selectListSpotFah" resultType="Fah" parameterType="int">
+	SELECT DISTINCT f.no, f.name name
+	FROM post_fahs p, trendy_foods tf, fahs f
+	WHERE p.fah_no = f.no 
+	AND p.category_no = 2
+	AND p.post_no = tf.no
+	AND p.fah_no = f.no
+	AND tf.spot_no = #{no}
+</select>	
+
+	<select id="selectListNew" resultType="Spot">
+		SELECT no, name, img, regdate
+		FROM(SELECT no, name, img, regdate, rownum r
+	  	   FROM(SELECT no, name, img, regdate
+		  		FROM spots
+	 		 	ORDER BY regdate DESC))
+		WHERE r BETWEEN 1 AND 5
+	</select>
+	
+	<!-- 검색 하기에 필요함 ㅋ  -->
+	<select id="selectListBySearch" resultType="Spot" parameterType="String">
+		SELECT name, img, address, subAddress, timeInfo, nickname, 
+			   profileimg, tftaste, tfplating, sno no
+		FROM(SELECT name,img, address, subAddress, timeInfo, nickname,
+			        profileimg, tftaste, tfplating, sno
+			 FROM (SELECT s.no sno, S.name name, S.img img, S.address address, 
+			 			  S.sub_address subAddress, S.time_info timeInfo, U.nickname nickname, 
+			 			  U.profile_img profileImg, t.ftaste tftaste, t.fplating tfplating
+	 	   	 	   FROM SPOTS S, USERS U,  
+			    		(SELECT tf.spot_no SpotNo, ROUND(AVG(NVL(tf.taste,0)),1) ftaste, 
+			                                       ROUND(AVG(NVL(tf.plating,0)),1) fplating
+			     		 FROM TRENDY_FOODS tf, TF_COOKS tc, SPOTS s
+			     		 WHERE tf.no = tc.no
+			     		 Group by tf.spot_no) t
+	 	   		   WHERE U.no = S.user_no
+	  	   		   AND s.no = t.SpotNo
+	  	   		   ORDER BY (t.ftaste+t.fplating) DESC)
+	 		WHERE sno IN(SELECT spot_no
+				  		 FROM trendy_foods
+			 	  		 WHERE no IN (SELECT post_no
+					     	   		  FROM post_fahs
+							   		  WHERE fah_no IN (SELECT no
+		  			      				   			   FROM FAHS
+				      		  			   			   WHERE name LIKE #{name})
+			 			 	   		  AND category_no=2)
+	 			  		 GROUP BY spot_no)
+			OR name LIKE #{name})
+	</select>
+	
+	<select id="selectOneBySpotId" parameterType="int" resultType="Spot">
+		SELECT no, user_no, name, img, address, spot_Id spotId
+		FROM spots
+		WHERE spot_Id = #{spotId}	
+	</select>
+	
+	<!-- 	0708 주하 -->
+	<select id="selectListSpotOrderBy"
+			resultType="Spot"
+			parameterType="PageVO">
+	SELECT name,img, address, subAddress, timeInfo, nickname, profileimg, tftaste, tfplating, r, sno no, regdate, userNo
+	FROM(SELECT name,img, address, subAddress, timeInfo, nickname, profileimg, tftaste, tfplating, ROWNUM R, sno, regdate, userNo
+		 FROM (SELECT s.no sno, S.name name, S.img img, S.address address, S.sub_address subAddress, S.time_info timeInfo, U.nickname nickname, U.profile_img profileImg, t.ftaste tftaste, t.fplating tfplating, s.regdate regdate, u.no userNo
+	 		   FROM SPOTS S, USERS U,  
+			    (SELECT s.no no, ROUND(AVG(NVL(tf.taste,0)),1) ftaste, ROUND(AVG(NVL(tf.plating,0)),1) fplating
+			     FROM TRENDY_FOODS tf, TF_COOKS tc, SPOTS s
+				 WHERE tf.no = tc.no
+			     AND tf.spot_no(+) = s.no
+		     	 Group by s.no) t
+	 	   WHERE U.no = S.user_no
+	  	   AND s.no = t.no
+	  	   ORDER BY regdate DESC))
+	WHERE R BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectListSpot"
+			resultType="Spot"
+			parameterType="PageVO">
+		SELECT name,img, address, subAddress, timeInfo, nickname, profileimg, tftaste, tfplating, r, sno no, regdate, userNo
+		FROM(SELECT name,img, address, subAddress, timeInfo, nickname, profileimg, tftaste, tfplating, ROWNUM R, sno, regdate, userNo
+			 FROM (SELECT s.no sno, S.name name, S.img img, S.address address, S.sub_address subAddress, S.time_info timeInfo, U.nickname nickname, U.profile_img profileImg, t.ftaste tftaste, t.fplating tfplating, s.regdate regdate, u.no userNo
+		 		   FROM SPOTS S, USERS U,  
+				    (SELECT s.no spotNo, ROUND(AVG(NVL(tf.taste,0)),1) ftaste, ROUND(AVG(NVL(tf.plating,0)),1) fplating
+				     FROM TRENDY_FOODS tf, TF_COOKS tc, SPOTS s
+				     WHERE tf.no = tc.no
+					 AND tf.spot_no(+) = s.no
+				     Group by s.no) t
+		 	   WHERE U.no = S.user_no
+		  	   AND s.no = t.SpotNo
+		  	   ORDER BY (t.ftaste+t.fplating) DESC))
+		WHERE R BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectSpotTF" resultType="TfCook" parameterType="int">
+		SELECT tc.img img, tf.no no
+		FROM TRENDY_FOODS tf, TF_COOKS tc, spots s
+		WHERE tf.no = tc.no
+		AND tf.spot_no = s.no
+		AND s.no = #{no}
+	</select>
+
+	<select id="selectSpotListByWord" resultType="Spot" parameterType="PageVO">
+	SELECT name,img, address, subAddress, timeInfo, nickname, profileimg, tftaste, tfplating, r, sno no, userNo
+	FROM(SELECT name,img, address, subAddress, timeInfo, nickname, profileimg, tftaste, tfplating, ROWNUM R, sno, userNo
+		 FROM (SELECT s.no sno, S.name name, S.img img, S.address address, S.sub_address subAddress, S.time_info timeInfo, U.nickname nickname, U.profile_img profileImg, t.ftaste tftaste, t.fplating tfplating, u.no userNo
+	 		   FROM SPOTS S, USERS U,  
+			    (SELECT tf.spot_no SpotNo, ROUND(AVG(NVL(tf.taste,0)),1) ftaste, ROUND(AVG(NVL(tf.plating,0)),1) fplating
+			     FROM TRENDY_FOODS tf, TF_COOKS tc, SPOTS s
+			     WHERE tf.no = tc.no
+			     Group by tf.spot_no) t
+	 	   WHERE U.no = S.user_no
+	  	   AND s.no = t.SpotNo
+	  	   ORDER BY (t.ftaste+t.fplating) DESC))
+	WHERE R BETWEEN 1 AND 5
+	AND name LIKE #{searchWord}
+	</select>
+</mapper>
